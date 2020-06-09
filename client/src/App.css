@@ -1,11 +1,331 @@
 /* JUST FOR DEMO PURPORSES, REPLACE WITH YOUR OWN CODE */
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
 
+}
 #demo {
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
+  height: 80vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-/* END DEMO */
+button{
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: 8px;
+  border: initial;
+}
+/**** S H A R E D *****/
+/* login | signUp */
+.button{
+  width: 80%;
+  font-size: medium;
+  height: 40px;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  -o-border-radius: initial;
+  border-radius: 8px;
+  border: initial;
+}
+
+
+.bottom-drawer{
+  position: fixed;
+  z-index: 5;
+  right: 0;
+  left: 0;
+  bottom: 0px;
+  width: 90vw;
+  height: 60vh;
+  margin: auto;
+}
+
+/* END DEMO */ 
+
+/*** G E T   S T A R T E D ****/
+.gStarted-container{
+  display: grid;
+  grid-template-rows: 30vh 50vh 20vh;
+  width: 100vw;
+  height: 70vh;
+  border: 3px solid black;
+}
+.gStarted-top{
+  text-align: left;
+  vertical-align: center;
+  border: 2px solid blue;
+  color: rgb(77,77,77)
+}
+.gStarted-center{
+  color: red;
+  text-align: center;
+}
+.gStarted-bottom{
+  margin: auto;
+  border: 3px solid red;
+}
+#gStarted-button{
+  background-color: grey;
+  color: whitesmoke;
+  margin-left: auto;
+  width: 80vw;
+}
+
+
+/*** I N A V  D E M O ***/
+.instruction{
+  display: flex;
+  flex-direction: column;
+}
+
+.iCarousel{
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;  
+  overflow:auto;
+}
+#iNav-skip{
+  font-size: large;
+  width: 40vw;
+}
+#iSkip-button{
+  margin: 0 auto;
+}
+.iSlide{
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 16px;
+  width: 75vw;
+  height: 60vh;
+  margin: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.iSlide-pageNum{
+  display: flex;
+  flex-direction: row;
+}
+.iSlide-stat{
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+  background-color: gray;
+}
+.iSlide-active{
+  background-color:black;
+}
+
+
+
+.login-control-container{
+  align-self: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid red;
+}
+#login-signup{
+  margin-top: 16px;
+  color:white;
+  background-color: rgb(77,77,77);
+}#login-login{
+  margin-top: 16px;
+  color: rgb(77,77,77);
+  border: 1px solid black;
+}#login-guest{
+  margin-top: 16px;
+}#login-gSpan{
+  color: rgb(77,77,77)
+}
+
+/** C R E A T E   A C C O U N T ***/
+.createAccount-page{
+  padding: 40px;
+}
+.cAccount-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0 16px 0;
+}
+.cAccount-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 60vh;
+  justify-content: space-around;
+}
+.cForm-names{
+  display: flex;
+  flex-direction: row;
+
+}
+#cAccount-button{
+  background-color: grey;
+  color: white;
+}
+
+/*** S C A N N E R ****/
+.scan-page{
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 15% 65% 20%;
+  justify-items: center;
+  border: 5px solid red;
+}
+.scannerNav-container{
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  padding: 2rem
+}.scannerNav-control{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+}.scannerNav-title{
+  align-self: center;
+  text-transform: uppercase;
+}
+#scanBtn{
+  border: 2px solid black;
+  width: 40%;
+  align-self:center;
+  
+}
+.scanner-component{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  width: 100vw;
+  padding: 20px 0 20px 0;
+  border: 1px solid black;
+}
+
+#scanner-border-text{
+  margin-top: 0px;
+  z-index: 4;
+  background-color: white;
+  text-align: center;
+}
+.scanner-cam-container{
+  width: 40vw;
+  height: 40vh;
+  border: 5px solid red;
+  padding: 5%;
+  border-radius: 25%;
+}
+.scanner-instruction{
+  text-align: center;
+  margin: 12px;
+  border: 1px solid black;
+}
+
+
+
+
+
+/*** M A N U A L   S C A N ***/
+.mScan-container{
+  display: grid;
+  border-radius: 16px;
+  grid-template-rows: 10% 90%;
+  padding: 24px;
+  background-color: rgb(150,150,150);
+}
+.mScan-numInput{
+  border: 3px solid red;
+  width: 80%;
+  margin:auto;
+  background-color: white;
+  height: 2rem;
+}
+.mScan-keypad{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  justify-items: center;
+  justify-content: center;
+  padding: 16px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.mScan-keypad > button {
+  background-color: rgb(215,215,215);
+  font-size: 24px;
+  width: 16vw;
+  text-align: center;
+  border-radius: 10%;
+}
+#mScan-key-Cancel{
+  grid-column-start: 4;
+  grid-row-start: 1;
+}
+#mScan-key-Enter{
+  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-row-end: span 3;
+}
+
+/*** S C A N N E D  D R A W E R ***/
+.scannedDrawer{
+  background-color: grey;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  
+  
+
+}
+
+/*** C A R T ***/
+.sCart-item{
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 20% 40% 10%;
+  border: 1px solid black;
+}.sCart-item-img{
+  border: 1px solid red;
+  width: 15vw;
+}.sCart-item-detail{
+  border: 1px solid blue;
+}.sCart-item-detail-remove{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border:1px solid green;
+}.sCart-item-amount{
+  display: flex;
+  flex-direction: row;
+  border: 3px solid green;
+  height: 40px;
+  margin: auto;
+}.sCart-item-quantity{
+  border: 1px solid black;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}.sCart-item-price{
+  border:1px solid red;
+}
+
+
+#sCart-item-trash-icon{
+  height: 40px;
+  width: 40px;
+  background-color: black;
+}

@@ -1,0 +1,50 @@
+.signUp-drawer{
+    z-index: 100;
+    bottom: 0px;
+    position: absolute;
+    width: 80vw;
+    height: 40vh;
+    border: 3px solid black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20vw;
+}
+.signUp-title{
+    align-self: flex-start;
+}
+.signUp-drawer-center{
+    display: grid;
+    grid-template-columns: 30% 10% 30%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px;
+    row-gap: 40px;
+    text-align: center;
+}
+.signUp-hr{
+    background-color: #000000;
+    height: 3%;
+}
+.signUp-button{
+    width: 100%;
+    margin: 8px;
+}
+#privacy-policy{
+    font-size: small;
+}
+
+
+/*** C R E A T E   A C C O U N T        ***/
+.cAccount-Nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*** S I G N U P   T R A N S I T I O N  *****/
+.signup-enter{
+    opacity: .4;
+}
