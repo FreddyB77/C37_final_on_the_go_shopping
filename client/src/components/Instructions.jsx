@@ -6,7 +6,7 @@ const Instructions = ({history}) => {
     const [page, setPage] = useState(0)
 
     const handleSkip = () => {
-        history.push('/home')
+        history.push('/login')
     }
 
     const Skip = () => {

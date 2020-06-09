@@ -67,3 +67,10 @@
    margin: 4px 0 4px 0;
    color: white;
 }
+
+
+/*** P A Y M E N T   M E T H O D ***/
+.payment-default{
+    display: flex;
+    flex-direction: column;
+}

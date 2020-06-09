@@ -1,33 +1,34 @@
 import React, { useRef, useEffect, useState } from 'react';
-import * as ScanditSDK from "scandit-sdk";
+import { Button } from '@material-ui/core'
 import Quag from './Quag'
 
-import '../App.css'
+import './scanner.css'
 
-import ManualScanEntry from './ManualScanEntry'
-import ScannedDrawer from './ScannedDrawer';
-
-function App() {
+function Scanner({history}) {
   const htmlRef = useRef();
   const [ renderManual, setRenderManual] = useState(false)
   const [ onScan, setOnScanned] = useState(false)
   const [ itemScanned, setItemScanned] = useState({
-    name: "Tide Original Liquid Laundry Detergent",
-    img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
-    size: "154 fl oz",
-    price: 19.99,
+    name: "",
+    img: "",    
+    size: "",
+    price: 4.99,
     quantity: 1
 })
 
+
+  const handleBack = () => {
+    history.goBack();
+  }
 
   const ScannerNav = () => {
     return(
       <div className='scannerNav-container'>
       <div className='scannerNav-control'>
-        <div>Arr</div>
+        <Button onClick={handleBack}>BCK</Button>
         <div>Cart <span>3</span></div>
       </div>
-      <h1 className='scannerNav-title'>Scan</h1>
+      <h1 id='scannerNav-title'>Scan</h1>
       </div>
     )
   }
@@ -38,7 +39,7 @@ function App() {
       <button 
         className="button" 
         id="scanBtn"
-        onClick={() => setRenderManual(!renderManual)}
+        onClick={() => console.log("DONT CLICK ME!")}
       >
         Enter Manually
       </button>
@@ -49,6 +50,7 @@ function App() {
   const handleScan = () => {
     setOnScanned(!onScan)
   }
+
   useEffect(() => {
     if(itemScanned){
       console.log("item Scanned:")
@@ -63,10 +65,14 @@ function App() {
       <div className="scanner-border">
       
         <div className="scanner-container">
-          <h1 id="scanner-border-text">Scan</h1>
+          <h1 id="scanner-border-text">Align the Barcode</h1>
           <div className='scanner-cam-container'>
-            {
-            //<Quag handleScan={handleScan} setScan={setItemScanned}/> 
+            {/*  Requires HTTP=true to work */
+            <Quag 
+              id="quag"
+              handleScan={handleScan} 
+              setScan={setItemScanned}
+            /> 
             }
           </div>
         </div>
@@ -76,10 +82,9 @@ function App() {
         </div>
       </div>
       <ScannerButton />
-      {renderManual && <ManualScanEntry renderMe={setRenderManual}/> }
-      {true && <ScannedDrawer itemScanned={itemScanned}/>}
+
     </div>
   );
 }
 
-export default App;
+export default Scanner;

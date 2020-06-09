@@ -1,0 +1,59 @@
+/*** H O M E   P A G E ***/
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(var(--vh, 1vh) * 100 );
+}
+.home-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px;
+}
+.home-shop-button{
+    margin: 0 auto;
+}
+#home-shop-button{
+    background-color: grey;
+    color: white;
+}
+
+.home-item{
+    display: flex;
+    flex-direction: column;
+}
+.home-item-banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 24px 16px 24px;
+}
+
+.home-carousel-container{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    overflow:auto;
+}
+.item-carousel{
+    width: 35vw;
+    margin: 0 24px;
+}
+.item-price{
+    font-size: 18px;
+}
+.item-promo{
+    font-size: 12px;
+}
+
+.item-name{
+    font-size: 16px;
+    font-weight: 400;
+}
+.item-location{
+    font-size: 14px;
+    font-weight: 300;
+}
+
