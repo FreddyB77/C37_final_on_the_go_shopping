@@ -1,7 +1,7 @@
 {
   "name": "midterm_template",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "dependencies": {
     "@ericblade/quagga2": "^1.0.6",
@@ -10,10 +10,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.5.8",
-    "mongoose": "^5.9.16",
-    "react-router-dom": "^5.2.0",
-    "react-transition-group": "1.x",
-    "scandit-sdk": "^5.0.0"
+    "mongoose": "^5.9.18",
+    "validator": "^13.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
@@ -21,8 +19,9 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node ./server/server.js",
+    "server": "nodemon ./server/server.js",
+    "test": "jest --watchAll --runInBand  --setupFiles dotenv/config",
     "client": "cd client && yarn run start",
     "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\"",
     "heroku-postbuild": "cd client && yarn && yarn run build",
