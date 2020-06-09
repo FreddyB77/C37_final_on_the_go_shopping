@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 
-const AppContext = createContext()
+const CartContext = createContext()
 
 const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([
@@ -9,7 +9,7 @@ const CartContextProvider = ({ children }) => {
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
-            quantity: 1    
+            quantity: 1   
         },{
             name: "Tide Original Liquid Laundry Detergent",
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
@@ -50,12 +50,12 @@ const CartContextProvider = ({ children }) => {
     ])
     
     return(
-        <AppContext.Provider value={{
+        <CartContext.Provider value={{
             cart, setCart
         }}>
             {children}
-        </AppContext.Provider>
+        </CartContext.Provider>
     )
 }
 
-export { AppContext, CartContextProvider }
+export { CartContext, CartContextProvider }

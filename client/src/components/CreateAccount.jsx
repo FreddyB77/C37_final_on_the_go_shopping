@@ -3,7 +3,7 @@ import {TextField, Button } from '@material-ui/core'
 import '../App.css'
 
 
-const CreateAccount = () => {
+const CreateAccount = ({history}) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail ]= useState('')
@@ -14,7 +14,7 @@ const CreateAccount = () => {
     })
     const [confirmPass, setConfirmPass] = useState('');
 
-    const Nav = () => {
+    const Nav = ({history}) => {
         return (
         <div className='cAccount-nav'>
            <Button>Cancel</Button>
@@ -23,7 +23,8 @@ const CreateAccount = () => {
         )
     }
     const handleFormSubmit = () => {
-        if(user.password !== confirmPass){ console.log("Password") }
+        if(user.password !== confirmPass){ console.log("Password Error Fix Me") }
+        history.push('/add-payment');
     }
 
     const handleFName = (e) => { setUser({...user, fName: e.target.value}) }

@@ -178,65 +178,6 @@ button{
   color: white;
 }
 
-/*** S C A N N E R ****/
-.scan-page{
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-rows: 15% 65% 20%;
-  justify-items: center;
-  border: 5px solid red;
-}
-.scannerNav-container{
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  padding: 2rem
-}.scannerNav-control{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid black;
-}.scannerNav-title{
-  align-self: center;
-  text-transform: uppercase;
-}
-#scanBtn{
-  border: 2px solid black;
-  width: 40%;
-  align-self:center;
-  
-}
-.scanner-component{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: gray;
-  width: 100vw;
-  padding: 20px 0 20px 0;
-  border: 1px solid black;
-}
-
-#scanner-border-text{
-  margin-top: 0px;
-  z-index: 4;
-  background-color: white;
-  text-align: center;
-}
-.scanner-cam-container{
-  width: 40vw;
-  height: 40vh;
-  border: 5px solid red;
-  padding: 5%;
-  border-radius: 25%;
-}
-.scanner-instruction{
-  text-align: center;
-  margin: 12px;
-  border: 1px solid black;
-}
-
-
 
 
 
@@ -286,9 +227,6 @@ button{
   background-color: grey;
   display: grid;
   grid-template-columns: 20% 80%;
-  
-  
-
 }
 
 /*** C A R T ***/

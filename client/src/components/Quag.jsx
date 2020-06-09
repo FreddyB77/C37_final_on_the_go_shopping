@@ -24,7 +24,7 @@ const Quag = ({ handleScan, setScan}) => {
     }
     
     const defaultConstraints = {
-        width: 640,
+        width: 480,
         height: 480,
     };
     
@@ -62,7 +62,7 @@ const Quag = ({ handleScan, setScan}) => {
             const drawingCtx = Quagga.canvas.ctx.overlay;
             const drawingCanvas = Quagga.canvas.dom.overlay;
             drawingCtx.font = "24px Arial";
-            drawingCtx.fillStyle = 'green';
+            //drawingCtx.fillStyle = 'green';
     
             if (result) {
                 if (result.boxes) {
@@ -140,17 +140,9 @@ const Quag = ({ handleScan, setScan}) => {
 
 
     return (
-        <div ref={scannerRef} style={{position: 'relative', border: '3px solid red'}}>
+        <div ref={scannerRef} style={{/*position: 'relative'*/ borderRadius:' 5%'}}>
             {/* <video style={{ width: window.innerWidth, height: 480, border: '3px solid orange' }}/> */}
-            <canvas className="drawingBuffer" style={{
-                position: 'absolute',
-                top: '0px',
-                left: '-10px',
-                // left: '0px',
-                // height: '100%',
-                // width: '100%',
-                border: '3px solid green',
-            }} width="320" height="240" />
+            
             {scanning 
                 ? 
                 <Scanner 
