@@ -8,19 +8,7 @@
     border: 5px solid red;
   }
 
-  /** N A V ***/
-  .scannerNav-container{
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    border: 2px solid green;
-  }
-  .scannerNav-control{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border: 1px solid black;
-  }
+
   #scannerNav-title{
     align-self: center;
     padding: 24px;

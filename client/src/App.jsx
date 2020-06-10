@@ -10,6 +10,7 @@ import SplashPage from './components/SplashPage'
 import AddPayment from './components/AddPayment'
 import Home from './components/Home'
 import Scanner from './components/Scanner'
+import Explore from './components/Explore'
 
 import './App.css';
 
@@ -24,7 +25,8 @@ const App = () => {
           <Route path="/create-account" component={CreateAccount} />
           <Route path="/add-payment" component={AddPayment} />
           <Route path="/home" component={Home}/>
-          <Route pass="/scan" component={Scanner} />
+          <Route path="/scan" component={Scanner} />
+          <Route path="/explore" component={Explore} />
         </Switch>
       </CartContextProvider>
     </BrowserRouter>

@@ -9,13 +9,17 @@ const BottomNav = ({history}) => {
     const handleHome = () => {
         history.push("/home")
     }
+    const handleExplore = () => {
+        history.push("/explore")
+    }
+
     return (
         <div className="bNav-container">
             <Button onClick={handleHome}> Home</Button>
             <Button onClick={handleScan}> 
                 Scan
             </Button>
-            <Button> Explore</Button>
+            <Button onClick={handleExplore}> Explore</Button>
             <Button> Account</Button>
         </div>
     )

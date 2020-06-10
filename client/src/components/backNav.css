@@ -1,0 +1,13 @@
+  /** N A V ***/
+  .backNav-container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    border: 2px solid green;
+  }
+  .backNav-control{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+  }

@@ -1,0 +1,20 @@
+/*** S E A R C H   B A R ***/
+.searchBar-container{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.searchBar-container > div {
+    box-sizing: border-box;
+    height: 5.01%;
+    width: 80%;
+    border: 1px solid #204310;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+
+#searchBar{
+    width: 225px;
+}
