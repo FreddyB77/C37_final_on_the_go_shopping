@@ -7,6 +7,7 @@ const express = require('express');
 require('../db/mongoose');
 // import routes
 const userRouter = require('./routes/users');
+const apiRouter = require('./routes/apiroutes');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -14,6 +15,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 // Call routes
 app.use(userRouter);
+app.use(apiRouter);
 
 app.listen(port, () => {
   console.log(`Express server is up on port ${port}`);
