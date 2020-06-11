@@ -48,10 +48,16 @@ const CartContextProvider = ({ children }) => {
             quantity: 1
         }
     ])
-    
+    const [lastScanned, setLastScanned] = useState('') 
+    const [userAccount, setUserAccount ] = useState({
+        fName: "Carmen",
+        lName: "Santiago",
+        email: "santaCarmelita@gmail.com",
+    })
+
     return(
         <CartContext.Provider value={{
-            cart, setCart
+            cart, setCart, lastScanned, setLastScanned, userAccount
         }}>
             {children}
         </CartContext.Provider>

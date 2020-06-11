@@ -1,0 +1,26 @@
+/*** H O M E   N A V ***/
+.home-nav{
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.home-nav > h1 {
+    color: #4FA329;
+    font-size: 42px;
+}
+
+/*** B O T T O M  N A V ***/
+.bNav-container{
+    background-color: white;
+    position: sticky;
+    position: -webkit-sticky;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 10%;
+    bottom:0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}

@@ -8,9 +8,13 @@ import CreateAccount from './components/CreateAccount'
 import Instructions from './components/Instructions'
 import SplashPage from './components/SplashPage'
 import AddPayment from './components/AddPayment'
-import Home from './components/Home'
-import Scanner from './components/Scanner'
-import Explore from './components/Explore'
+import Home from './pages/home/Home'
+import Explore from './pages/explore/Explore'
+import Account from './pages/account/Account'
+
+import ProductDescriptionPage from './pages/pdp/ProductDescriptionPage'
+import Scanner from './pages/scan/Scanner'
+
 
 import './App.css';
 
@@ -27,6 +31,8 @@ const App = () => {
           <Route path="/home" component={Home}/>
           <Route path="/scan" component={Scanner} />
           <Route path="/explore" component={Explore} />
+          <Route path="/pdp" component={ProductDescriptionPage} />
+          <Route path="/account" component={Account} />
         </Switch>
       </CartContextProvider>
     </BrowserRouter>
