@@ -5,19 +5,6 @@
     justify-content: space-between;
     height: calc(var(--vh, 1vh) * 100 );
 }
-.home-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 24px;
-}
-.home-shop-button{
-    margin: 0 auto;
-}
-#home-shop-button{
-    background-color: grey;
-    color: white;
-}
 
 .home-item{
     display: flex;
@@ -28,6 +15,13 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0 24px 16px 24px;
+}
+.home-item-banner > h1{
+    color: #4FA329;
+}
+.home-item-banner > h2{
+    color: rgba(121, 121, 121, 0.883);
+    font-size: 16px;
 }
 
 .home-carousel-container{

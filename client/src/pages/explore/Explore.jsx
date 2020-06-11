@@ -1,15 +1,13 @@
 import React, { useContext } from 'react'
-import {Button} from '@material-ui/core'
 
-import { CartContext } from '../context/CartContext'
+import { CartContext } from '../../context/CartContext'
 
 import './explore.css'
 
-import BackNav from './BackNav'
-import BottomNav from './BottomNav'
-import SearchBar from './SearchBar'
-
-
+import BackNav from '../../components/BackNav'
+import BottomNav from '../../components/navs/BottomNav'
+import SearchBar from '../../components/SearchBar'
+import ViewAllButton from '../../components/buttons/ViewAllButton'
 
 
 const Explore = ({history}) => {
@@ -47,7 +45,7 @@ const Explore = ({history}) => {
                 <div className="dept-category-container">
                     <div className="dept-category">
                         <h1>{dept.dept}</h1>
-                        <Button>View All</Button>
+                        <ViewAllButton />
                     </div>
 
                     <p class="dept-aisle">Aisle {Math.floor(Math.random() * 30)}</p>

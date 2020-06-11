@@ -1,7 +1,7 @@
 /*** S C A N N E R ****/
 .scan-page{
-    height: 100vh;
     width: 100vw;
+    height:85vh;
     display: grid;
     grid-template-rows: 15% 65% 20%;
     justify-items: center;
@@ -37,8 +37,8 @@
     text-align: center;
   }
   .scanner-cam-container{
-    width: 80vw;
-    height: 80h;
+    width: 60vw;
+    height: 60vw;
     border-radius: 5%;
     border: 1px solid orange;
     overflow: hidden;

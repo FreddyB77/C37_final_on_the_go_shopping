@@ -1,46 +1,28 @@
 import React, { useContext } from 'react'
 import { Button } from '@material-ui/core'
-import { CartContext } from '../context/CartContext'
+import { CartContext } from '../../context/CartContext'
 import './home.css'
-import BottomNav from './BottomNav'
 
+import BottomNav from '../../components/navs/BottomNav'
+import HomeNav from '../../components/navs/HomeNav'
+import ShopAndScanButton from '../../components/buttons/ShopAndScanButton'
+import ViewAllButton from '../../components/buttons/ViewAllButton'
 
 const Home = ({history}) => {
     const { cart } = useContext(CartContext)
-
-    const handleScan = () => {
-        history.push("/scan")
-    }
 
     const vh = window.innerHeight * .01;
     console.log(cart)
     return (
         <div className="home-container" style={{height:`calc((${vh}, 1vh) * 100 )`}}>
-            <div className="home-nav"> 
-                <h1>On-the-Go</h1>
-                <h1>Cart</h1>
-            </div>
 
-            <div className="home-shop-button">
-                <Button 
-                    id="home-shop-button"
-                    onClick={handleScan}
-                >
-                    <div>
-                        <h1>Shop & Scan</h1>
-                        <p> Start Here</p>
-                    </div>
-                    <div>
-                        <h1>IMG</h1>
-                    </div>
-                </Button>
-            </div>
-
-
+            <HomeNav />
+            <ShopAndScanButton history={history}/>
+            
             <div className="home-item">
                 <div class="home-item-banner">
-                    <h3>Featured</h3>
-                    <h3>View All</h3>
+                    <h1>Featured</h1>
+                    <ViewAllButton />
                 </div>
                 <div class="home-carousel-container">
                     {cart && cart.map( item => {
@@ -59,9 +41,6 @@ const Home = ({history}) => {
 
 
             <BottomNav history={history}/>
-
-
-
         </div>
     )
 }

@@ -1,0 +1,57 @@
+/** B U T T O N   G R E E N ***/
+.button-lg-green{
+    background-color: #4FA329 !important;
+    width: 80% !important;
+    font-size: 26px !important;
+    color: #FFFFFF !important;
+}
+
+.button-lg-hollow{
+    background-color: white !important;
+    border: 2px solid  #204310 !important;
+    color: #204310 !important;
+    font-size: 26px;
+    height: 60px;
+    width: 60vw;
+}
+
+/*** C A R T   B U T T O N ***/
+.button-cart{
+    background-color: #4FA329 !important;
+    color: white !important;
+    height: 44px !important;
+    width: 75px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    padding: 0 16px 0 16px !important;
+}
+
+
+/*** S H O P   &   S C A N  B U T T O N ***/
+.home-shop-button{
+    background-color: #4FA329 !important;
+    color: white !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.home-shop-button-text > h1{
+    font-size: 24px;
+}
+.home-shop-button-text > p {
+    color: #FFFFFF;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 33px;
+    text-align: center;
+}
+
+/*** B O T T O M   N A V   B U T T O N ***/
+.bNav-menu-buttons{
+    display: grid !important;
+    height: 100%;
+}
