@@ -13,13 +13,13 @@ router.get('/products/:upc', async (req, res) => {
     const productArray = [];
 
     data.items.map((item) => {
-      productArray.push(
-        item.title,
-        item.description,
-        item.category,
-        item.lowest_recorded_price,
-        item.images[0]
-      );
+      productArray.push({
+        title: item.title,
+        description: item.description,
+        category: item.category,
+        price: item.lowest_recorded_price,
+        image: item.images[0]
+      });
     });
 
     res.send(productArray);
