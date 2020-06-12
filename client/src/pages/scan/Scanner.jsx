@@ -7,16 +7,21 @@ import Quag from '../../components/QuagSample'
 import BackNav from '../../components/navs/BackNav'
 import { CartContext } from '../../context/CartContext'
 
+import trashIcon from '../../assets/imgs/trashIcon.svg'
+
 import '../../components/buttons/button.css'
 import './scanner.css'
 
 function Scanner({history}) {
-  const { lastScanned, setLastScanned } = useContext(CartContext)
+  const { lastScanned, setLastScanned, cart } = useContext(CartContext)
 
   const htmlRef = useRef("hello");
+  const [ cartQuantity, setCartQuantity] = useState(0)
+
   const [ renderManual, setRenderManual] = useState(false)
   const [ onScan, setOnScanned] = useState(true)
   const [ upcManual, setUPCManual ] = useState('')
+  const [ productDrawerState, setproductDrawerState ] = useState(false)
   const [ itemScanned, setItemScanned] = useState({
     name: "",
     img: "",    
@@ -28,7 +33,7 @@ function Scanner({history}) {
   const handleScan = () => {
     setOnScanned(!onScan)
   }
-
+  //028400045735
   const handleManualSearch = () => {
     if(upcManual.length < 13 ) { 
       axios.get(`/products/${upcManual}`)
@@ -38,8 +43,10 @@ function Scanner({history}) {
             console.log(res.data)
             console.log(`Last Scanned ${lastScanned}`)
         })
-    } 
-    
+    }
+    setRenderManual(false)
+    setproductDrawerState(true)
+    setTimeout( () => setproductDrawerState(false), 5000)
   }
 
   useEffect(() => {
@@ -49,8 +56,6 @@ function Scanner({history}) {
       setItemScanned('')
     }
   }, [itemScanned])
-
-
 
   return (
     <div className="scan-page">
@@ -70,6 +75,7 @@ function Scanner({history}) {
               setScan={onScan}
             />
             }
+            
           </div>
         </div>
         <div className="scanner-instruction">
@@ -108,13 +114,35 @@ function Scanner({history}) {
     {/*Scanned Item */}
     <React.Fragment key="item-result">
       <Drawer 
-          open={false} 
+          open={productDrawerState}
           id="scanned-drawer"
           anchor='bottom'
           onClose={() => (true)}
       >
-        <h1>Enter barcode number</h1>
-        
+        <div class="scan-scannedDrawer-result"> 
+          <div id="scan-drawer-result-left">
+            <img src={"https://picsum.photos/200/300"} style={{width:"100%"}} />
+            <img src={trashIcon} />
+          </div>
+          <div id="scan-drawer-result-right">
+
+            <h1>{cart[0].name}</h1>
+            <p>{cart[0].size}</p>
+            <h5>${cart[0].price}</h5>
+
+            <div id="scan-item-quantity">
+              <Button onClick={() => {
+                if(cartQuantity !== 0){setCartQuantity(cartQuantity-1)}}} 
+              >
+                <h1>-</h1> 
+              </Button>
+              <h1>{cartQuantity}</h1>
+              <Button onClick= {() => setCartQuantity(cartQuantity+1)}>
+                  <h1>+</h1>
+              </Button>
+            </div>
+          </div>
+        </div>
       </Drawer>
     </React.Fragment>
 

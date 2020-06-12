@@ -1,0 +1,58 @@
+/*** I N A V  D E M O ***/
+.instruction{
+    display: flex;
+    flex-direction: column;
+  }
+  
+.iCarousel{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    overflow:auto;
+}
+#iNav-begin{
+    font-size: large;
+    width: 350px;
+    height: 60px;
+    color: white;
+    background-color: #4FA329;
+}
+#iSkip-button{
+    margin: 0 auto;
+}
+.iSlide{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    text-align: center;
+    padding: 16px;
+    width: 75vw;
+    height: 60vh;
+    margin: 40px;  
+}
+.iSlide > h1 {
+    color: #4FA329;
+    font-size: 30px;
+}
+.iSlide > p {
+    font-size: 24px;
+}
+.iSlide-pageNum{
+    display: flex;
+    flex-direction: row;
+}
+.iSlide-stat{
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    margin: 4px;
+    background-color: #D8D8D8;
+}
+.iSlide-active{
+    background-color:#4FA329;
+}
+  

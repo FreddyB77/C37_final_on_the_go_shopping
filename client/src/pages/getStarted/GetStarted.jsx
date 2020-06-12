@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import {Button} from '@material-ui/core'
-import '../App.css'
+import otgLogo from '../../assets/imgs/cartLogo/Logo.svg'
+import './getStarted.css'
 
 
 const GetStarted = ({history}) => {
@@ -13,14 +14,15 @@ const GetStarted = ({history}) => {
     return (
         <div className="gStarted-container">
             <div className="gStarted-top">
-                <h3>Welcome to</h3>
                 <h2>On-the-Go</h2>
                 <h3>Shopping</h3>
-                <p>Save time with no checkout lines</p>
+                <p>Skip the checkout lines</p>
             </div>
+
             <div class="gStarted-center">
-                LOGO
+                <img src={otgLogo} />
             </div>
+            
             <div className="gStarted-bottom">
                 <Button 
                     variant="contained"

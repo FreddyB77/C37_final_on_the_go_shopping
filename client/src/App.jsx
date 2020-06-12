@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartContextProvider } from './context/CartContext';
 
 
-import GetStarted from './components/GetStarted'
+
 import CreateAccount from './components/CreateAccount'
-import Instructions from './components/Instructions'
+import Instructions from './pages/instructions/Instructions'
 import SplashPage from './components/SplashPage'
 import AddPayment from './components/AddPayment'
 import Home from './pages/home/Home'
@@ -14,6 +14,10 @@ import Account from './pages/account/Account'
 import Cart from './pages/cart/Cart'
 import ProductDescriptionPage from './pages/pdp/ProductDescriptionPage'
 import Scanner from './pages/scan/Scanner'
+import LocationOne from './pages/location/Location-1'
+import LocationGeo from './pages/location/Location-Geo'
+import LocationZipCode from './pages/location/Location-ZipCode'
+import GetStarted from './pages/getStarted/GetStarted'
 
 
 import './App.css';
@@ -34,6 +38,10 @@ const App = () => {
           <Route path="/pdp" component={ProductDescriptionPage} />
           <Route path="/account" component={Account} />
           <Route path="/cart" component={Cart} />
+          <Route path="/location-1" component={LocationOne} />
+          <Route path="/geo" component={LocationGeo} />
+          <Route path="/locationZipcode" component={LocationZipCode} />
+
         </Switch>
       </CartContextProvider>
     </BrowserRouter>

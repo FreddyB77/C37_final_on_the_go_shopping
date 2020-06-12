@@ -1,19 +1,18 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
 
-import backArrow from '../../assets/imgs/arrowBack.svg'
-
-const BackArrow = ({history}) => {
+const CancelButton = ({history}) => {
     const handleBack = () => {
         history.goBack();
       }
 
     return (
             <Button 
-                onClick={handleBack}>
-                    <img src={backArrow} />
+                onClick={handleBack}
+            >
+                Cancel
             </Button>
     )
 }
 
-export default BackArrow
+export default CancelButton

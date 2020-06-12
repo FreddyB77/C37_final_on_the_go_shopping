@@ -1,0 +1,48 @@
+/*** G E T   S T A R T E D ****/
+.gStarted-container{
+  display: grid;
+  grid-template-rows: 35vh 30vh 30vh;
+  width: 100vw;
+  overflow: hidden;
+  border: 3px solid black;
+}
+.gStarted-top{
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  vertical-align: center;
+  color: rgb(77,77,77)
+}
+
+.gStarted-top > h2{
+    color: #4FA329;
+    font-size: 45px;
+}
+.gStarted-top > h3{
+    color: #4FA329;
+    font-size: 30px;
+}
+.gStarted-top > p{
+    color: #636363;
+    font-size: 24px;
+    margin: 8px;
+}
+
+.gStarted-center{
+  text-align: center;
+  align-self: center;
+  transform: scale(2);
+  padding-right: 24px;
+}
+.gStarted-bottom{
+  margin: auto;
+}
+#gStarted-button{
+    background-color: #4FA329;
+    height: 60px;
+    font-size: 26px;
+    color: whitesmoke;
+    margin-left: auto;
+    width: 80vw;
+}
+

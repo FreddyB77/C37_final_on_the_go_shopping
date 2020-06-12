@@ -1,7 +1,7 @@
 /** B U T T O N   G R E E N ***/
 .button-lg-green{
     background-color: #4FA329 !important;
-    width: 80% !important;
+    width: 100% !important;
     font-size: 26px !important;
     color: #FFFFFF !important;
 }
@@ -10,9 +10,10 @@
     background-color: white !important;
     border: 2px solid  #204310 !important;
     color: #204310 !important;
-    font-size: 26px;
+    font-size: 26px !important;
     height: 60px;
-    width: 60vw;
+    width: 100% !important;
+
 }
 
 /*** C A R T   B U T T O N ***/

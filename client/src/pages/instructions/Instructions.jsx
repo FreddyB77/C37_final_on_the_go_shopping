@@ -1,6 +1,13 @@
 import React, {useState} from 'react'
 import { Button } from '@material-ui/core'
 
+import './instructions.css'
+
+import shopImg from '../../assets/imgs/onBoarding/shop.png'
+import scanImg from '../../assets/imgs/onBoarding/scan.png'
+import paymentImg from '../../assets/imgs/onBoarding/payment.png'
+
+
 
 const Instructions = ({history}) => {
     const [page, setPage] = useState(0)
@@ -13,10 +20,10 @@ const Instructions = ({history}) => {
         return(
             <div>
                 <Button 
-                    id="iNav-skip" 
+                    id="iNav-begin" 
                     onClick={handleSkip}
                 >
-                    Skip
+                    Let's begin!
                 </Button>
             </div>
         )
@@ -26,8 +33,8 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Shop</h1>
-                <img src={'https://picsum.photos/200/300'} />
-                <p>Find stores near you and brind your eco-friendly reusable bag for sustanability</p>
+                <img src={shopImg} />
+                <p>Find items in the store</p>
                 <div className="iSlide-pageNum">
                     <div class="iSlide-active iSlide-stat"/>
                     <div class="iSlide-stat"/>
@@ -40,8 +47,8 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Scan</h1>
-                <img src={'https://picsum.photos/200/300'} />
-                <p>Locate items by aisles and scan barcode from your phone</p>
+                <img src={scanImg} />
+                <p>Scan your items</p>
                 <div className="iSlide-pageNum">
                     <div class="iSlide-stat"/>
                     <div class="iSlide-active iSlide-stat"/>
@@ -54,8 +61,8 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Checkout</h1>
-                <img src={'https://picsum.photos/200/300'} />
-                <p>Stay safe with a contactless checkout-free experience</p>
+                <img src={paymentImg} />
+                <p>Pay from your phone</p>
                 <div className="iSlide-pageNum">
                     <div class="iSlide-stat"/>
                     <div class="iSlide-stat"/>

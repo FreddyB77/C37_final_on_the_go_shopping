@@ -2,6 +2,7 @@ import React from 'react'
 import BackArrow from '../buttons/BackArrow'
 import './nav.css'
 
+import CartButton from '../buttons/CartButton'
 
 const BackNav = ({history}) => {
 
@@ -10,7 +11,7 @@ const BackNav = ({history}) => {
         <div className='backNav-container'>
             <div className='backNav-control'>
                 <BackArrow history={history} />
-                <div>Cart <span>3</span></div>
+                <CartButton history={history}/>
             </div>
         </div>
         </>

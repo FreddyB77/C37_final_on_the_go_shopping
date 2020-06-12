@@ -1,0 +1,46 @@
+/*** L O C A T I O N ***/
+
+.lOne-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1px solid black;
+    height: 80vh;
+}
+.lOne-text{
+    margin: 16px;
+    text-align: center;
+    width: 80%;
+}
+#lOne-title{
+    color: #4FA329;
+    font-size: 30px;
+    margin: 16px;
+
+}
+
+.lOne-button-container{
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 16px;
+    align-self:center;
+}
+
+.lOne-button{
+    height: 25vh;
+    width: 100%;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    border: 1px solid black;
+}
+
+#oShareLocation{
+    margin-bottom: 8px;
+}

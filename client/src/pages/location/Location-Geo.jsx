@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import '../App.css'
 
+
+import BackArrow from '../../components/buttons/BackArrow'
 //Grab Location to pull nearby grocery store
 
-const Location = () => {
+const LocationGeo = ({history}) => {
     const [ location, setLocation ] = useState({})
     const [ boolLoc, setBoolLoc ] = useState(false)
     const [ groceryStores, setGroceryStores] = useState([])
@@ -25,26 +26,22 @@ const Location = () => {
     }
 
     useEffect(()=> {
-        console.log("in UseEffect")
         if(boolLoc){
             axios({
                 method: 'POST',
                 url: `http://localhost:8080/location`,
-                data:{ 
-                    long: location.longitude,
-                    lat: location.latitude
-                    }
+                data:{ long: location.longitude, lat: location.latitude }
             }).then(store => {
-                console.log("In Axios Response")
                 setGroceryStores(store.data)
                 setBoolLoc(false)
             }).catch( error => console.error(error) )
     }}, [boolLoc])
 
-        navigator.geolocation.getCurrentPosition( success, error, options)
+    navigator.geolocation.getCurrentPosition( success, error, options)
     
     return(
         <div>
+            <BackArrow history={history}/>
             <h1>test</h1>
             {groceryStores && groceryStores.map( store => {
                 return(
@@ -61,4 +58,4 @@ const Location = () => {
     )
 }
 
-export default Location
+export default LocationGeo
