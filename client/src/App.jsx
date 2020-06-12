@@ -11,7 +11,7 @@ import AddPayment from './components/AddPayment'
 import Home from './pages/home/Home'
 import Explore from './pages/explore/Explore'
 import Account from './pages/account/Account'
-
+import Cart from './pages/cart/Cart'
 import ProductDescriptionPage from './pages/pdp/ProductDescriptionPage'
 import Scanner from './pages/scan/Scanner'
 
@@ -33,6 +33,7 @@ const App = () => {
           <Route path="/explore" component={Explore} />
           <Route path="/pdp" component={ProductDescriptionPage} />
           <Route path="/account" component={Account} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </CartContextProvider>
     </BrowserRouter>

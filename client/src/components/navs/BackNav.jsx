@@ -1,19 +1,15 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
-import './backNav.css'
+import BackArrow from '../buttons/BackArrow'
+import './nav.css'
 
 
 const BackNav = ({history}) => {
-
-const handleBack = () => {
-    history.goBack();
-  }
 
     return(
         <>
         <div className='backNav-container'>
             <div className='backNav-control'>
-                <Button onClick={handleBack}>BCK</Button>
+                <BackArrow history={history} />
                 <div>Cart <span>3</span></div>
             </div>
         </div>

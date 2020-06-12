@@ -1,3 +1,17 @@
+/*** M U L T I  -  N A V ***/ 
+.sticky-nav{
+    position: sticky;
+    height: 10%;
+    bottom:0;
+    width: 100%;;
+    position: -webkit-sticky;
+}
+.nav-shadow{
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 /*** H O M E   N A V ***/
 .home-nav{
     border-bottom: 1px solid black;
@@ -13,14 +27,29 @@
 
 /*** B O T T O M  N A V ***/
 .bNav-container{
-    background-color: white;
-    position: sticky;
-    position: -webkit-sticky;
-    width: 100%;
     display: flex;
     justify-content: space-around;
-    height: 10%;
-    bottom:0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+
+/*** B A C K    N A V ***/
+.backNav-container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    border: 2px solid green;
+}
+  .backNav-control{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+  }
+
+/*** C H E C K O U T     N A V ***/
+.checkout-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
 }

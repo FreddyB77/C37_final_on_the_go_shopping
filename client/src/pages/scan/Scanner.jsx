@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 import Quag from '../../components/QuagSample'
-import BackNav from '../../components/BackNav'
+import BackNav from '../../components/navs/BackNav'
 import { CartContext } from '../../context/CartContext'
 
 import '../../components/buttons/button.css'

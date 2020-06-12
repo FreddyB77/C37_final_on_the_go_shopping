@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext'
 
 import './explore.css'
 
-import BackNav from '../../components/BackNav'
+import BackNav from '../../components/navs/BackNav'
 import BottomNav from '../../components/navs/BottomNav'
 import SearchBar from '../../components/SearchBar'
 import ViewAllButton from '../../components/buttons/ViewAllButton'

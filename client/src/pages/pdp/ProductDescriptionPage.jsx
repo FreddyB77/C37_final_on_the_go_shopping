@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import BackNav from '../../components/BackNav'
+import BackNav from '../../components/navs/BackNav'
 
 import ScanButton from '../../components/buttons/ScanButton'
 import './productDescriptionPage.css'

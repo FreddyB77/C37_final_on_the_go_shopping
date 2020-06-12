@@ -9,7 +9,7 @@ import { CartContext } from '../../context/CartContext'
 const BottomNav = ({history}) => {
     const { userAccount } = useContext(CartContext)
     return (
-        <div className="bNav-container">
+        <div className="bNav-container sticky-nav nav-shadow">
 
             <BottomNavButton 
                 history={history}
