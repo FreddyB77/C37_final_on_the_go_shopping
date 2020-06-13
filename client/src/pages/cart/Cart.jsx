@@ -17,7 +17,10 @@ const Cart = ({history}) => {
             {cart?.map( item => {
                 return(
                     <div className="cart-item-container">
-                        <img src="https://picsum.photos/100/100"/>
+                        <img 
+                            src="https://picsum.photos/100/100" 
+                            alt={`${item.name} Image`}
+                        />
                         <div className="cart-item">
                             <h4>{item.name}</h4>
                             <p>{item.size}</p>

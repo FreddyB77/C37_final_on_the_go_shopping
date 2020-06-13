@@ -33,7 +33,7 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Shop</h1>
-                <img src={shopImg} />
+                <img src={shopImg} alt="Find item image"/>
                 <p>Find items in the store</p>
                 <div className="iSlide-pageNum">
                     <div class="iSlide-active iSlide-stat"/>
@@ -47,7 +47,7 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Scan</h1>
-                <img src={scanImg} />
+                <img src={scanImg} alt="Scan item image"/>
                 <p>Scan your items</p>
                 <div className="iSlide-pageNum">
                     <div class="iSlide-stat"/>
@@ -61,7 +61,7 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Checkout</h1>
-                <img src={paymentImg} />
+                <img src={paymentImg}  alt="Pay for items image"/>
                 <p>Pay from your phone</p>
                 <div className="iSlide-pageNum">
                     <div class="iSlide-stat"/>

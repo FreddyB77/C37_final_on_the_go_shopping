@@ -14,15 +14,27 @@
 
 /*** H O M E   N A V ***/
 .home-nav{
-    border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
     padding: 24px;
 }
 
-.home-nav > h1 {
+#home-OTG-title {
     color: #4FA329;
     font-size: 42px;
+}
+#home-store-container{
+    display: flex;
+    align-items: center;
+}
+#home-store{
+    color: #4FA329;
+    font-size: 21px;
+}
+#home-store-zip{
+    color: #4FA329;
+    font-size: 14px;
+    margin: 0 8px 0 8px;
 }
 
 /*** B O T T O M  N A V ***/
@@ -36,14 +48,13 @@
 .backNav-container{
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    border: 2px solid green;
+    width: 90vw;
+    margin: 30px auto;
 }
   .backNav-control{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid black;
   }
 
 /*** C H E C K O U T     N A V ***/

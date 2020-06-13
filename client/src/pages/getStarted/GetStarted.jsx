@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useHistory } from "react-router-dom"
+import React from 'react'
 import {Button} from '@material-ui/core'
 import otgLogo from '../../assets/imgs/cartLogo/Logo.svg'
 import './getStarted.css'
@@ -20,10 +19,10 @@ const GetStarted = ({history}) => {
             </div>
 
             <div class="gStarted-center">
-                <img src={otgLogo} />
+                <img src={otgLogo} alt="On the go logo"/>
             </div>
             
-            <div className="gStarted-bottom">
+            <div className="gStarted-bottom" >
                 <Button 
                     variant="contained"
                     id="gStarted-button"

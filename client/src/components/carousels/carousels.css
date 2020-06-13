@@ -1,0 +1,88 @@
+/** S A L E S ***/
+
+.home-carousel-container{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    overflow:auto;
+}
+.item-carousel{
+    max-width: 35vw;
+    margin: 0 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-carousel-img{
+    align-self: center;
+    width: 150px;
+    height: 150px;
+}
+.item-price{
+    font-size: 18px;
+}
+.item-reg-price{
+    font-size: 12px;
+    margin: 0 8px;
+    text-decoration: line-through;
+}
+.item-promo{
+    font-size: 12px;
+}
+
+.item-name{
+    font-size: 16px;
+    font-weight: 400;
+}
+.item-location{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+/*** E X P L O R E ***/
+#dept-title{
+    padding: 16px;
+    color: #4FA329;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.dept-category-container{
+    display: flex;
+    flex-direction: column;
+}
+.dept-category{
+    display: flex;
+    flex-direction: row;;
+    justify-content: space-between;
+    margin: 8px 0 8px 0;
+    padding: 0 16px 0 16px;
+    font-weight: 300;
+}
+.dept-aisle{
+    padding: 0 16px 0 16px;
+    color: grey
+}
+.dept-category-carousel{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    overflow:auto;
+    
+}
+.category-carousel-item{
+    width: 40%;
+    margin: 16px;
+    justify-self: center;
+    text-align: center;
+}
+.dept-category-divider{
+    width: 80%;
+    height: .5px;
+    background-color: grey;
+    border: none;
+    margin: auto;
+}

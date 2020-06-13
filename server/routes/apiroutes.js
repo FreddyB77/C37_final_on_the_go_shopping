@@ -18,7 +18,8 @@ router.get('/products/:upc', async (req, res) => {
         description: item.description,
         category: item.category,
         price: item.lowest_recorded_price,
-        image: item.images[0]
+        image: item.images[0],
+        quantity: 1
       });
     });
 

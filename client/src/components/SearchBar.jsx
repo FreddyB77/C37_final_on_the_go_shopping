@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Paper, IconButton, InputBase, Divider } from '@material-ui/core'
+import { Paper, IconButton, InputBase, Divider } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 
 import './searchBar.css'

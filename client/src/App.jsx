@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartContextProvider } from './context/CartContext';
 
-
-
 import CreateAccount from './components/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
 import SplashPage from './components/SplashPage'
@@ -18,7 +16,7 @@ import LocationOne from './pages/location/Location-1'
 import LocationGeo from './pages/location/Location-Geo'
 import LocationZipCode from './pages/location/Location-ZipCode'
 import GetStarted from './pages/getStarted/GetStarted'
-
+import CategoryList from './page/category/CategoryList'
 
 import './App.css';
 
@@ -41,7 +39,7 @@ const App = () => {
           <Route path="/location-1" component={LocationOne} />
           <Route path="/geo" component={LocationGeo} />
           <Route path="/locationZipcode" component={LocationZipCode} />
-
+          <Route path="/category/list" component={CategoryList}/>
         </Switch>
       </CartContextProvider>
     </BrowserRouter>

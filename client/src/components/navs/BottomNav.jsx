@@ -1,11 +1,13 @@
 import React, { useContext }from 'react'
-import { Button } from '@material-ui/core'
 import './nav.css'
 
 import BottomNavButton from '../buttons/BottomNavButton'
 import { CartContext } from '../../context/CartContext'
 
-
+import accountIcon from '../../assets/imgs/Bottom Nav Icons/accountIcon.svg'
+import homeIcon from '../../assets/imgs/Bottom Nav Icons/homeIcon.svg'
+import scanIcon from '../../assets/imgs/Bottom Nav Icons/scanIcon.svg'
+import searchIcon from '../../assets/imgs/Bottom Nav Icons/searchIcon.svg'
 const BottomNav = ({history}) => {
     const { userAccount } = useContext(CartContext)
     return (
@@ -15,25 +17,25 @@ const BottomNav = ({history}) => {
                 history={history}
                 url="home"
                 text="Home"
-                img="img"
-                />
+                img={homeIcon}
+            />
             <BottomNavButton 
                 history={history}
                 url="scan"
                 text="Scan"
-                img="img"
+                img={scanIcon}
                 />
             <BottomNavButton 
                 history={history}
                 url="explore"
                 text="Explore"
-                img="img"
+                img={searchIcon}
                 />
             <BottomNavButton 
                 history={history}
                 url="account"
                 text={userAccount.fName}
-                img="img"
+                img={accountIcon}
                 />
         </div>
     )
