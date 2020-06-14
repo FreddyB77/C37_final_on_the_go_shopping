@@ -74,11 +74,19 @@
     
 }
 .category-carousel-item{
-    width: 40%;
+    width: 30vw;
     margin: 16px;
     justify-self: center;
     text-align: center;
 }
+.category-carousel-img{
+    width: 70px;
+    max-height: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 .dept-category-divider{
     width: 80%;
     height: .5px;

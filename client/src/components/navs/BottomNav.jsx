@@ -23,13 +23,13 @@ const BottomNav = ({history}) => {
                 history={history}
                 url="scan"
                 text="Scan"
-                img={scanIcon}
+                img={searchIcon}
                 />
             <BottomNavButton 
                 history={history}
                 url="explore"
                 text="Explore"
-                img={searchIcon}
+                img={scanIcon}
                 />
             <BottomNavButton 
                 history={history}

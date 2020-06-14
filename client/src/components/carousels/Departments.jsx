@@ -1,27 +1,94 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ViewAllButton from '../buttons/ViewAllButton'
 
-import './carousels.css'
+import { CartContext } from '../../context/CartContext'
 
-const Departments = () => {
-    const department = [{
+import './carousels.css'
+import avocado from '../../assets/imgs/departmentImg/avocado.png'
+import bananas from '../../assets/imgs/departmentImg/bananas.png'
+import beef from '../../assets/imgs/departmentImg/beef.png'
+import butter from '../../assets/imgs/departmentImg/butter.png'
+import cheese from '../../assets/imgs/departmentImg/cheese.png'
+import chicken from '../../assets/imgs/departmentImg/chicken.png'
+import chips from '../../assets/imgs/departmentImg/chips.png'
+//import chocolate from '../../assets/imgs/departmentImg/chocolate.png'
+import cookies from '../../assets/imgs/departmentImg/cookies.png'
+import crackers from '../../assets/imgs/departmentImg/crackers.png'
+import eggs from '../../assets/imgs/departmentImg/eggs.png'
+import kerrygoldButter from '../../assets/imgs/departmentImg/kerrygoldButter.png'
+import limes from '../../assets/imgs/departmentImg/limes.png'
+import milk from '../../assets/imgs/departmentImg/milk.png'
+//import oranges from '../../assets/imgs/departmentImg/oranges.png'
+import salmon from '../../assets/imgs/departmentImg/salmon.png'
+import strawberry from '../../assets/imgs/departmentImg/strawberries.png'
+import turkey from '../../assets/imgs/departmentImg/turkey.jpeg'
+
+
+const Departments = ({history}) => {
+    const { handleSearch } = useContext (CartContext)
+
+    const department = [
+        {
             dept: 'Dairy',
-            items: ["Butter", "Eggs", "Milk", "Cheese"]
+            items: [{
+                name: "Butter",
+                img: butter
+            },{
+                name: "Eggs",
+                img: eggs,
+            },{
+                name: "Milk",
+                img: milk
+            },{
+                name: "Cheese",
+                img: cheese
+            }]
         },{
             dept: 'Meat & Seafood',
-            items: ["Butter", "Eggs", "Milk", "Cheese"]
-        },{
-            dept: 'Dairy',
-            items: ["Butter", "Eggs", "Milk", "Cheese"]
+            items: [{
+                name: "Chicken",
+                img: chicken
+            },{
+                name: "Turkey",
+                img: turkey,
+            },{
+                name: "Beef",
+                img: beef
+            },{
+                name: "Seafood",
+                img: cheese
+            }]
         },{
             dept: 'Produce',
-            items: ["Butter", "Eggs", "Milk", "Cheese"]
+            items: [{
+                name: "Bananas",
+                img: bananas
+            },{
+                name: "Oranges",
+                img: turkey,
+            },{
+                name: "Limes",
+                img: limes
+            },{
+                name: "Avocado",
+                img: avocado
+            }]
         },{
             dept: 'Snacks',
-            items: ["Butter", "Eggs", "Milk", "Cheese"]
-        }
-
-    ]
+            items: [{
+                name: "Chips",
+                img: chips
+            },{
+                name: "Candy",
+                img: turkey,
+            },{
+                name: "Cookies",
+                img: cookies
+            },{
+                name: "Crackers",
+                img: crackers
+            }]
+        }]
 
     return(
         <>
@@ -37,15 +104,17 @@ const Departments = () => {
 
                 <div className="dept-category-carousel">
                     {dept.items?.map((items, key) => { return(
-                            <div key={`${items}-${key}`} 
-                                className="category-carousel-item">
-                                <img src={"https://picsum.photos/100/100"}/>
-                                <p>{items}</p>
+                            <div key={`${items.name}-${key}`} 
+                                className="category-carousel-item"
+                                onClick={e => handleSearch(items.name, history)}
+                            >
+                                <img className="category-carousel-img" src={items.img}/>
+                                <p>{items.name}</p>
                             </div>
                         )})
                     }
-                    
                 </div>
+
                 <hr className="dept-category-divider"></hr>
             </div>
             )}
