@@ -4,24 +4,19 @@ import ViewAllButton from '../buttons/ViewAllButton'
 import './carousels.css'
 
 const Departments = () => {
-    const department = [
-        {
+    const department = [{
             dept: 'Dairy',
             items: ["Butter", "Eggs", "Milk", "Cheese"]
-        },
-        {
+        },{
             dept: 'Meat & Seafood',
             items: ["Butter", "Eggs", "Milk", "Cheese"]
-        },
-        {
+        },{
             dept: 'Dairy',
             items: ["Butter", "Eggs", "Milk", "Cheese"]
-        },
-        {
+        },{
             dept: 'Produce',
             items: ["Butter", "Eggs", "Milk", "Cheese"]
-        },
-        {
+        },{
             dept: 'Snacks',
             items: ["Butter", "Eggs", "Milk", "Cheese"]
         }
@@ -38,11 +33,12 @@ const Departments = () => {
                     <ViewAllButton />
                 </div>
 
-                <p class="dept-aisle">Aisle {Math.floor(Math.random() * 30)}</p>
+                <p className="dept-aisle">Aisle {Math.floor(Math.random() * 30)}</p>
 
                 <div className="dept-category-carousel">
-                    {dept.items?.map(items => { return(
-                            <div className="category-carousel-item">
+                    {dept.items?.map((items, key) => { return(
+                            <div key={`${items}-${key}`} 
+                                className="category-carousel-item">
                                 <img src={"https://picsum.photos/100/100"}/>
                                 <p>{items}</p>
                             </div>
@@ -50,7 +46,7 @@ const Departments = () => {
                     }
                     
                 </div>
-                <hr class="dept-category-divider"></hr>
+                <hr className="dept-category-divider"></hr>
             </div>
             )}
         )}

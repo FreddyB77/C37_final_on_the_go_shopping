@@ -16,7 +16,7 @@ import LocationOne from './pages/location/Location-1'
 import LocationGeo from './pages/location/Location-Geo'
 import LocationZipCode from './pages/location/Location-ZipCode'
 import GetStarted from './pages/getStarted/GetStarted'
-import CategoryList from './page/category/CategoryList'
+import CategoryList from './pages/category/CategoryList'
 
 import './App.css';
 

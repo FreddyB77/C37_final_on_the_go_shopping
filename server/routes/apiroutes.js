@@ -43,10 +43,11 @@ router.get('/products/search/:query', async (req, res) => {
         description: item.description,
         category: item.category,
         price: item.lowest_recorded_price,
-        image: item.images[0]
+        image: item.images[0],
+        upc: item.upc
       });
     });
-
+    console.log(productsArray)
     res.send(productsArray);
   } catch (e) {
     res.status(500).send();

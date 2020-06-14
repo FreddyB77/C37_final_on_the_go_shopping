@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const CartContext = React.createContext()
 
-const CartContextProvider = ( props ) => {
+const CartContextProvider = ( props) => {
 
     const [cart, setCart] = useState([
         {
@@ -51,6 +51,7 @@ const CartContextProvider = ( props ) => {
         price: 19.99,
         quantity: 1
     }])
+    const [ userSearchResults, setUserSearchResults ] = useState([])
     const [ lastScanned, setLastScanned] = useState(false) 
     const [ productDrawerState, setproductDrawerState ] = useState(false)
     const [userAccount, setUserAccount ] = useState({
@@ -68,7 +69,15 @@ const CartContextProvider = ( props ) => {
         })
         .catch( err => console.log(err))
     } 
-    
+
+    function handleSearch(search, history){
+        console.log(search)
+        axios.get(`/products/search/${search}`)
+            .then(res => setUserSearchResults(res.data))
+            .then(() => history.push("/category/list"))
+            .catch(e => console.log(e))
+    }
+
     return(
         <CartContext.Provider value={{
             cart, 
@@ -76,8 +85,11 @@ const CartContextProvider = ( props ) => {
             userAccount,
             productDrawerState,
             setproductDrawerState,
+            userSearchResults,
             updateCart,
-            userCart
+            userCart,
+            lastScanned,
+            handleSearch
         }}>
             {props.children}
         </CartContext.Provider>

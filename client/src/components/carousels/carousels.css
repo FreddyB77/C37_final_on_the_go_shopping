@@ -86,3 +86,34 @@
     border: none;
     margin: auto;
 }
+
+/*** C A T E G O R Y   L I S T ***/
+.category-search{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.category-search > div{
+    width: 40vw;
+    height: 50%;
+    margin: 40px auto;
+}
+.category-items{
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-image{
+    width: 150px;
+    align-self: center;
+}
+.cat-items-info{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 0 12px;
+    height: 100px;
+    justify-content: space-around;
+}

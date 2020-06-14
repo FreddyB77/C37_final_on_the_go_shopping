@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import { Paper, IconButton, InputBase, Divider } from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
 
 import './searchBar.css'
+import SearchIcon from '@material-ui/icons/Search'
 
-const handleSearch = () => {
-    console.log("Handle Me!")
-}
+import { CartContext } from '../context/CartContext'
 
-const SearchBar = () => {
+
+
+const SearchBar = ({history}) => {
+    const { handleSearch } = useContext(CartContext)
+    const [ searchItem, setSearchItem ] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        handleSearch(searchItem)
+    }
+
     return(
     <>
-        <Paper component="form" className="searchBar-container" onSubmit={handleSearch}>
+        <Paper 
+            component="form" 
+            className="searchBar-container" 
+            onSubmit={e => handleSubmit(e)}
+        >
             <div>
                 <IconButton type="submit"  aria-label="search">
                     <SearchIcon />
@@ -20,6 +32,7 @@ const SearchBar = () => {
                     placeholder="Search"
                     id="searchBar"
                     inputProps={{ 'aria-label': 'Search' }}
+                    onChange={e => setSearchItem(e.target.value)}
                 />
                 <Divider  orientation="vertical" />
             </div>

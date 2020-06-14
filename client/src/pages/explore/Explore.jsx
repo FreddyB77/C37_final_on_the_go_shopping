@@ -15,7 +15,7 @@ const Explore = ({history}) => {
     return (
         <div>
             <BackNav history={history}/>
-            <SearchBar />
+            <SearchBar history={history}/>
             <Departments />
             <BottomNav history={history}/>
         </div>
