@@ -18,3 +18,7 @@
 #searchBar{
     width: 225px;
 }
+
+.MuiPaper-elevation1{
+    box-shadow: none !important;
+}

@@ -26,8 +26,6 @@ const SplashPage = ({history}) => {
         history.push("/create-account")
     }
 
-
-
     return (
         <div className="splash-container">
             <div className="splash-top">

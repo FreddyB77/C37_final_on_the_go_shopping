@@ -1,24 +1,14 @@
-import React, {useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import Quagga from '@ericblade/quagga2'
-import PropTypes from 'prop-types';
-import axios from 'axios'
+
+import { CartContext } from '../context/CartContext.jsx'
 
 import './quagSample.css'
 
 const Quag = ({ setScan, refPage }) => {
-    const [scanning, setScanning] = useState(false);
-    const [results, setResult] = useState('');
+    const {  setproductDrawerState, updateCart } = useContext(CartContext)
+    let lastScannedUPC = '';
     const scannerRef = useRef(null);
-    
-
-    useEffect( () => {
-        axios.get(`/products/${results}`)
-        .then( res => { 
-            console.log("Scanned Item")
-            (res.data)
-        })
-    }, [results])
-    
 
     useEffect(() =>{ 
         Quagga.init({
@@ -35,24 +25,20 @@ const Quag = ({ setScan, refPage }) => {
                     console.log(err);
                     return
                 }
-            console.log("Initialization finished. Ready to start");
             Quagga.start();
             });
         Quagga.onDetected( data => {
-            console.log("Item Detected!")
-            const UPC = data.codeResult.code.substr(1)
-            setResult(UPC)
+            if(data !== lastScannedUPC){ 
+                lastScannedUPC = data;
+                const UPC = data.codeResult.code.substr(1)
+                updateCart(UPC)
+                setproductDrawerState(true)
+            } else( console.log("Duplicate Detected"))
         })
     }, [] )
 
     return(
-        <div 
-            ref={scannerRef} 
-        >
-            <h1>Return Scanner</h1>
-            
-            {console.log(scannerRef.current)}
-
+        <div ref={scannerRef}>
         </div>
     )
 }

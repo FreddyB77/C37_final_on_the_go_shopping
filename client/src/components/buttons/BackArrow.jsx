@@ -11,7 +11,10 @@ const BackArrow = ({history}) => {
     return (
             <Button 
                 onClick={handleBack}>
-                    <img src={backArrow} />
+                    <img 
+                        src={backArrow} 
+                        alt="Back Arrow button"
+                    />
             </Button>
     )
 }

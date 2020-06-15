@@ -12,7 +12,7 @@ const ProductDescriptionPage = ({history}) => {
     return (
         <div className='pdp-item-container'>
             <BackNav history={history}/>
-            <img src={"https://picsum.photos/300/300"}/>
+            <img src={"https://picsum.photos/300/300"} alt="Product Image"/>
             <div className="pdp-item-stat">
                 <h1 id="pdp-item-name">{cart[0].name}</h1>
                 <p id ="pdp-item-size">{cart[0].size}</p>

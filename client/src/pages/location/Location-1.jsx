@@ -1,5 +1,4 @@
 import React from 'react'
-import BackArrow from '../../components/buttons/BackArrow'
 import mapLogo from '../../assets/imgs/storeLocation/mapLogo.png'
 import ShareLocationButton from '../../components/buttons/ShareLocationButton'
 import ZipCodeButton from '../../components/buttons/ZipCodeButton'

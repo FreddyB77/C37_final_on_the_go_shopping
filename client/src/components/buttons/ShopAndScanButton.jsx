@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
-
+import barcodeImg from '../../assets/imgs/barcode.svg'
 import './button.css'
+
 
 const ShopAndScanButton = ({history}) => {
     const handleScan = () => {
@@ -19,7 +20,7 @@ const ShopAndScanButton = ({history}) => {
                     <p> Start Here</p>
                 </div>
                 <div>
-                    <h1 style={{border:"1px solid black"}}>IMG</h1>
+                    <img id="barcodeImg" src={barcodeImg} />
                 </div>
             </Button>
         </div>

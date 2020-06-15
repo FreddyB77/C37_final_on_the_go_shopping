@@ -38,7 +38,6 @@
     justify-content: space-evenly !important;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 .home-shop-button-text > h1{
     font-size: 24px;
@@ -50,9 +49,16 @@
     line-height: 33px;
     text-align: center;
 }
+#barcodeImg{
+    padding: 8px;
+    margin-top: 4px;
+}
 
 /*** B O T T O M   N A V   B U T T O N ***/
 .bNav-menu-buttons{
-    display: grid !important;
+    display: grid !important;    
     height: 100%;
+}
+.bNav-img{
+    justify-self: center;
 }

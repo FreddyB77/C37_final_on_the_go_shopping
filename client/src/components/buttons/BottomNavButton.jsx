@@ -15,7 +15,7 @@ const BottomNavButton = ({history, url, text, img}) => {
                 onClick={handlePress}   
                 className="bNav-menu-buttons"
             > 
-                <p>{img}</p>     
+                <img className="bNav-img" src={img}/>     
                 <p>{text}</p>
             </Button>
         </div>

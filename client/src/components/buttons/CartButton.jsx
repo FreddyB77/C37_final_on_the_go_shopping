@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { Button } from '@material-ui/core'
+import cartImg from '../../assets/imgs/cartLogo/cart.png'
+
+
 
 const CartButton = ({history}) => {
     const { cart } = useContext(CartContext)
@@ -15,7 +18,7 @@ const CartButton = ({history}) => {
                 className="button-cart"
                 onClick={handleClick}
             >
-                <h1>C </h1>
+                <img src={cartImg} alt="Cart image"/>
                 <p>{cart.length}</p>
             </Button>
         </div>
