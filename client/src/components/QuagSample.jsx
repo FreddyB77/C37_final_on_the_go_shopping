@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useContext } from 'react'
 import Quagga from '@ericblade/quagga2'
-import axios from 'axios'
 
 import { CartContext } from '../context/CartContext.jsx'
 
@@ -29,7 +28,7 @@ const Quag = ({ setScan, refPage }) => {
             Quagga.start();
             });
         Quagga.onDetected( data => {
-            if(data != lastScannedUPC){ 
+            if(data !== lastScannedUPC){ 
                 lastScannedUPC = data;
                 const UPC = data.codeResult.code.substr(1)
                 updateCart(UPC)

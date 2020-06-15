@@ -17,6 +17,8 @@ import LocationGeo from './pages/location/Location-Geo'
 import LocationZipCode from './pages/location/Location-ZipCode'
 import GetStarted from './pages/getStarted/GetStarted'
 import CategoryList from './pages/category/CategoryList'
+import CheckoutPage from './pages/checkout/Checkout'
+import ReceiptPage from './pages/receipt/Receipt'
 
 import './App.css';
 
@@ -40,6 +42,8 @@ const App = () => {
           <Route path="/geo" component={LocationGeo} />
           <Route path="/locationZipcode" component={LocationZipCode} />
           <Route path="/category/list" component={CategoryList}/>
+          <Route path="/checkout" component={CheckoutPage} />
+          <Route path="/receiptPage" component={ReceiptPage} />
         </Switch>
       </CartContextProvider>
     </BrowserRouter>

@@ -1,0 +1,39 @@
+/*** Or Divider ***/
+.cred-divider{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.cred-divider > p{
+    height: auto;
+    padding: 8px;
+}
+.cred-divider > hr {
+    width: 40%;
+    height: .5px;
+    background-color: grey;
+}
+
+/*** T O T A L ***/
+.total-cost{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    font-size: 18px;
+    color: #686868;
+    padding: 16px;
+    row-gap: 12px;
+}
+
+.total-cost > h1{
+    font-size: 30px;
+    color: #4C4C4C;
+}
+
+.total-cost > h3{
+    color: #B4B4B4;
+}
+.total-right{
+    text-align: right;
+}
+

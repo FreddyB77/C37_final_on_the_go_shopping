@@ -3,6 +3,7 @@ import { AppContext } from '../context/CartContext'
 import '../App.css'
 
 import tide from '../../img/tide.png'
+import trashIcon from '../../img/trashIcon.svg'
 
 const ShoppingCart = () => {
     const { cart, setCart } = useContext(AppContext)

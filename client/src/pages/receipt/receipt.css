@@ -1,0 +1,38 @@
+/*** R E C E I P T ***/
+.receipt-Nav{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
+
+}
+
+.receipt-Nav > img {
+    height: 16px;
+    width: 16px;
+    
+}
+
+#receipt-thanks{
+    font-size: 30px;
+    color: #4FA329;
+    padding: 24px 16px;
+}
+
+.receipt-itemized{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 16px;
+}
+.receipt-barcode{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin: 32px 0px;
+}
+.receipt-barcode > img{
+    width: 200px;
+    margin: 24px;
+}

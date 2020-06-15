@@ -2,8 +2,13 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 
 const CheckoutButton = ({history}) => {
+
+    const handleClick = (url) => {
+        history.push('/checkout')
+    }
+
     return (
-        <Button>Checkout</Button>
+        <Button onClick={handleClick}>Checkout</Button>
     )
 }
 

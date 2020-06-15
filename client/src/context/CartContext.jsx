@@ -69,7 +69,6 @@ const CartContextProvider = ( props) => {
         })
         .catch( err => console.log(err))
     } 
-
     function handleSearch(search, history){
         console.log(search)
         axios.get(`/products/search/${search}`)
@@ -77,10 +76,13 @@ const CartContextProvider = ( props) => {
             .then(() => history.push("/category/list"))
             .catch(e => console.log(e))
     }
+    
+
+
 
     return(
         <CartContext.Provider value={{
-            cart, 
+            cart, setCart,
             lastScanned, 
             userAccount,
             productDrawerState,
@@ -89,7 +91,7 @@ const CartContextProvider = ( props) => {
             updateCart,
             userCart,
             lastScanned,
-            handleSearch
+            handleSearch,
         }}>
             {props.children}
         </CartContext.Provider>
