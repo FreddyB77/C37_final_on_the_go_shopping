@@ -9,6 +9,7 @@ require('../db/mongoose');
 // import routes
 const userRouter = require('./routes/users');
 const apiRouter = require('./routes/apiroutes');
+const locationRoutes = require('./routes/location');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -17,6 +18,7 @@ app.use(express.json());
 // Call routes
 app.use(userRouter);
 app.use(apiRouter);
+app.use(locationRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
