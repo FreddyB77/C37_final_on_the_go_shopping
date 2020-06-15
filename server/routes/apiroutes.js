@@ -14,6 +14,7 @@ router.get('/products/:upc', async (req, res) => {
 
     data.items.map((item) => {
       productArray.push({
+        upc: item.upc,
         title: item.title,
         description: item.description,
         category: item.category,
