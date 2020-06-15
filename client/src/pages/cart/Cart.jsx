@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { CartContext } from '../../context/CartContext'
 import { Button } from '@material-ui/core'
@@ -14,10 +14,12 @@ const Cart = ({history }) => {
 
     function handleRemove(index){
         let tempCart = cart
-        tempCart.splice(index,1)
-        setCart(tempCart)
-        console.log(cart)
-        console.log("Cart Index Removed", index)
+        let filterCarted = tempCart.filter((item) => {
+            console.log("In Filter")
+            return item.UPC !== index
+        })
+        setCart(filterCarted)
+
     }
 
     return (
@@ -36,7 +38,7 @@ const Cart = ({history }) => {
                             <p>{item.size}</p>
                         </div>
                         <div className="cart-bottomRow">
-                            <div className="cart-remove" onClick={() => handleRemove(key)}>
+                            <div className="cart-remove" onClick={() => handleRemove(item.UPC)}>
                                 <img src={trashIcon} />
                                 <p>Remove</p>
                             </div>

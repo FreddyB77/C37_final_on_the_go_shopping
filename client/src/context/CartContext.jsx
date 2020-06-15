@@ -11,36 +11,42 @@ const CartContextProvider = ( props) => {
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
+            UPC: 1,
             quantity: 1   
         },{
             name: "Tide Original Liquid Laundry Detergent",
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
+            UPC: 2,
             quantity: 1    
         },{
             name: "Tide Original Liquid Laundry Detergent",
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
+            UPC: 3,
             quantity: 1    
         },{
             name: "Tide Original Liquid Laundry Detergent",
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
+            UPC: 4,
             quantity: 1    
         },{
             name: "Tide Original Liquid Laundry Detergent",
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
+            UPC: 5,
             quantity: 1
         },{
             name: "Tide Original Liquid Laundry Detergent",
             img: "https://target.scene7.com/is/image/Target/GUEST_c502f64a-347e-4749-8d2e-f32faed2ad61?wid=588&hei=588&qlt=80&fmt=webp",    
             size: "154 fl oz",
             price: 19.99,
+            UPC: 6,
             quantity: 1    
         }
     ])
@@ -69,6 +75,7 @@ const CartContextProvider = ( props) => {
         })
         .catch( err => console.log(err))
     } 
+
     function handleSearch(search, history){
         console.log(search)
         axios.get(`/products/search/${search}`)
@@ -77,6 +84,22 @@ const CartContextProvider = ( props) => {
             .catch(e => console.log(e))
     }
     
+    useEffect(()=> {
+        console.log(Boolean(localStorage.getItem("cart")))
+        if( !localStorage.getItem("cart")){
+            console.log("Truthy")
+            localStorage.setItem("cart", cart);
+        }
+
+
+        localStorage.setItem("cart", cart);
+        console.log("Initial Mount")
+    }, [])
+
+    useEffect(()=> {
+        console.log("Use Effect cart")
+        localStorage.setItem("cart", cart)
+    }, [cart])
 
 
 
