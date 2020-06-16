@@ -2,3 +2,39 @@
     z-index: 1;
     top: 0;
 }
+
+
+.scanner-Align {
+    border: 1px solid #3b3b3b;
+    color: #3b3b3b;
+    font-size: 24px;
+}
+.scanner-Captured > h1{
+    width: 85% !important;
+}
+.scanner-Captured{
+    border: 1px solid #4FA329;
+    color: #4FA329;
+    font-size: 24px;
+}
+.quag{
+    border-radius: 5%;
+    padding: 8px;
+    text-align: center;
+}
+
+.quag > video{
+    width: 90%;
+    height: 90%;
+    border-radius: 5%;
+}
+#scanner-text{
+    background-color: white;
+    margin: -5vh auto 0 auto;
+    width: 50%;
+}
+
+.drawingBuffer{
+    display: hidden;
+    height: 0px;
+}

@@ -6,7 +6,7 @@ import nullImg from '../../assets/imgs/productUnavailable.jpg'
 import './carousels.css'
 const CategorySearch = () => {
 
-    const {userSearchResults, cart} = useContext(CartContext)
+    const {userSearchResults } = useContext(CartContext)
 
     return (
         <div className="category-search">

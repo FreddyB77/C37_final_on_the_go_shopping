@@ -5,9 +5,7 @@ import { CartContext } from '../../context/CartContext'
 
 const ManualScanDrawer = ({manualStatus, handleManualClose}) => {
 
-    const { 
-        setproductDrawerState, updateCart
-    } = useContext(CartContext)
+    const { setproductDrawerState, updateCart } = useContext(CartContext)
     const [ upcManual, setUPCManual ] = useState('')
 
     // 028400045735

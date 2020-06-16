@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useState } from 'react'
 import { Paper, IconButton, InputBase, Divider } from '@material-ui/core'
 
 import './searchBar.css'

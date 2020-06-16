@@ -11,16 +11,14 @@ import butter from '../../assets/imgs/departmentImg/butter.png'
 import cheese from '../../assets/imgs/departmentImg/cheese.png'
 import chicken from '../../assets/imgs/departmentImg/chicken.png'
 import chips from '../../assets/imgs/departmentImg/chips.png'
-//import chocolate from '../../assets/imgs/departmentImg/chocolate.png'
+import chocolate from '../../assets/imgs/departmentImg/chocolate.png'
 import cookies from '../../assets/imgs/departmentImg/cookies.png'
 import crackers from '../../assets/imgs/departmentImg/crackers.png'
 import eggs from '../../assets/imgs/departmentImg/eggs.png'
-import kerrygoldButter from '../../assets/imgs/departmentImg/kerrygoldButter.png'
 import limes from '../../assets/imgs/departmentImg/limes.png'
 import milk from '../../assets/imgs/departmentImg/milk.png'
-//import oranges from '../../assets/imgs/departmentImg/oranges.png'
-import salmon from '../../assets/imgs/departmentImg/salmon.png'
-import strawberry from '../../assets/imgs/departmentImg/strawberries.png'
+import oranges from '../../assets/imgs/departmentImg/oranges.png'
+import seafood from '../../assets/imgs/departmentImg/seafood.png'
 import turkey from '../../assets/imgs/departmentImg/turkey.jpeg'
 
 
@@ -56,7 +54,7 @@ const Departments = ({history}) => {
                 img: beef
             },{
                 name: "Seafood",
-                img: cheese
+                img: seafood
             }]
         },{
             dept: 'Produce',
@@ -65,7 +63,7 @@ const Departments = ({history}) => {
                 img: bananas
             },{
                 name: "Oranges",
-                img: turkey,
+                img: oranges,
             },{
                 name: "Limes",
                 img: limes
@@ -80,7 +78,7 @@ const Departments = ({history}) => {
                 img: chips
             },{
                 name: "Candy",
-                img: turkey,
+                img: chocolate,
             },{
                 name: "Cookies",
                 img: cookies

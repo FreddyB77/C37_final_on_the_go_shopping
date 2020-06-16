@@ -6,6 +6,7 @@ import Quag from '../../components/QuagSample'
 import BackNav from '../../components/navs/BackNav'
 import ManualScanDrawer from '../../components/drawer/ManualScan'
 import PdpDrawer from '../../components/drawer/PdpDrawer'
+import HollowButtom from '../../components/buttons/HollowButton'
 
 import '../../components/buttons/button.css'
 import './scanner.css'
@@ -13,9 +14,7 @@ import './scanner.css'
 function Scanner({history}) {
   const { userCart } = useContext(CartContext)
 
-  const htmlRef = useRef("hello");
   const [ renderManual, setRenderManual] = useState(false)
-  const [ onScan, setOnScanned] = useState(true)
   const [ itemScanned, setItemScanned] = useState({
     name: "",
     img: "",    
@@ -24,11 +23,12 @@ function Scanner({history}) {
     quantity: 1
   })
 
-  const handleScan = () => {
-    setOnScanned(!onScan)
-  }
   const handleManualClose = () => {
     setRenderManual(false)
+  }
+  const handleManualOpen = () => {
+    console.log("Handle Open")
+    setRenderManual(true)
   }
 
   useEffect(() => {
@@ -49,34 +49,22 @@ function Scanner({history}) {
   return (
     <div className="scan-page">
       <BackNav history={history} />
+            {/*  Requires HTTPS=true to work */}
+            <Quag />
 
-      <div className="scanner-border">
-        <div className="scanner-container">
-          <h1 id="scanner-border-text">Align the Barcode</h1>
-          <div
-            className='scanner-cam-container'
-            style={{overflow:"hidden"}}
-          >
-            {/*  Requires HTTP=true to work */}
-            <Quag 
-              id="quag"
-              refPage={htmlRef}
-              handleScan={handleScan} 
-              setScan={onScan}
-            />
-          </div>
-        </div>
-        <div className="scanner-instruction">
+      <div className="scanner-instruction">
             Hold the Phone Still<br/>
             The scanning will be automatic
-        </div>
       </div>
-
+      
       <Button 
+        id="scan-manual"
         className="button-lg-hollow"
-        onClick={() => setRenderManual(true)}>
-        Enter manually
+        onClick={handleManualOpen}
+      >
+        Enter Manually 
       </Button>
+
     
     <ManualScanDrawer 
       manualStatus={renderManual} 
@@ -84,9 +72,6 @@ function Scanner({history}) {
     />
 
     <PdpDrawer />
-
-    
-
 
     </div>
   );
