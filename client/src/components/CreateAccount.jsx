@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { UserContext } from '../context/UserContext'
 import {TextField, Button } from '@material-ui/core'
+import axios from "axios"
 import '../App.css'
 
 
@@ -11,7 +13,7 @@ const CreateAccount = ({history}) => {
     const [ user, setUser ] = useState({
         fName: '',  lName:'',
         email:'',   password:''
-    })
+    }) 
     const [confirmPass, setConfirmPass] = useState('');
 
     const Nav = ({history}) => {
@@ -21,11 +23,33 @@ const CreateAccount = ({history}) => {
            <h1>Step 1/2</h1>
         </div>
         )
-    }
-    const handleFormSubmit = () => {
-        if(user.password !== confirmPass){ console.log("Password Error Fix Me") }
-        history.push('/add-payment');
-    }
+    } 
+    
+    const handleSubmit = async (email, password, firstName, lastName, e) => {
+        e.preventDefault()
+        await axios({
+          method: "POST",
+          url: `/users`,
+          data:{
+            email:user.email,
+            password:user.password,
+            firstName:user.firstName,
+            lastName:user.lastName,
+           }
+        })
+        .then(({data})=>{
+          console.log(data, 'response')
+          setUser(data.user)
+          //setLoggedIn(true)
+          setEmail("")
+          setPassword("")
+          setFirstName("")
+          setLastName("")
+          localStorage.setItem("token", data.token)
+        })
+        .catch(e => console.log(e.message.toString()))
+      }
+    
 
     const handleFName = (e) => { setUser({...user, fName: e.target.value}) }
     const handleLName = (e) => { setUser({...user, lName: e.target.value}); console.log(user) }
@@ -34,18 +58,18 @@ const CreateAccount = ({history}) => {
 
 
     return(
-        <div class="createAccount-page">
+        <div className="createAccount-page">
         <Nav />
         <h1>Create Account</h1>
 
-        <form autoComplete="off" noValidate className="cAccount-form">
+        <form autoComplete="off" noValidate className="cAccount-form" onSubmit={handleSubmit}>
             <>
                 <h3>First name</h3>
                 <TextField 
                     variant="outlined"
                     placeholder="Michael"
                     type="text"
-                    onChange={e => handleFName(e)}
+                    onChange={e => setFirstName(e)}
                 />
             </>
             <>
@@ -54,7 +78,7 @@ const CreateAccount = ({history}) => {
                     id="outlined-basic" 
                     placeholder="Scott"
                     variant="outlined" 
-                    onChange={e => handleLName(e)}
+                    onChange={e => setLastName(e)}
                 />
             </>
             <>
@@ -63,7 +87,7 @@ const CreateAccount = ({history}) => {
                 id="outlined-basic" 
                 placeholder="mscott@hotmail.com"
                 variant="outlined" 
-                onChange={e => handleEmail(e)}
+                onChange={e => setEmail(e)}
             />
             </>
             <>
@@ -73,7 +97,7 @@ const CreateAccount = ({history}) => {
                     type="password"
                     autoComplete="current-password"
                     variant="outlined"
-                    onChange={e => handlePassword(e)}
+                    onChange={e => setPassword(e)}
                 />
             </>
             <>
@@ -87,18 +111,12 @@ const CreateAccount = ({history}) => {
                 />
             </>
             <p>By signing up you agree to the <span>Term of Service</span></p>
+          <button type="submit">Submit</button>
         </form>
         
-        <Button 
-            id="cAccount-button"
-            variant="conatined" 
-            color="secondary"
-            onClick={handleFormSubmit}
-        >
-            Create Account 
-        </Button>
+        
         </div>
-    )
+    );
 }
 
 export default CreateAccount

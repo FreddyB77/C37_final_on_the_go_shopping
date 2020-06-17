@@ -10,8 +10,10 @@ const User = require('../models/user');
 
 router.post('/users', async (req, res) => {
   const user = new User(req.body);
+  console.log(user)
   try {
     await user.save();
+    console.log(user)
     res.status(201).send(user);
   } catch (e) {
     res.status(400).send(e);
