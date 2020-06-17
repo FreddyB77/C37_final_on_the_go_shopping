@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext' 
 import {Button, Fragment, Drawer, TextField, OutlineInput, OutlinedInput } from '@material-ui/core'
-
+import { Logout } from "../../components/Logout"
 import BottomNav from '../../components/navs/BottomNav'
 import CartButton from '../../components/buttons/CartButton'
 import './account.css'
@@ -12,6 +12,9 @@ const Account = ({history}) => {
     const [ payment, setPayment] = useState(false)
 
     const testArr = [{
+            name:'Log Out', 
+            state:false
+        },{
             name:'Payment cards', 
             state:false
         },{
