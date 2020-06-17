@@ -1,9 +1,10 @@
 import React, {useContext} from 'react'
-import { AppContext } from "../context/AppContext"
+import { UserContext } from "../context/UserContext"
+import { Account } from "../pages/account/Account"
 import axios from "axios"
 
 const Logout = () => {
-  const { setUser, setLoggedIn } = useContext(AppContext)
+  const { setUser, setLoggedIn } = useContext(UserContext)
 
   const logOut = async () => {
     const token = localStorage.getItem("token")
@@ -21,7 +22,7 @@ const Logout = () => {
     .catch(e => console.log(e.message.toString()))
   }
   return(
-    <button className="btn btn-danger" onClick={logOut}>Log out</button>
+    <button onClick={logOut}>Log out</button>
   )
 }
 
