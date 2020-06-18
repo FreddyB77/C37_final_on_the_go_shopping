@@ -40,7 +40,6 @@ const CreateAccount = ({ history }) => {
     })
       .then(({ data }) => {
         setUser(data.user);
-        // setLoggedIn(true)
         setEmail('');
         setPassword('');
         setFirstName('');
