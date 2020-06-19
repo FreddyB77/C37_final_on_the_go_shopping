@@ -6,6 +6,8 @@ import HomeNav from '../../components/navs/HomeNav';
 import ShopAndScanButton from '../../components/buttons/ShopAndScanButton';
 import Sales from '../../components/carousels/Sales'
 
+
+
 const Home = ({ history }) => {
 
   return (

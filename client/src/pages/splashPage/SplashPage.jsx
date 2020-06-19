@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import {Button, Drawer, TextField } from '@material-ui/core'
+
+import logo from '../../assets/imgs/cartLogo/Logo.svg'
 import './splashPage.css'
+import '../../components/buttons/button.css'
 
 
 
@@ -31,20 +34,20 @@ const SplashPage = ({history}) => {
             <div className="splash-top">
                 <h2>On-the-Go</h2>
                 <h3>Shopping</h3>
-                <p>Save time with no checkout lines</p>
+                <p>Skip the checkout lines</p>
             </div>
-
+            <img src={logo} />
             <div className="splash-bottom">
-                <Button 
+                <Button
                     variant="contained" 
-                    id="splash-button" 
+                    className="button-lg-green"
                     onClick={() => setLoginDrawer(true)}
                 >
                     Login
                 </Button>
                 <Button 
                     variant="contained" 
-                    id="splash-button" 
+                    className="button-lg-hollow" 
                     onClick={() => setSignUpDrawer(true)}
                 >
                     SignUp
@@ -87,7 +90,8 @@ const SplashPage = ({history}) => {
                             <p id="fPassword">Forgot Password?</p>
                             <Button
                             id="login-button"
-                             color="secondary">
+                            className="button-lg-green"
+                            color="secondary">
                                  Log In
                             </Button>
                         </form>        
@@ -100,19 +104,19 @@ const SplashPage = ({history}) => {
                     <Drawer 
                         open={signUpDrawer} 
                         anchor='bottom'
-                        id="signup-drawer"
+                        id="signUp-drawer"
                         onClose={toggleDrawer(false)}
                     >
-                        <Button id="sDrawer-button">Continue with Google</Button>
-                        <Button id="sDrawer-button">Continue with Facebook</Button>
+                        <Button className="button-md-hollow">Continue with Google</Button>
+                        <br></br>
+                        <Button className="button-md-hollow">Continue with Facebook</Button>
                         <div className="cred-divider">
                             <hr />
                             <p>or</p>
                             <hr />
                         </div>
-                        <h1>SignUp</h1>
                         <Button 
-                            id="sDrawer-button"
+                            className="button-lg-green"
                             onClick={handleEmailSignUp}
                         >
                                 Sign Up with Email

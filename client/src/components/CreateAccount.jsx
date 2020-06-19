@@ -1,14 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { UserContext } from '../context/UserContext';
-import { TextField, Button } from '@material-ui/core';
+import React, { useState } from 'react';
+import { TextField } from '@material-ui/core';
 import axios from 'axios';
 import '../App.css';
 
+import OnBoardingNav from './navs/OnBoardingNav'
+
 const CreateAccount = ({ history }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [user, setUser] = useState({
     fName: '',
     lName: '',
@@ -17,14 +14,6 @@ const CreateAccount = ({ history }) => {
   });
   const [confirmPass, setConfirmPass] = useState('');
 
-  const Nav = ({ history }) => {
-    return (
-      <div className="cAccount-nav">
-        <Button>Cancel</Button>
-        <h1>Step 1/2</h1>
-      </div>
-    );
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,11 +29,8 @@ const CreateAccount = ({ history }) => {
     })
       .then(({ data }) => {
         setUser(data.user);
-        setEmail('');
-        setPassword('');
-        setFirstName('');
-        setLastName('');
         localStorage.setItem('token', data.token);
+        setUser({...user, password: "", email: ''})
       })
       .catch((e) => console.log(e.message.toString()));
   };
@@ -54,7 +40,6 @@ const CreateAccount = ({ history }) => {
   };
   const handleLName = (e) => {
     setUser({ ...user, lName: e.target.value });
-    console.log(user);
   };
   const handleEmail = (e) => {
     setUser({ ...user, email: e.target.value });
@@ -65,7 +50,11 @@ const CreateAccount = ({ history }) => {
 
   return (
     <div className="createAccount-page">
-      <Nav />
+      <OnBoardingNav 
+        history={history} 
+        text="Step 1/3"
+      />
+
       <h1>Create Account</h1>
 
       <form
@@ -124,7 +113,10 @@ const CreateAccount = ({ history }) => {
         <p>
           By signing up you agree to the <span>Term of Service</span>
         </p>
-        <button type="submit">Submit</button>
+        <button 
+        className="button-lg-green"
+
+        type="submit">Submit</button>
       </form>
     </div>
   );

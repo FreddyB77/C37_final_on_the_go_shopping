@@ -1,7 +1,8 @@
 /*** I N A V  D E M O ***/
 .instruction{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 75vh 25vh;
+    height: 100vh;
   }
   
 .iCarousel{

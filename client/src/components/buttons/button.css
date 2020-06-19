@@ -12,7 +12,17 @@
     color: #204310;
     font-size: 26px;
     height: 60px;
-    width: 80vw;
+    width: 100% !important;
+}
+
+.button-md-hollow{
+    background-color: white !important;
+    border: 2px solid  #204310 !important;
+    color: #204310 !important;
+    font-size: 20px !important;
+    height: 45px;
+    margin: 24px;
+    width: 100% !important;
 }
 
 /*** C A R T   B U T T O N ***/

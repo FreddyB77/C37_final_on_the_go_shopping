@@ -19,7 +19,7 @@ const Instructions = ({history}) => {
         return(
             <div>
                 <Button 
-                    id="iNav-begin" 
+                    id="gStarted-button"
                     onClick={handleSkip}
                 >
                     Let's begin!
