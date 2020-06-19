@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: 35vh 30vh 30vh;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   overflow: hidden;
 
 }

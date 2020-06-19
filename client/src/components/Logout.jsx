@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 import { UserContext } from "../context/UserContext"
-import { Account } from "../pages/account/Account"
 import axios from "axios"
 
 const Logout = () => {

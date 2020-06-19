@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext' 
-import {Button, Fragment, Drawer, TextField, OutlineInput, OutlinedInput } from '@material-ui/core'
-import { Logout } from "../../components/Logout"
+import { Button } from '@material-ui/core'
+import Logout from "../../components/Logout"
 import BottomNav from '../../components/navs/BottomNav'
 import CartButton from '../../components/buttons/CartButton'
 import './account.css'
@@ -76,6 +76,7 @@ const Account = ({history}) => {
                 {testArr[1].state && <TestDrawer />}
                 {testArr[2].state && <TestDrawer />}
 
+                {/* {<Logout />} */}
 
             </div>
             
