@@ -2,10 +2,15 @@ import React, { useRef, useEffect, useContext, useState } from 'react'
 import Quagga from '@ericblade/quagga2'
 
 import { CartContext } from '../context/CartContext.jsx'
+import { SearchContext } from '../context/SearchContext'
 import './quagSample.css'
 
 const Quag = () => {
-    const {  updateCart, productDrawerState } = useContext(CartContext)
+    const {  updateCart, 
+        productDrawerState, setProductDrawerState
+        } = useContext(CartContext)
+    const { upcSearch } = useContext(SearchContext) 
+
     let lastScannedUPC = '';
     const scannerRef = useRef(null);
     const [vText, setVText] = useState("Align")
@@ -28,8 +33,7 @@ const Quag = () => {
             },
             decoder : {
                 readers : ["ean_reader"]
-            }},
-            (err) => {
+            }}, (err) => {
                 if (err) {
                     console.log(err);
                     return
@@ -37,12 +41,11 @@ const Quag = () => {
             Quagga.start();
             });
         Quagga.onDetected( data => {
-            console.log("Detected")
             if(data !== lastScannedUPC){ 
                 lastScannedUPC = data;
                 const UPC = data.codeResult.code.substr(1)
-                updateCart(UPC)
-
+                upcSearch(UPC)
+                setProductDrawerState(true)
             } else( console.log("Duplicate Detected"))
         })
         return ( () => Quagga.stop())

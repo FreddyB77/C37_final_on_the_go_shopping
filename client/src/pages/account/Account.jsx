@@ -9,7 +9,6 @@ import './account.css'
 
 const Account = ({history}) => {
     const { userAccount } = useContext(CartContext);
-    const [ payment, setPayment] = useState(false)
 
     const testArr = [{
             name:'Log Out', 
@@ -41,6 +40,8 @@ const Account = ({history}) => {
         switch(drawer){
             case[0]:
                 testArr[drawer].state = !testArr[drawer].state
+                break;
+            default:
                 break;
         }
     }

@@ -4,17 +4,17 @@ import { Paper, IconButton, InputBase, Divider } from '@material-ui/core'
 import './searchBar.css'
 import SearchIcon from '@material-ui/icons/Search'
 
-import { CartContext } from '../context/CartContext'
-
+import { SearchContext } from '../context/SearchContext'
 
 
 const SearchBar = ({history}) => {
-    const { handleSearch } = useContext(CartContext)
+    const { handleSearch } = useContext(SearchContext)
     const [ searchItem, setSearchItem ] = useState('')
+ 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleSearch(searchItem)
+        handleSearch(searchItem, history)
     }
 
     return(

@@ -18,7 +18,7 @@ const GetStarted = ({history}) => {
                 <p>Skip the checkout lines</p>
             </div>
 
-            <div class="gStarted-center">
+            <div className="gStarted-center">
                 <img src={otgLogo} alt="On the go logo"/>
             </div>
             

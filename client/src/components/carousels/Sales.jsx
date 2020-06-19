@@ -1,13 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import {CartContext } from '../../context/CartContext'
 import './carousels.css'
 import bread from '../../assets/imgs/sales/bread.png'
 import terraChips from '../../assets/imgs/sales/terraChips.png'
 import waterBottles from '../../assets/imgs/sales/waterBottles.png'
 
 const Sales = () => {
-    const { cart } = useContext(CartContext);
 
     const sales = [{
         name: "Arnold Country White Bread",
@@ -30,10 +28,10 @@ const Sales = () => {
     }]
 
     return (
-        <div class="home-carousel-container">
+        <div className="home-carousel-container">
             {sales?.map( item => {
               return(
-                <div class="item-carousel">
+                <div className="item-carousel">
                   <img 
                     className="item-carousel-img"
                     src={item.img} 

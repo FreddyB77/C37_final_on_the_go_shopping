@@ -1,8 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 import { CartContext } from '../../context/CartContext'
-import { Button } from '@material-ui/core'
-
 import BackArrow from '../../components/buttons/BackArrow'
 import CheckoutNav from '../../components/navs/CheckoutNav'
 import trashIcon from '../../assets/imgs/trashIcon.svg'
@@ -11,40 +9,69 @@ import './cart.css'
 
 const Cart = ({history }) => {
     const { cart, setCart } = useContext(CartContext)
-
-    function handleRemove(index){
+    
+    function handleRemove(upc){
         let tempCart = cart
         let filterCarted = tempCart.filter((item) => {
-            console.log("In Filter")
-            return item.UPC !== index
+            return item.upc !== upc
         })
         setCart(filterCarted)
+    }
 
+    const handleSub = (key) => {
+        if(cart[key].quantity > 0){
+            let tempCart = cart;
+            tempCart[key].quantity -= 1
+            setCart([...tempCart])
+        }
+    }
+
+    const handleAdd = (key) => {
+        let tempCart = cart;
+        tempCart[key].quantity += 1
+        setCart([...tempCart])
     }
 
     return (
         <div>
             <BackArrow history={history}/>
+            {console.log("Cart", cart)}
             <h1 id="cart-title">My Cart</h1>
             {cart?.map( (item, key) => {
                 return(
-                    <div className="cart-item-container">
+                    <div className="cart-item-container" key={`cart-item-${key}`}>
                         <img 
                             src="https://picsum.photos/100/100" 
-                            alt={`${item.name} Image`}
+                            alt={`${item.title}`}
                         />
                         <div className="cart-item">
-                            <h4>{item.name}</h4>
-                            <p>{item.size}</p>
+                            <h4>{item.title}</h4>
+                            <p>{item.description}</p>
                         </div>
                         <div className="cart-bottomRow">
-                            <div className="cart-remove" onClick={() => handleRemove(item.UPC)}>
-                                <img src={trashIcon} />
+                            <div className="cart-remove" onClick={() => handleRemove(item.upc)}>
+                                <img src={trashIcon} alt="Remove item"/>
                                 <p>Remove</p>
                             </div>
                             <div className="cart-quantity">
-                                <Button style={{border:"1px solid black"}}>4</Button>
-                                <p>{item.price}</p>
+                                <div className="cart-mod">
+                                    <span className="cart-mod-btn" 
+                                        style={{/*display: oToggled ? "block" : "none"*/}}
+                                        onClick={() => handleSub(key)}>
+                                            -
+                                    </span>
+
+                                    <span className="cart-quanity-btn">
+                                        {item.quantity}
+                                    </span>
+
+                                    <span className={`cart-mod-btn`}  
+                                        style={{/*display: oToggled ? "block" : "none"*/}}
+                                        onClick={() => handleAdd(key)}>
+                                        +
+                                    </span>
+                                </div>
+                                <p>${item.price}</p>
                             </div>
                         </div>
                     </div>
@@ -52,12 +79,7 @@ const Cart = ({history }) => {
             })
             }
 
-            <CheckoutNav 
-                history={history} 
-                total={"100.43"}
-            />
-
-
+            <CheckoutNav history={history}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Button } from '@material-ui/core'
 
 import './instructions.css'
@@ -10,7 +10,6 @@ import paymentImg from '../../assets/imgs/onBoarding/payment.png'
 
 
 const Instructions = ({history}) => {
-    const [page, setPage] = useState(0)
 
     const handleSkip = () => {
         history.push('/login')
@@ -33,12 +32,12 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Shop</h1>
-                <img src={shopImg} alt="Find item image"/>
+                <img src={shopImg} alt="Find item"/>
                 <p>Find items in the store</p>
                 <div className="iSlide-pageNum">
-                    <div class="iSlide-active iSlide-stat"/>
-                    <div class="iSlide-stat"/>
-                    <div class="iSlide-stat"/>
+                    <div className="iSlide-active iSlide-stat"/>
+                    <div className="iSlide-stat"/>
+                    <div className="iSlide-stat"/>
                 </div>
             </div>
         )
@@ -47,12 +46,12 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Scan</h1>
-                <img src={scanImg} alt="Scan item image"/>
+                <img src={scanImg} alt="Scan item"/>
                 <p>Scan your items</p>
                 <div className="iSlide-pageNum">
-                    <div class="iSlide-stat"/>
-                    <div class="iSlide-active iSlide-stat"/>
-                    <div class="iSlide-stat"/>
+                    <div className="iSlide-stat"/>
+                    <div className="iSlide-active iSlide-stat"/>
+                    <div className="iSlide-stat"/>
                 </div>
             </div>
         )
@@ -61,12 +60,12 @@ const Instructions = ({history}) => {
         return(
             <div className="iSlide">
                 <h1>Checkout</h1>
-                <img src={paymentImg}  alt="Pay for items image"/>
+                <img src={paymentImg}  alt="Pay for items"/>
                 <p>Pay from your phone</p>
                 <div className="iSlide-pageNum">
-                    <div class="iSlide-stat"/>
-                    <div class="iSlide-stat"/>
-                    <div class="iSlide-active iSlide-stat"/>
+                    <div className="iSlide-stat"/>
+                    <div className="iSlide-stat"/>
+                    <div className="iSlide-active iSlide-stat"/>
                 </div>
             </div>
         )
