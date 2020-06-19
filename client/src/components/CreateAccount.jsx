@@ -29,8 +29,9 @@ const CreateAccount = ({ history }) => {
     })
       .then(({ data }) => {
         setUser(data.user);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token)
         setUser({...user, password: "", email: ''})
+        history.push("/add-payment")
       })
       .catch((e) => console.log(e.message.toString()));
   };

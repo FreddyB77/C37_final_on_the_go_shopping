@@ -100,7 +100,7 @@ router.delete('/users/:id', async (req, res) => {
 // ***********************************************//
 // Logout all devices
 // ***********************************************//
-router.post('/users/logoutAll', auth, async (req, res) => {
+router.post('/users/logoutAll', async (req, res) => {
   try {
     req.user.tokens = [];
     await req.user.save();
@@ -114,7 +114,7 @@ router.post('/users/logoutAll', auth, async (req, res) => {
 // Logout a user
 // ***********************************************//
 
-router.post('/users/logout', auth, async (req, res) => {
+router.post('/users/logout', async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
       return token.token !== req.token;
