@@ -1,19 +1,13 @@
 import React, {useState} from 'react'
 import {TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core'
-import '../App.css'
+
+import '../../App.css'
+import './payment.css'
 
 
 const AddPayment = ({history}) => {
     const [ checkStat, setCheckStat ] = useState(false)
 
-    const Nav = () => {
-        return (
-        <div className='cAccount-nav'>
-           <Button>Back Arrow</Button>
-           <h1>Step 2/2</h1>
-        </div>
-        )
-    }
     const handleFormSubmit = () => {
         console.log("Hi there pretty person!")
     }
@@ -26,9 +20,14 @@ const AddPayment = ({history}) => {
     
     return(
         <div class="createAccount-page">
-        <Nav />
-        <h1>Add Payment</h1>
+        <div className="cAccount-nav">
+            <h1></h1>
+            <h1>Step 2/3</h1>
+        </div>
 
+
+
+        <h1>Add Payment</h1>
         <form autoComplete="off" noValidate className="cAccount-form">
             <>
                 <h3>Card Number</h3>
@@ -72,7 +71,7 @@ const AddPayment = ({history}) => {
         </form>
         
         <Button 
-            id="cAccount-button"
+            id="gStarted-button"            
             variant="conatined" 
             color="secondary"
             onClick={handleFormSubmit}
@@ -81,6 +80,7 @@ const AddPayment = ({history}) => {
         </Button>
         <br></br>
         <Button
+            id="payment-skip"
             onClick={handleSkip}>
             Skip for now
         </Button>

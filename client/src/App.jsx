@@ -4,8 +4,8 @@ import { CartContextProvider } from './context/CartContext';
 
 import CreateAccount from './components/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
-import SplashPage from './components/SplashPage'
-import AddPayment from './components/AddPayment'
+import SplashPage from './pages/splashPage/SplashPage'
+import AddPayment from './pages/addPayment/AddPayment'
 import Home from './pages/home/Home'
 import Explore from './pages/explore/Explore'
 import Account from './pages/account/Account'

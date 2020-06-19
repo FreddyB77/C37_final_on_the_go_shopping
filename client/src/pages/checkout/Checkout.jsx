@@ -8,7 +8,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import BackArrow from '../../components/buttons/BackArrow'
 import HollowButton from '../../components/buttons/HollowButton'
 import OrDivider from '../../components/drawer/OrDivider'
-import AddPayment from '../../components/AddPayment'
+import AddPayment from '../addPayment/AddPayment'
 import SolidGreenButton from '../../components/buttons/SolidGreenButton'
 import Total from '../../components/drawer/Total'
 import PaymentForm from '../../components/form/PaymentForm'

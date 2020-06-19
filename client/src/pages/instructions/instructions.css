@@ -2,6 +2,9 @@
 .instruction{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: auto 0px;
+    height: 100vh;
   }
   
 .iCarousel{

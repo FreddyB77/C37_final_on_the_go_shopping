@@ -3,8 +3,9 @@
   display: grid;
   grid-template-rows: 35vh 30vh 30vh;
   width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  border: 3px solid black;
+
 }
 .gStarted-top{
   text-align: center;

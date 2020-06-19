@@ -1,9 +1,39 @@
+/** S P L A S H    P A G E ***/
 .splash-container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     min-height: 100vh;
     padding: 24px;
+    overflow: hidden;
+}
+.splash-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.splash-top > h2{
+    color: #4FA329;
+    font-size: 45px;
+    font-weight: bold;
+
+}
+.splash-top > h3{
+    color: #4FA329;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+.splash-top > p{
+    color: #515151;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 16px;
+    text-align: center;
+}
+.splash-container > img{
+    transform: scale(2);
 }
 
 .splash-bottom{
@@ -43,12 +73,7 @@
     height: 40vh;
     width: 100%;
 }
-#login-button{
-    width: 100%;
-    margin: 0 auto;
-    background-color: grey;
-    color: white;
-}
+
 #fPassword{
     text-align: right;
     color: grey;
