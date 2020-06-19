@@ -2,24 +2,26 @@ import React, { useContext, useState } from 'react'
 import { Button, Drawer, TextField } from '@material-ui/core'
 
 import { CartContext } from '../../context/CartContext'
+import { SearchContext } from '../../context/SearchContext'
 
 const ManualScanDrawer = ({manualStatus, handleManualClose}) => {
 
-    const { setproductDrawerState, updateCart } = useContext(CartContext)
+    const { setProductDrawerState } = useContext(CartContext)
+    const { upcSearch } = useContext(SearchContext)
     const [ upcManual, setUPCManual ] = useState('')
 
-    // 028400045735
+    // 028400045735 - Test UPC # 
     const handleManualSearch = () => {
+        //UPC Validation
         if(upcManual.length < 13 ) { 
-            updateCart(upcManual)
+            upcSearch(upcManual)
         }
-        setproductDrawerState(true)
-        setTimeout( () => setproductDrawerState(false), 5000)
+        setProductDrawerState(true)
     }
 
     return(
         <div>
-            {/* Manual Drawer*/ }
+            {/* Manual Drawer*/}
             <React.Fragment key="manual">
                 <Drawer 
                     open={manualStatus} 

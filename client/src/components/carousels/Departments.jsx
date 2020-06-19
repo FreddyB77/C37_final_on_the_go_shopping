@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import ViewAllButton from '../buttons/ViewAllButton'
-
-import { CartContext } from '../../context/CartContext'
+import { SearchContext } from '../../context/SearchContext'
 
 import './carousels.css'
 import avocado from '../../assets/imgs/departmentImg/avocado.png'
@@ -23,7 +22,7 @@ import turkey from '../../assets/imgs/departmentImg/turkey.jpeg'
 
 
 const Departments = ({history}) => {
-    const { handleSearch } = useContext (CartContext)
+    const { handleSearch } = useContext (SearchContext)
 
     const department = [
         {
@@ -95,7 +94,7 @@ const Departments = ({history}) => {
             <div className="dept-category-container">
                 <div className="dept-category">
                     <h1>{dept.dept}</h1>
-                    <ViewAllButton />
+                    <ViewAllButton history={history}/>
                 </div>
 
                 <p className="dept-aisle">Aisle {Math.floor(Math.random() * 30)}</p>
@@ -104,7 +103,7 @@ const Departments = ({history}) => {
                     {dept.items?.map((items, key) => { return(
                             <div key={`${items.name}-${key}`} 
                                 className="category-carousel-item"
-                                onClick={e => handleSearch(items.name, history)}
+                                onClick={e => {handleSearch(items.name, history)}}
                             >
                                 <img className="category-carousel-img" src={items.img}/>
                                 <p>{items.name}</p>
@@ -112,7 +111,6 @@ const Departments = ({history}) => {
                         )})
                     }
                 </div>
-
                 <hr className="dept-category-divider"></hr>
             </div>
             )}

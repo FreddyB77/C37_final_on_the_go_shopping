@@ -18,18 +18,18 @@ const ShoppingCart = () => {
                             src={tide}
                             alt={`${item.name}`}
                         />
-                        <div class="sCart-item-detail">
+                        <div className="sCart-item-detail">
                             <h4>{item.name}</h4>
                             <h4>{item.size}</h4>
-                            <div class="sCart-item-detail-remove">
+                            <div className="sCart-item-detail-remove">
                                 <div id='sCart-item-trash-icon'>1</div>
                                 <h4>Remove</h4>
                             </div>
                         </div>
                         
-                        <div class="sCart-item-amount">
-                            <span class='sCart-item-quantity'>{item.quantity}</span>
-                            <span class='sCart-item-price'>${item.price}</span>
+                        <div className="sCart-item-amount">
+                            <span className='sCart-item-quantity'>{item.quantity}</span>
+                            <span className='sCart-item-price'>${item.price}</span>
                         </div>
                     </div>
                 )

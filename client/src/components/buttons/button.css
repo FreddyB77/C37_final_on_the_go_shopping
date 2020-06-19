@@ -6,14 +6,13 @@
     color: #FFFFFF !important;
 }
 
-.button-lg-hollow{
-    background-color: white !important;
-    border: 2px solid  #204310 !important;
-    color: #204310 !important;
-    font-size: 26px !important;
+#button-lg-hollow{
+    background-color: white;
+    border: 2px solid  #204310;
+    color: #204310;
+    font-size: 26px;
     height: 60px;
-    width: 100% !important;
-
+    width: 80vw;
 }
 
 /*** C A R T   B U T T O N ***/

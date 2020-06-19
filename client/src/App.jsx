@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartContextProvider } from './context/CartContext';
+import { SearchContextProvider } from './context/SearchContext';
 
 import CreateAccount from './components/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
@@ -26,25 +27,29 @@ const App = () => {
   return (
     <BrowserRouter>
       <CartContextProvider>
+      <SearchContextProvider>
         <Switch>
           <Route path="/" exact component={GetStarted} /> 
           <Route path="/instructions" component={Instructions}/>
           <Route path="/login" component={SplashPage}/>
           <Route path="/create-account" component={CreateAccount} />
           <Route path="/add-payment" component={AddPayment} />
+          <Route path="/location-1" component={LocationOne} />
+          <Route path="/geo" component={LocationGeo} />
+          <Route path="/locationZipcode" component={LocationZipCode} />
+
           <Route path="/home" component={Home}/>
           <Route path="/scan" component={Scanner} />
           <Route path="/explore" component={Explore} />
           <Route path="/pdp" component={ProductDescriptionPage} />
           <Route path="/account" component={Account} />
           <Route path="/cart" component={Cart} />
-          <Route path="/location-1" component={LocationOne} />
-          <Route path="/geo" component={LocationGeo} />
-          <Route path="/locationZipcode" component={LocationZipCode} />
           <Route path="/category/list" component={CategoryList}/>
           <Route path="/checkout" component={CheckoutPage} />
           <Route path="/receiptPage" component={ReceiptPage} />
+          
         </Switch>
+      </SearchContextProvider>
       </CartContextProvider>
     </BrowserRouter>
   );

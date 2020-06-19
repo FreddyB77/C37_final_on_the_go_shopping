@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
+import { SearchContext } from '../../context/SearchContext'
 
 import nullImg from '../../assets/imgs/productUnavailable.jpg'
 
 import './carousels.css'
 const CategorySearch = () => {
 
-    const {userSearchResults } = useContext(CartContext)
+    const { userSearch } = useContext(SearchContext)
 
     return (
         <div className="category-search">
-            {userSearchResults?.map(item => {
+            {userSearch.searchResult.map(item => {
                 return(
                     <div className="category-items">
                         <img 

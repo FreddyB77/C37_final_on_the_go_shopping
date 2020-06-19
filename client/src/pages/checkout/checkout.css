@@ -1,0 +1,17 @@
+/*** C H E C K O U T ***/ 
+.checkout-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-express{
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    width: 80vw;
+}

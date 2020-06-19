@@ -25,7 +25,7 @@ const AddPayment = ({history}) => {
     }
     
     return(
-        <div class="createAccount-page">
+        <div className="createAccount-page">
         <Nav />
         <h1>Add Payment</h1>
 

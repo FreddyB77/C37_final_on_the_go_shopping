@@ -18,7 +18,7 @@ const LocationOne = ({history}) => {
 
             <img src={mapLogo} alt="Logo: stores Near Me"/>
 
-            <div class="lOne-button-container">
+            <div className="lOne-button-container">
                 <ShareLocationButton history={history} id="oShareLocation"/>
                 <ZipCodeButton history={history} id="oZipCode"/>
             </div>

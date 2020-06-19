@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Button } from '@material-ui/core'
 import { CartContext } from '../../context/CartContext'
 
@@ -6,13 +6,13 @@ import Quag from '../../components/QuagSample'
 import BackNav from '../../components/navs/BackNav'
 import ManualScanDrawer from '../../components/drawer/ManualScan'
 import PdpDrawer from '../../components/drawer/PdpDrawer'
-import HollowButtom from '../../components/buttons/HollowButton'
 
 import '../../components/buttons/button.css'
 import './scanner.css'
 
 function Scanner({history}) {
   const { userCart } = useContext(CartContext)
+  
 
   const [ renderManual, setRenderManual] = useState(false)
   const [ itemScanned, setItemScanned] = useState({

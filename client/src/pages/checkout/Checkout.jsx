@@ -3,16 +3,16 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 import BackArrow from '../../components/buttons/BackArrow'
 import HollowButton from '../../components/buttons/HollowButton'
 import OrDivider from '../../components/drawer/OrDivider'
-import AddPayment from '../../components/AddPayment'
+//import AddPayment from '../../components/AddPayment'
 import SolidGreenButton from '../../components/buttons/SolidGreenButton'
 import Total from '../../components/drawer/Total'
 import PaymentForm from '../../components/form/PaymentForm'
 
+import './checkout.css'
 
 const CheckoutPage = ({history}) => {
     const [ paymentState, setPaymentState] = useState(false)
@@ -20,16 +20,16 @@ const CheckoutPage = ({history}) => {
     const handleChange = (event) => {
         (event.target.value === 'true') ? setPaymentState(true) : setPaymentState(false);
       };
-      
-    const handleMe = () => {
-        console.log("Test")
-    }
-  
+
     return (
-        <div>
-            <BackArrow history={history}/>
-            <HollowButton text="Pay" />
-            <HollowButton text="PayPal" />
+        <>
+        <BackArrow history={history}/>
+        <div className="checkout-container">
+            <div className="checkout-express">
+                <h1>Express Checkout</h1>
+                <HollowButton text="Pay" />
+                <HollowButton text="PayPal" />
+            </div>
             <OrDivider />
             <h1>Add Payment</h1>
 
@@ -46,11 +46,9 @@ const CheckoutPage = ({history}) => {
             <SolidGreenButton 
                 text="Checkout" 
                 history={history} 
-                url="/receiptPage" />
-
-            
-            
+                url="/receiptPage" /> 
         </div>
+        </>
     )
 }
 

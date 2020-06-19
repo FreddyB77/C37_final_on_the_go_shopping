@@ -12,7 +12,7 @@ const HomeNav = ({history}) => {
                 <div id="home-store-container">
                     <p id="home-store">Store_Name</p>
                     <p id="home-store-zip">(33031)</p>
-                    <img src={downIcon} />
+                    <img src={downIcon} alt="Drop Down Icon"/>
                 </div>
             </div>
             <div>
