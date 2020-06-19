@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const CartContext = React.createContext()
 
-const CartContextProvider = ( props) => {
+const CartContextProvider = ( props ) => {
 
     const [cart, setCart] = useState([
         /*

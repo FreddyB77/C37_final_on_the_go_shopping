@@ -101,6 +101,7 @@ const Departments = ({history}) => {
                 <p className="dept-aisle">Aisle {Math.floor(Math.random() * 30)}</p>
 
                 <div className="dept-category-carousel">
+
                     {dept.items?.map((items, key) => { return(
                             <div key={`${items.name}-${key}`} 
                                 className="category-carousel-item"
@@ -111,6 +112,7 @@ const Departments = ({history}) => {
                             </div>
                         )})
                     }
+
                 </div>
 
                 <hr className="dept-category-divider"></hr>
