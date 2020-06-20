@@ -1,16 +1,15 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 import { Button } from '@material-ui/core'
 
 import './instructions.css'
-
 import shopImg from '../../assets/imgs/onBoarding/shop.png'
 import scanImg from '../../assets/imgs/onBoarding/scan.png'
 import paymentImg from '../../assets/imgs/onBoarding/payment.png'
 
-
-
-const Instructions = ({history}) => {
-
+const Instructions = () => {
+    let history = useHistory()
+    
     const handleSkip = () => {
         history.push('/login')
     }

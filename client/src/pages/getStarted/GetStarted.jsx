@@ -2,10 +2,13 @@ import React from 'react'
 import {Button} from '@material-ui/core'
 import otgLogo from '../../assets/imgs/cartLogo/Logo.svg'
 import './getStarted.css'
+import { useHistory } from "react-router-dom";
+  
 
 
-const GetStarted = ({history}) => {
-
+const GetStarted = () => {
+    let history = useHistory()
+    
     const handleClick = () => {
         history.push("/instructions")
     }

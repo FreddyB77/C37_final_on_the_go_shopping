@@ -16,7 +16,6 @@ const LogoutButton = ({history}) => {
     })
     .then(({data}) =>{
       localStorage.removeItem("token")
-      console.log(data)
       setUser({})
       setLoggedIn(false)
       history.pushState("/login")

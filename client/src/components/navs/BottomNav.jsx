@@ -3,13 +3,15 @@ import './nav.css'
 
 import BottomNavButton from '../buttons/BottomNavButton'
 import { CartContext } from '../../context/CartContext'
+import { useHistory } from "react-router-dom";
 
 import accountIcon from '../../assets/imgs/Bottom Nav Icons/accountIcon.svg'
 import homeIcon from '../../assets/imgs/Bottom Nav Icons/homeIcon.svg'
 import scanIcon from '../../assets/imgs/Bottom Nav Icons/scanIcon.svg'
 import searchIcon from '../../assets/imgs/Bottom Nav Icons/searchIcon.svg'
-const BottomNav = ({history}) => {
+const BottomNav = () => {
     const { userAccount } = useContext(CartContext)
+    let history = useHistory()
     return (
         <div className="bNav-container sticky-nav nav-shadow">
 

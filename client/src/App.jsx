@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useContext} from 'react';
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import { CartContextProvider } from './context/CartContext';
 import { SearchContextProvider } from './context/SearchContext';
-import { UserContextProvider } from './context/UserContext'
+import { UserContextProvider, UserContext } from './context/UserContext'
 
 import CreateAccount from './components/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
@@ -25,6 +25,7 @@ import ReceiptPage from './pages/receipt/Receipt'
 import './App.css';
 
 const App = () => {
+  const  token  = useContext(UserContext)
   return (
     <BrowserRouter>
       <CartContextProvider>
@@ -40,15 +41,15 @@ const App = () => {
           <Route path="/geo" component={LocationGeo} />
           <Route path="/locationZipcode" component={LocationZipCode} />
 
-          <Route path="/home" component={Home}/>
-          <Route path="/scan" component={Scanner} />
-          <Route path="/explore" component={Explore} />
-          <Route path="/pdp" component={ProductDescriptionPage} />
-          <Route path="/account" component={Account} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/category/list" component={CategoryList}/>
-          <Route path="/checkout" component={CheckoutPage} />
-          <Route path="/receiptPage" component={ReceiptPage} />
+          <Route path="/home" render={() => !token ? <Home/> : <SplashPage/>} />
+          <Route path="/scan" render={() => !token ? <Scanner/> : <SplashPage/>}/>
+          <Route path="/explore" render={() => !token ? <Explore/> : <SplashPage/>} />
+          <Route path="/pdp" render={() => !token ? <ProductDescriptionPage/> : <SplashPage/>}  />
+          <Route path="/account" render={() => !token ? <Account/> : <SplashPage/>} />
+          <Route path="/cart" render={() => !token ? <Cart/> : <SplashPage/>} />
+          <Route path="/category/list" render={() => !token ? <CategoryList/> : <SplashPage/>} />
+          <Route path="/checkout" render={() => !token ? <CheckoutPage/> : <SplashPage/>} />
+          <Route path="/receiptPage" render={() => !token ? <ReceiptPage/> : <SplashPage/>} />
           
         </Switch>
       </UserContextProvider>

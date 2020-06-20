@@ -12,7 +12,9 @@ const UserContextProvider = ({children}) => {
 
   useEffect(()=>{
     setRefetch(true)
+    console.log("Token", token)
   }, [])
+
 
   useEffect(()=>{
     if(token){
@@ -42,12 +44,9 @@ const UserContextProvider = ({children}) => {
 
   return(
     <UserContext.Provider value={{
-      user, 
-      setUser, 
-      loggedIn, 
-      setLoggedIn, 
-      token, 
-      setRefetch,
+      user,     setUser, 
+      loggedIn, setLoggedIn, 
+      token,
     }}>
       {children}
     </UserContext.Provider>

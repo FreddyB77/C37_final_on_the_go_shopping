@@ -2,9 +2,13 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import barcodeImg from '../../assets/imgs/barcode.svg'
 import './button.css'
+import { useHistory } from "react-router-dom";
 
 
-const ShopAndScanButton = ({history}) => {
+
+const ShopAndScanButton = () => {
+    let history = useHistory()
+
     const handleScan = () => {
         history.push("/scan")
     }
@@ -20,7 +24,7 @@ const ShopAndScanButton = ({history}) => {
                     <p> Start Here</p>
                 </div>
                 <div>
-                    <img id="barcodeImg" src={barcodeImg} />
+                    <img id="barcodeImg" src={barcodeImg} alt="Barcode"/>
                 </div>
             </Button>
         </div>
