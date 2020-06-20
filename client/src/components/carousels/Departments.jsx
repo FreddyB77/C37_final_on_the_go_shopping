@@ -107,13 +107,12 @@ const Departments = ({history}) => {
                                 onClick={e => {handleSearch(items.name, history)}}
                             >
                                 <img className="category-carousel-img" src={items.img}/>
-                                <p>{items.name}</p>
+                                <p className="category-carousel-txt">{items.name}</p>
                             </div>
                         )})
                     }
 
                 </div>
-                <hr className="dept-category-divider"></hr>
             </div>
             )}
         )}

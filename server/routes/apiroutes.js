@@ -68,11 +68,13 @@ router.get('/products/search/:query', async (req, res) => {
 
     data.items.map((item) => {
       productsArray.push({
+        upc: item.upc,
         title: item.title,
         description: item.description,
         category: item.category,
         price: item.lowest_recorded_price,
-        image: item.images[0]
+        image: item.images[0],
+        quantity: 1
       });
     });
 
