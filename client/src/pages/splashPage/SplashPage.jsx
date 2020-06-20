@@ -9,7 +9,7 @@ import './splashPage.css'
 import '../../components/buttons/button.css'
 
 const SplashPage = ({history}) => {
-    const { setLoggedIn, user} = useContext(UserContext)
+    const { setLoggedIn } = useContext(UserContext)
 
     const [ signUpDrawer, setSignUpDrawer] = useState(false)
     const [ loginDrawer, setLoginDrawer] = useState(false)
@@ -57,7 +57,7 @@ const SplashPage = ({history}) => {
                 <h3>Shopping</h3>
                 <p>Skip the checkout lines</p>
             </div>
-            <img src={logo} />
+            <img src={logo} alt="On-the-shop shopping cart logo"/>
             <div className="splash-bottom">
                 <Button
                     variant="contained" 

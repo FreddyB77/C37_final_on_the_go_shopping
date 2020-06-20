@@ -24,40 +24,6 @@ router.post('/users', async (req, res) => {
 });
 
 // ***********************************************//
-// Get all users
-// ***********************************************//
-
-router.get('/users', async (req, res) => {
-  try {
-    const users = await User.find({});
-    res.send(users);
-  } catch (e) {
-    res.status(500).send();
-  }
-});
-
-// ***********************************************//
-// Get a specific user
-// ***********************************************//
-router.get('/users/:id', async (req, res) => {
-  const _id = req.params.id;
-  if (mongoose.Types.ObjectId.isValid(_id)) {
-    try {
-      const user = await User.findById(_id);
-      if (!user) {
-        // The gotcha here is that this will only trigger if the param sent is 12 bits (12 character string)
-        return res.status(404).send();
-      }
-      res.send(user);
-    } catch (e) {
-      res.status(500).send();
-    }
-  } else {
-    res.status(400).send('Not a valid user id');
-  }
-});
-
-// ***********************************************//
 // Update a user
 // ***********************************************//
 router.patch('/users/:id', async (req, res) => {
@@ -67,7 +33,7 @@ router.patch('/users/:id', async (req, res) => {
     allowedUpdates.includes(update)
   );
   if (!isValidOperation) {
-    return res.status(400).send({ error: 'Invalid updates!' });
+    return res.status(400).send({ error: e.message });
   }
   try {
     // new: true will return the new user after it has been updated instead of the old user.
@@ -96,7 +62,7 @@ router.delete('/users/:id', async (req, res) => {
 
     res.send(user);
   } catch (e) {
-    res.status(500).send();
+    res.status(500).send({ error: e.message });
   }
 });
 
@@ -109,7 +75,7 @@ router.post('/users/logoutAll', async (req, res) => {
     await req.user.save();
     res.send();
   } catch (e) {
-    res.status(500).send();
+    res.status(500).send({ error: 'Invalid updates!' });
   }
 });
 
@@ -122,10 +88,10 @@ router.post('/users/logout', auth, async (req, res) => {
     req.user.token = req.user.tokens.filter((token) => {
       return token.token !== req.token;
     });
-    await req.user.save();
-    res.send(req.user);
+    await req.user.save({ 'message': "Successfully logged out"});
+    res.send();
   } catch (e) {
-    res.status(500).send();
+    res.status(500).send({ error: e.message } );
   }
 });
 
