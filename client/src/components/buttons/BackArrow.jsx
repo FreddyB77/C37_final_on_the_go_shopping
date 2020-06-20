@@ -7,13 +7,9 @@ import backArrow from '../../assets/imgs/arrowBack.svg'
 const BackArrow = () => {
     let history = useHistory()
 
-    const handleBack = () => {
-        history.goBack();
-      }
-
     return (
             <Button 
-                onClick={handleBack}>
+                onClick={() => history.goBack()}>
                     <img 
                         src={backArrow} 
                         alt="Back Arrow button"
