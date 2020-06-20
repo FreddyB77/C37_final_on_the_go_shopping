@@ -1,5 +1,5 @@
 import React, { useContext} from 'react';
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartContextProvider } from './context/CartContext';
 import { SearchContextProvider } from './context/SearchContext';
 import { UserContextProvider, UserContext } from './context/UserContext'
@@ -26,31 +26,34 @@ import './App.css';
 
 const App = () => {
   const  token  = useContext(UserContext)
+
+  const handleUnauth = (Component) => { return !token ? Component : <SplashPage/>}
   return (
     <BrowserRouter>
       <CartContextProvider>
       <SearchContextProvider>
       <UserContextProvider>
         <Switch>
-          <Route path="/" exact component={GetStarted} /> 
-          <Route path="/instructions" component={Instructions}/>
-          <Route path="/login" component={SplashPage}/>
-          <Route path="/create-account" component={CreateAccount} />
-          <Route path="/add-payment" component={AddPayment} />
-          <Route path="/location-1" component={LocationOne} />
-          <Route path="/geo" component={LocationGeo} />
-          <Route path="/locationZipcode" component={LocationZipCode} />
 
-          <Route path="/home" render={() => !token ? <Home/> : <SplashPage/>} />
-          <Route path="/scan" render={() => !token ? <Scanner/> : <SplashPage/>}/>
-          <Route path="/explore" render={() => !token ? <Explore/> : <SplashPage/>} />
-          <Route path="/pdp" render={() => !token ? <ProductDescriptionPage/> : <SplashPage/>}  />
-          <Route path="/account" render={() => !token ? <Account/> : <SplashPage/>} />
-          <Route path="/cart" render={() => !token ? <Cart/> : <SplashPage/>} />
-          <Route path="/category/list" render={() => !token ? <CategoryList/> : <SplashPage/>} />
-          <Route path="/checkout" render={() => !token ? <CheckoutPage/> : <SplashPage/>} />
-          <Route path="/receiptPage" render={() => !token ? <ReceiptPage/> : <SplashPage/>} />
-          
+          <Route path="/"                exact component={GetStarted} /> 
+          <Route path="/add-payment"     component={AddPayment} />
+          <Route path="/create-account"  component={CreateAccount} />
+          <Route path="/geo"             component={LocationGeo} />
+          <Route path="/instructions"    component={Instructions}/>
+          <Route path="/login"           component={SplashPage}/>
+          <Route path="/location-1"      component={LocationOne} />
+          <Route path="/locationZipcode" component={LocationZipCode} />
+          {/*--------- A U T H O R I Z A T I O N --- R E Q. ------------*/}
+          <Route path="/account"         render={() => handleUnauth(<Account/>)} />
+          <Route path="/cart"            render={() => handleUnauth(<Cart/>)} />
+          <Route path="/category/list"   render={() => handleUnauth(<CategoryList/>)} />
+          <Route path="/checkout"        render={() => handleUnauth(<CheckoutPage/>)} />
+          <Route path="/explore"         render={() => handleUnauth(<Explore/>)} />
+          <Route path="/home"            render={() => handleUnauth(<Home/>)} />
+          <Route path="/pdp"             render={() => handleUnauth(<ProductDescriptionPage/>)}  />
+          <Route path="/receiptPage"     render={() => handleUnauth(<ReceiptPage/>)} />
+          <Route path="/scan"            render={() => handleUnauth(<Scanner/>)} />
+
         </Switch>
       </UserContextProvider>
       </SearchContextProvider>

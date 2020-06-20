@@ -12,7 +12,6 @@ const UserContextProvider = ({children}) => {
 
   useEffect(()=>{
     setRefetch(true)
-    console.log("Token", token)
   }, [])
 
 
@@ -21,7 +20,6 @@ const UserContextProvider = ({children}) => {
       axios.get(`/users/me`, {headers:{Authorization:`Bearer ${token}`}
     })
     .then(({data})=>{
-      console.log(data)
       setUser(data)
       setLoggedIn(true)
     })
@@ -34,7 +32,6 @@ const UserContextProvider = ({children}) => {
       refetch &&
       axios.get(`${process.env.REACT_APP_SERVER_URL}`, {headers: {Authorization: `Bearer ${token}`}})
       .then(({data}) => {
-        console.log(data)
         setRefetch(false)
       })
       .catch(e => {console.log(e.message.toString())})

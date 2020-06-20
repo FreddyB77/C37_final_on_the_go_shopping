@@ -1,18 +1,13 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
+
+import './getStarted.css'
 import {Button} from '@material-ui/core'
 import otgLogo from '../../assets/imgs/cartLogo/Logo.svg'
-import './getStarted.css'
-import { useHistory } from "react-router-dom";
   
-
-
 const GetStarted = () => {
     let history = useHistory()
-    
-    const handleClick = () => {
-        history.push("/instructions")
-    }
-    
+
     return (
         <div className="gStarted-container">
             <div className="gStarted-top">
@@ -29,7 +24,7 @@ const GetStarted = () => {
                 <Button 
                     variant="contained"
                     id="gStarted-button"
-                    onClick={handleClick}
+                    onClick={() => history.push("/instructions")}
                 >
                     Get Started
                 </Button>

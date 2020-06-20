@@ -106,7 +106,7 @@ const Departments = ({history}) => {
                                 className="category-carousel-item"
                                 onClick={e => handleSearch(items.name, history)}
                             >
-                                <img className="category-carousel-img" src={items.img}/>
+                                <img className="category-carousel-img" src={items.img} alt={`${items.name}`}/>
                                 <p className="category-carousel-txt">{items.name}</p>
                             </div>
                         )})

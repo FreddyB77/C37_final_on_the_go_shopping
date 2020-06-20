@@ -7,10 +7,8 @@ import OnBoardingNav from './navs/OnBoardingNav'
 
 const CreateAccount = ({ history }) => {
   const [user, setUser] = useState({
-    fName: '',
-    lName: '',
-    email: '',
-    password: ''
+    fName: '',  lName: '',
+    email: '',  password: ''
   });
   const [confirmPass, setConfirmPass] = useState('');
 

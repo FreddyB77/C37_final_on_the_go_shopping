@@ -35,7 +35,7 @@ const Sales = () => {
                   <img 
                     className="item-carousel-img"
                     src={item.img} 
-                    img="Promotional item"
+                    alt={`Promotional item: ${item.name}`}
                   />
                   <div>
                     <p className="item-price">${item.salePrice} 
