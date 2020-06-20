@@ -42,6 +42,7 @@ const SplashPage = ({history}) => {
             setLoggedIn(true)
             setLoginEmail("")
             setPass("")
+            history.push("/home")
           })
           .catch((e) => console.log(e.message.toString(), "Crendentials error"))
     }
