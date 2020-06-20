@@ -7,6 +7,7 @@ const Logout = () => {
 
   const logOut = async () => {
     const token = localStorage.getItem("token")
+
     await axios({
       method: "POST",
       url: `${process.env.REACT_APP_SERVER_URL}/users/logout`,

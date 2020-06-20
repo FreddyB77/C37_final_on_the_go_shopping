@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
+const jwt = require('jsonwebtoken');
 
-const User = mongoose.model('User', {
+const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -38,11 +39,22 @@ const User = mongoose.model('User', {
       }
     }
   },
-  token: {
-    type: String,
-    required: true
-  }
+  tokens: [{
+    token: {
+      type: String,
+      required: true
+    }
+  }],
 });
+
+userSchema.methods.toJSON = function () {
+  const user = this;
+  const userObject = user.toObject();
+  delete userObject.password;
+  delete userObject.tokens;
+  delete userObject.avatar;
+  return userObject;
+};
 
 // Create an Authorization token for the User
 userSchema.methods.generateAuthToken = async function () {
@@ -50,10 +62,8 @@ userSchema.methods.generateAuthToken = async function () {
   const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET, {
     expiresIn: '7 days'
   });
-
   user.tokens = user.tokens.concat({ token });
   await user.save();
-
   return token;
 };
 
@@ -78,5 +88,8 @@ userSchema.pre('save', async function (next) {
   }
   next();
 });
+
+const User = mongoose.model('User', userSchema);
+
 
 module.exports = User;

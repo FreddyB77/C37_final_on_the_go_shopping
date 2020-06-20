@@ -1,18 +1,20 @@
-import React, {useState} from 'react'
-import {Button, Drawer, TextField } from '@material-ui/core'
+import React, {useState, useContext} from 'react'
+import axios from 'axios'
 
+import { UserContext } from '../../context/UserContext'
+
+import {Button, Drawer, TextField } from '@material-ui/core'
 import logo from '../../assets/imgs/cartLogo/Logo.svg'
 import './splashPage.css'
 import '../../components/buttons/button.css'
 
-
-
 const SplashPage = ({history}) => {
+    const { setLoggedIn, user} = useContext(UserContext)
+
     const [ signUpDrawer, setSignUpDrawer] = useState(false)
     const [ loginDrawer, setLoginDrawer] = useState(false)
     const [ loginEmail, setLoginEmail ] = useState('')
     const [ pass, setPass ] = useState('')
-
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -22,8 +24,26 @@ const SplashPage = ({history}) => {
         setLoginDrawer(open)
     }
 
-    const handleLogin = () => {
-        console.log("Complete Login")
+    function handleLogin(e){
+        e.preventDefault()
+        console.log("USer Login attempt")
+        console.log("Password", pass)
+        axios({
+          method: "POST",
+          url: `/users/login`,
+          data: {
+            email: loginEmail,
+            password: pass
+          }})
+          .then(({data}) => {
+            console.log(data, "response")
+            //setUser(data.user)
+            localStorage.setItem("token", data.token)
+            setLoggedIn(true)
+            setLoginEmail("")
+            setPass("")
+          })
+          .catch((e) => console.log(e.message.toString(), "Crendentials error"))
     }
     const handleEmailSignUp = () => {
         history.push("/create-account")
@@ -71,7 +91,7 @@ const SplashPage = ({history}) => {
                             <hr />
                         </div>
 
-                        <form className="login-form" noValidate autoComplete="off">
+                        <form className="login-form" noValidate autoComplete="off" onSubmit={e => handleLogin(e)}>
                         <h1>Login</h1>
                             <TextField 
                                 placeholder="Email" 
@@ -86,12 +106,14 @@ const SplashPage = ({history}) => {
                                 variant="outlined"
                                 label="Password" 
                                 type="password"
+                                onChange={e => setPass(e.target.value)}
                             />
                             <p id="fPassword">Forgot Password?</p>
                             <Button
                             id="login-button"
                             className="button-lg-green"
-                            color="secondary">
+                            color="secondary"
+                            onClick={(e) => handleLogin(e)}>
                                  Log In
                             </Button>
                         </form>        
@@ -99,7 +121,7 @@ const SplashPage = ({history}) => {
                 </React.Fragment>
 
 
-
+                {/*Sign Up Drawer*/}
                 <React.Fragment key="bottom">
                     <Drawer 
                         open={signUpDrawer} 

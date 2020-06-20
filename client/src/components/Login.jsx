@@ -7,8 +7,9 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   
-  const logIn = async (email, password, e) => {
+  const logIn = async (e) => {
     e.preventDefault()
+    console.log("USer Login attempt")
     await axios({
       method: "POST",
       url: `/users/login`,
@@ -29,7 +30,7 @@ const Login = () => {
 
   return(
       <>
-      <form onSubmit={e => logIn(email, password, e)}>
+      <form onSubmit={e => logIn(e)}>
         <input 
           type="email"
           name="email"

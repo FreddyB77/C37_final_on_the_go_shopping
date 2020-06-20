@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartContextProvider } from './context/CartContext';
 import { SearchContextProvider } from './context/SearchContext';
+import { UserContextProvider } from './context/UserContext'
 
 import CreateAccount from './components/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
@@ -28,6 +29,7 @@ const App = () => {
     <BrowserRouter>
       <CartContextProvider>
       <SearchContextProvider>
+      <UserContextProvider>
         <Switch>
           <Route path="/" exact component={GetStarted} /> 
           <Route path="/instructions" component={Instructions}/>
@@ -49,6 +51,7 @@ const App = () => {
           <Route path="/receiptPage" component={ReceiptPage} />
           
         </Switch>
+      </UserContextProvider>
       </SearchContextProvider>
       </CartContextProvider>
     </BrowserRouter>

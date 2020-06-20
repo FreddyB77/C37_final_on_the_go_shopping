@@ -11,9 +11,6 @@ const Account = ({history}) => {
     const { userAccount } = useContext(CartContext);
 
     const testArr = [{
-            name:'Log Out', 
-            state:false
-        },{
             name:'Payment cards', 
             state:false
         },{

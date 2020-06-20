@@ -11,14 +11,15 @@ const bcrypt = require('bcryptjs');
 
 router.post('/users', async (req, res) => {
   const user = new User(req.body);
-
+  console.log(user)
   try {
     await user.save();
-    sendWelcomeEmail(user.email, user.name);
+    //sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.status(201).send({ user, token });
+    console.log("Action completed")
   } catch (e) {
-    res.status(400).send(e);
+    res.status(400).send({ error: e.message });
   }
 });
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, createContext } from 'react'
 import axios from "axios"
 
-const UserContext = createContext()
+export const UserContext = createContext()
 
 const UserContextProvider = ({children}) => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
   const [refetch, setRefetch] = useState(false)
 
@@ -54,4 +54,4 @@ const UserContextProvider = ({children}) => {
   )
 }
 
-export {UserContext, UserContextProvider}
+export { UserContextProvider}
