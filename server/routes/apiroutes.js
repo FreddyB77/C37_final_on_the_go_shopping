@@ -15,6 +15,7 @@ router.get('/products/:upc', async (req, res) => {
           `https://api.upcitemdb.com/prod/trial/lookup?upc=${upc}`
         );
         const productArray = [];
+        console.log(data)
         data.items.map((item) => {
           productArray.push({
             upc: item.upc,
@@ -45,6 +46,7 @@ router.get('/products/:upc', async (req, res) => {
     // IF THE PRODUCT IS IN THE DATABASE THEN DO THIS
     else {
       try {
+        console.log("product in database")
         const product = await Product.find({ upc });
         res.json(product);
       } catch (e) {
@@ -66,11 +68,13 @@ router.get('/products/search/:query', async (req, res) => {
 
     data.items.map((item) => {
       productsArray.push({
+        upc: item.upc,
         title: item.title,
         description: item.description,
         category: item.category,
         price: item.lowest_recorded_price,
-        image: item.images[0]
+        image: item.images[0],
+        quantity: 1
       });
     });
 

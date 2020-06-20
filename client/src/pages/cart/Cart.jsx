@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 import { CartContext } from '../../context/CartContext'
 import BackArrow from '../../components/buttons/BackArrow'
@@ -15,7 +15,7 @@ const Cart = ({history }) => {
         let filterCarted = tempCart.filter((item) => {
             return item.upc !== upc
         })
-        setCart(filterCarted)
+        setCart([...filterCarted])
     }
 
     const handleSub = (key) => {

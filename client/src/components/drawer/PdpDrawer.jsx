@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Button, Drawer } from '@material-ui/core'
 
 import trashIcon from '../../assets/imgs/trashIcon.svg'
@@ -9,14 +9,14 @@ const PdpDrawer = () => {
     const { productDrawerState, setProductDrawerState, 
             cart, setCart } = useContext(CartContext)
 
-    const { scanSearch, setScanSearch } = useContext(SearchContext)
+    const { scanSearch } = useContext(SearchContext)
  
     function handleSub(){
         let tempCart = cart
         let tempSearch = scanSearch
-        let cartIndex = cart.findIndex(item => { return item.upc == scanSearch.upc})
+        let cartIndex = cart.findIndex(item => { return item.upc === scanSearch.upc})
         //If item does not exist .exe(if) else update existing item quantity
-        if(cartIndex == -1 ){ 
+        if(cartIndex === -1 ){ 
             tempSearch.quantity -= 1
             setCart([...cart, tempSearch])
         }else{
@@ -40,9 +40,9 @@ const PdpDrawer = () => {
             setCart([tempSearch])
         }else {
             //If cart is not empty check if item exist 
-            let cartIndex = cart.findIndex(item => { return item.upc == scanSearch.upc})
+            let cartIndex = cart.findIndex(item => { return item.upc === scanSearch.upc})
             //If item does not exist .exe(if) else update existing item quantity
-            if(cartIndex == -1 ){ 
+            if(cartIndex === -1 ){ 
                 console.log("Item does")
                 tempSearch.quantity += 1
                 setCart([...cart, tempSearch])
@@ -58,6 +58,7 @@ const PdpDrawer = () => {
 
     function handleDelete(){
         //Not really deleting just minimizes Drawer. 
+        
         setProductDrawerState(false)
     }
 
@@ -76,7 +77,7 @@ const PdpDrawer = () => {
                     <img 
                         src={scanSearch?.image} 
                         style={{width:"100%"}} 
-                        alt="Product image"
+                        alt={`Product ${scanSearch.title}`}
                     />
                     <img 
                         src={trashIcon} 

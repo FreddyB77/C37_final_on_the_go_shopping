@@ -7,16 +7,15 @@ import OnBoardingNav from './navs/OnBoardingNav'
 
 const CreateAccount = ({ history }) => {
   const [user, setUser] = useState({
-    fName: '',
-    lName: '',
-    email: '',
-    password: ''
+    fName: '',  lName: '',
+    email: '',  password: ''
   });
   const [confirmPass, setConfirmPass] = useState('');
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(user)
     await axios({
       method: 'POST',
       url: `/users`,
@@ -29,23 +28,11 @@ const CreateAccount = ({ history }) => {
     })
       .then(({ data }) => {
         setUser(data.user);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token)
         setUser({...user, password: "", email: ''})
+        history.push("/add-payment")
       })
       .catch((e) => console.log(e.message.toString()));
-  };
-
-  const handleFName = (e) => {
-    setUser({ ...user, fName: e.target.value });
-  };
-  const handleLName = (e) => {
-    setUser({ ...user, lName: e.target.value });
-  };
-  const handleEmail = (e) => {
-    setUser({ ...user, email: e.target.value });
-  };
-  const handlePassword = (e) => {
-    setUser({ ...user, password: e.target.value });
   };
 
   return (
@@ -69,7 +56,7 @@ const CreateAccount = ({ history }) => {
             variant="outlined"
             placeholder="Michael"
             type="text"
-            onChange={(e) => handleFName(e)}
+            onChange={(e) => setUser({ ...user, fName: e.target.value })}
           />
         </>
         <>
@@ -78,7 +65,7 @@ const CreateAccount = ({ history }) => {
             id="outlined-basic"
             placeholder="Scott"
             variant="outlined"
-            onChange={(e) => handleLName(e)}
+            onChange={(e) => setUser({ ...user, lName: e.target.value })}
           />
         </>
         <>
@@ -87,7 +74,7 @@ const CreateAccount = ({ history }) => {
             id="outlined-basic"
             placeholder="mscott@hotmail.com"
             variant="outlined"
-            onChange={(e) => handleEmail(e)}
+            onChange={(e) => {setUser({ ...user, email: e.target.value }); console.log(user)}}
           />
         </>
         <>
@@ -97,7 +84,7 @@ const CreateAccount = ({ history }) => {
             type="password"
             autoComplete="current-password"
             variant="outlined"
-            onChange={(e) => handlePassword(e)}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </>
         <>
@@ -114,9 +101,11 @@ const CreateAccount = ({ history }) => {
           By signing up you agree to the <span>Term of Service</span>
         </p>
         <button 
-        className="button-lg-green"
-
-        type="submit">Submit</button>
+          className="button-lg-green"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );

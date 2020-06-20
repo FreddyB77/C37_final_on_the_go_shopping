@@ -1,11 +1,10 @@
 import React from 'react'
-
-import CancelButton from '../../components/buttons/CancelButton'
+import { Button } from '@material-ui/core'
 
 const LocationZipCode = ({history}) => {
     return (
     <div>
-        <CancelButton history={history}/>
+        <Button onClick={() => history.goBack()}>Cancel</Button>        
         <h1>Enter Zip Code</h1>
 
     </div>

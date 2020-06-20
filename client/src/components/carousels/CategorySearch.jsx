@@ -10,12 +10,14 @@ const CategorySearch = () => {
 
     return (
         <div className="category-search">
-            {userSearch.searchResult.map(item => {
+            {userSearch?.searchResult?.map(item => {
+                console.log("Hello", Boolean(item.image))
                 return(
+                    
                     <div className="category-items">
                         <img 
                             className="cat-image" 
-                            src={item.image === true ? item.image : nullImg} 
+                            src={Boolean(item.image) ? item.image : nullImg} 
                             alt={`${item.title} image`} 
                         />
                         <div className="cat-items-info">

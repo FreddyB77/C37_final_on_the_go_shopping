@@ -1,28 +1,32 @@
 import React, {useContext} from 'react'
-import { UserContext } from "../context/UserContext"
+import { UserContext } from "../../context/UserContext"
+import { Button } from '@material-ui/core'
 import axios from "axios"
+import '../../components/buttons/button.css'
 
-const Logout = () => {
+const LogoutButton = ({history}) => {
   const { setUser, setLoggedIn } = useContext(UserContext)
 
   const logOut = async () => {
     const token = localStorage.getItem("token")
     await axios({
       method: "POST",
-      url: `${process.env.REACT_APP_SERVER_URL}/users/logout`,
-      headers: {Authorization: `Bearer ${token}`}
+      url: `/users/logout`,
+      headers: { Authorization: `Bearer ${token}`}
     })
     .then(({data}) =>{
-      console.log(data, "logout response")
       localStorage.removeItem("token")
       setUser({})
       setLoggedIn(false)
+      history.push("/home")
     })
     .catch(e => console.log(e.message.toString()))
   }
+
+
   return(
-    <button onClick={logOut}>Log out</button>
+    <Button id="button-lg-hollow" onClick={logOut}>Log out</Button>
   )
 }
 
-export default Logout
+export default LogoutButton

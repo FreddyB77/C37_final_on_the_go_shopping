@@ -29,4 +29,4 @@ const ProductDescriptionPage = ({history}) => {
     )
 }
 
-export default ProductDescriptionPage
+export {ProductDescriptionPage}

@@ -142,12 +142,6 @@ button{
   grid-row-end: span 3;
 }
 
-/*** S C A N N E D  D R A W E R ***/
-.scannedDrawer{
-  background-color: grey;
-  display: grid;
-  grid-template-columns: 20% 80%;
-}
 
 /*** C A R T ***/
 .sCart-item{

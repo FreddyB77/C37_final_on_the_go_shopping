@@ -1,34 +1,39 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { Button } from '@material-ui/core'
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
 import BackArrow from '../../components/buttons/BackArrow'
-import HollowButton from '../../components/buttons/HollowButton'
 import OrDivider from '../../components/drawer/OrDivider'
-import AddPayment from '../addPayment/AddPayment'
-import SolidGreenButton from '../../components/buttons/SolidGreenButton'
 import Total from '../../components/drawer/Total'
 import PaymentForm from '../../components/form/PaymentForm'
 
 import './checkout.css'
+import '../../components/buttons/button.css'
 
-const CheckoutPage = ({history}) => {
+const CheckoutPage = () => {
     const [ paymentState, setPaymentState] = useState(false)
+    let history = useHistory()
 
     const handleChange = (event) => {
         (event.target.value === 'true') ? setPaymentState(true) : setPaymentState(false);
       };
 
+    const handleCheckout = () => {
+        history.push('/receiptPage')
+    }
+
     return (
         <>
-        <BackArrow history={history}/>
+        <BackArrow/>
         <div className="checkout-container">
             <div className="checkout-express">
                 <h1>Express Checkout</h1>
-                <HollowButton text="Pay" />
-                <HollowButton text="PayPal" />
+                <Button id="button-lg-hollow">Pay</Button>
+                <Button id="button-lg-hollow">PayPal</Button>
             </div>
             <OrDivider />
             <h1>Add Payment</h1>
@@ -43,10 +48,9 @@ const CheckoutPage = ({history}) => {
             {paymentState && <PaymentForm />}
             <Total />
 
-            <SolidGreenButton 
-                text="Checkout" 
-                history={history} 
-                url="/receiptPage" /> 
+            <Button onClick={() => handleCheckout}>
+                Checkout 
+            </Button> 
         </div>
         </>
     )

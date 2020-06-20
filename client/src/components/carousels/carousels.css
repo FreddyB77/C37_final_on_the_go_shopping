@@ -52,18 +52,24 @@
 .dept-category-container{
     display: flex;
     flex-direction: column;
+    border-bottom: .5px solid #979797;
 }
 .dept-category{
     display: flex;
     flex-direction: row;;
     justify-content: space-between;
-    margin: 8px 0 8px 0;
+    margin: 24px 0 8px 0;
     padding: 0 16px 0 16px;
     font-weight: 300;
 }
+.dept-category > h1 {
+    color:black;
+    font-size: 26px;
+}
 .dept-aisle{
     padding: 0 16px 0 16px;
-    color: grey
+    font-size: 18px;
+    color: #868686;
 }
 .dept-category-carousel{
     flex: 0 0 auto;
@@ -75,24 +81,19 @@
 }
 .category-carousel-item{
     width: 30vw;
-    margin: 16px;
+    margin: 24px 32px;
     justify-self: center;
     text-align: center;
 }
 .category-carousel-img{
-    width: 70px;
     max-height: 100px;
-    height: auto;
+    height: 80px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 8px auto;
 }
+.category-carousel-txt{
+    font-size: 21px;
 
-.dept-category-divider{
-    width: 80%;
-    height: .5px;
-    background-color: grey;
-    border: none;
-    margin: auto;
 }
 
 /*** C A T E G O R Y   L I S T ***/

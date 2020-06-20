@@ -4,18 +4,14 @@ import { Button } from '@material-ui/core'
 import './button.css'
 
 const BottomNavButton = ({history, url, text, img}) => {
-    
-    const handlePress = () => {
-        history.push(`/${url}`)
-    }
 
     return (
         <div>
             <Button 
-                onClick={handlePress}   
+                onClick={() => history.push(`/${url}`)}   
                 className="bNav-menu-buttons"
             > 
-                <img className="bNav-img" src={img}/>     
+                <img className="bNav-img" src={img} alt="Go Back Button"/>     
                 <p>{text}</p>
             </Button>
         </div>
