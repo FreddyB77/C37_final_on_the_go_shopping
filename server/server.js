@@ -11,6 +11,7 @@ const userRouter = require('./routes/users');
 const apiRouter = require('./routes/apiroutes');
 const locationRoutes = require('./routes/location');
 
+const stripeRouter = require('./routes/stripeapi');
 const app = express();
 const port = process.env.PORT || 8080;
 // Parse incoming JSON into objects
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(userRouter);
 app.use(apiRouter);
 app.use(locationRoutes);
+app.use(stripeRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
