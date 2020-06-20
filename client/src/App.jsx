@@ -26,9 +26,6 @@ import './App.css';
 
 const App = () => {
   const { isLoggedIn } = useContext(UserContext)
-
-  const loggedIn = true;
-
   const sp = <SplashPage />
 
   return (
