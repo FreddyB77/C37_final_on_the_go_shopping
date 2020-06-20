@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { SearchContext } from '../../context/SearchContext'
 import { Button } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 import './carousels.css'
 import avocado from '../../assets/imgs/departmentImg/avocado.png'
@@ -21,8 +22,9 @@ import seafood from '../../assets/imgs/departmentImg/seafood.png'
 import turkey from '../../assets/imgs/departmentImg/turkey.jpeg'
 
 
-const Departments = ({history}) => {
+const Departments = () => {
     const { handleSearch } = useContext (SearchContext)
+    let history = useHistory()
 
     const department = [
         {
@@ -106,7 +108,10 @@ const Departments = ({history}) => {
                                 className="category-carousel-item"
                                 onClick={e => handleSearch(items.name, history)}
                             >
-                                <img className="category-carousel-img" src={items.img} alt={`${items.name}`}/>
+                                <img 
+                                    className="category-carousel-img" 
+                                    src={items.img} 
+                                    alt={`${items.name}`}/>
                                 <p className="category-carousel-txt">{items.name}</p>
                             </div>
                         )})

@@ -5,7 +5,7 @@ export const UserContext = createContext()
 
 const UserContextProvider = ({children}) => {
   const [user, setUser] = useState([])
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [isLoggedIn, setLoggedIn] = useState(false)
   const [refetch, setRefetch] = useState(false)
 
   const token = localStorage.getItem("token")
@@ -14,35 +14,22 @@ const UserContextProvider = ({children}) => {
     setRefetch(true)
   }, [])
 
-
   useEffect(()=>{
     if(token){
-      axios.get(`/users/me`, {headers:{Authorization:`Bearer ${token}`}
-    })
-    .then(({data})=>{
-      setUser(data)
-      setLoggedIn(true)
-    })
-    .catch(e => console.log(e.message.toString()))
-    }
-  }, [token])
-
-  useEffect(()=>{
-    if(token){
-      refetch &&
-      axios.get(`${process.env.REACT_APP_SERVER_URL}`, {headers: {Authorization: `Bearer ${token}`}})
-      .then(({data}) => {
-        setRefetch(false)
+      axios.get(`/users/me`, {headers: {Authorization: `Bearer ${token}`}
       })
-      .catch(e => {console.log(e.message.toString())})
-    }
-  }, [loggedIn, token, refetch])
+      .then(({data}) => {
+        setUser(data)
+        setLoggedIn(true)
+      })
+      .catch((e) => console.log(e.message.toString()))
+    }}, [refetch])
 
 
   return(
     <UserContext.Provider value={{
       user,     setUser, 
-      loggedIn, setLoggedIn, 
+      isLoggedIn, setLoggedIn, 
       token,
     }}>
       {children}

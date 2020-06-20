@@ -6,11 +6,11 @@ import { Button, Drawer, TextField } from '@material-ui/core'
 import './splashPage.css'
 
 
-const LoginDrawer = ({toggleDrawer, loginDrawer}) => {
+const LoginDrawer = ({toggleDrawer, loginDrawer, }) => {
     let history = useHistory()
     const [ loginEmail, setLoginEmail ] = useState('')
     const [ pass, setPass ] = useState('')    
-    const { setLoggedIn } = useContext(UserContext)
+    const { setLoggedIn, setUser } = useContext(UserContext)
 
 
 
@@ -29,7 +29,10 @@ const LoginDrawer = ({toggleDrawer, loginDrawer}) => {
             setLoggedIn(true)
             setLoginEmail("")
             setPass("")
+            setUser({firstName: data.user.firstName, email: data.user.email})
+            toggleDrawer(false)
             history.push("/home")
+
           })
           .catch((e) => console.log(e.message.toString(), "Crendentials error"))
     }

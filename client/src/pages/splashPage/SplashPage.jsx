@@ -48,12 +48,14 @@ const SplashPage = () => {
                 <LoginDrawer 
                     toggleDrawer={toggleDrawer}
                     loginDrawer={loginDrawer} 
-                    setSignUpDrawer={setSignUpDrawer}
+                    
                 />
 
                 <SignUpDrawer 
                     toggleDrawer={toggleDrawer}
                     signUpDrawer={signUpDrawer} 
+                    setSignUpDrawer={setSignUpDrawer}
+
                 />
 
             </div>

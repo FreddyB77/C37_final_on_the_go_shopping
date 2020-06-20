@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 export const SearchContext = React.createContext()
 
 export const SearchContextProvider = ( props ) => {
+  
   
     const [ scanSearch, setScanSearch ] = useState({})
     const [ userSearch, setUserSearch ] = useState({})
@@ -11,9 +13,11 @@ export const SearchContextProvider = ( props ) => {
 
     function handleSearch(search, history){
         console.log("Handle Search", search)
-        history.push("/category/list")
         axios.get(`/products/search/${search}`)
-            .then(res => setUserSearch({searchKey: search, searchResult: [...res.data]}))
+            .then(res => {
+              setUserSearch({searchKey: search, searchResult: [...res.data]})
+              history.push("/category/list")
+              })
             .catch(e => console.log(e))
     }
 

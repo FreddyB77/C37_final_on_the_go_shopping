@@ -10,8 +10,7 @@ const CategorySearch = () => {
 
     return (
         <div className="category-search">
-            {console.log(Boolean(userSearch.searchResult[0].image.length))}
-            {userSearch.searchResult.map(item => {
+            {userSearch?.searchResult?.map(item => {
                 console.log("Hello", Boolean(item.image))
                 return(
                     

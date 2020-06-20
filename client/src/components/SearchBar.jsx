@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Paper, IconButton, InputBase, Divider } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 import './searchBar.css'
 import SearchIcon from '@material-ui/icons/Search'
@@ -7,7 +8,9 @@ import SearchIcon from '@material-ui/icons/Search'
 import { SearchContext } from '../context/SearchContext'
 
 
-const SearchBar = ({history}) => {
+const SearchBar = () => {
+    let history = useHistory()
+
     const { handleSearch } = useContext(SearchContext)
     const [ searchItem, setSearchItem ] = useState('')
  

@@ -1,14 +1,14 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 
-const CheckoutButton = ({history}) => {
-
-    const handleClick = (url) => {
-        history.push('/checkout')
-    }
+const CheckoutButton = () => {
+    let history = useHistory()
 
     return (
-        <Button onClick={handleClick}>Checkout</Button>
+        <Button onClick={() => history.push('/checkout')}>
+            Checkout
+        </Button>
     )
 }
 

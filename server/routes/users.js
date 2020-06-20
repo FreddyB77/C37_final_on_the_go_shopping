@@ -66,6 +66,17 @@ router.delete('/users/:id', async (req, res) => {
   }
 });
 
+
+// **********************************************//
+// Get current user
+// ***********************************************//
+router.get('/users/me', auth, async (req, res) => {
+  console.log("I'm working")
+  res.send(req.user);
+  
+});
+
+
 // ***********************************************//
 // Logout all devices
 // ***********************************************//
