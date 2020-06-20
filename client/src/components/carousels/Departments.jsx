@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import ViewAllButton from '../buttons/ViewAllButton'
 import { SearchContext } from '../../context/SearchContext'
+import { Button } from '@material-ui/core'
 
 import './carousels.css'
 import avocado from '../../assets/imgs/departmentImg/avocado.png'
@@ -94,7 +94,7 @@ const Departments = ({history}) => {
             <div className="dept-category-container">
                 <div className="dept-category">
                     <h1>{dept.dept}</h1>
-                    <ViewAllButton history={history}/>
+                    <Button onClick={() => handleSearch(dept.dept, history)}>View All</Button>
                 </div>
 
                 <p className="dept-aisle">Aisle {Math.floor(Math.random() * 30)}</p>
@@ -104,7 +104,7 @@ const Departments = ({history}) => {
                     {dept.items?.map((items, key) => { return(
                             <div key={`${items.name}-${key}`} 
                                 className="category-carousel-item"
-                                onClick={e => {handleSearch(items.name, history)}}
+                                onClick={e => handleSearch(items.name, history)}
                             >
                                 <img className="category-carousel-img" src={items.img}/>
                                 <p className="category-carousel-txt">{items.name}</p>

@@ -58,14 +58,13 @@
     display: flex;
     flex-direction: row;;
     justify-content: space-between;
-    margin: 8px 0 8px 0;
+    margin: 24px 0 8px 0;
     padding: 0 16px 0 16px;
     font-weight: 300;
 }
 .dept-category > h1 {
     color:black;
     font-size: 26px;
-    margin-top: 24px;
 }
 .dept-aisle{
     padding: 0 16px 0 16px;
