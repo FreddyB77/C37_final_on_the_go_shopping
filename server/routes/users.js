@@ -1,6 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 const mongoose = require('mongoose');
+const {auth} = require('../middleware/auth')
 
 const User = require('../models/user');
 
@@ -100,7 +101,7 @@ router.delete('/users/:id', async (req, res) => {
 // ***********************************************//
 // Logout all devices
 // ***********************************************//
-router.post('/users/logoutAll', auth, async (req, res) => {
+/* router.post('/users/logoutAll', auth, async (req, res) => {
   try {
     req.user.tokens = [];
     await req.user.save();
@@ -108,12 +109,12 @@ router.post('/users/logoutAll', auth, async (req, res) => {
   } catch (e) {
     res.status(500).send();
   }
-});
+}); */
 
 // ***********************************************//
 // Logout a user
 // ***********************************************//
-
+/*
 router.post('/users/logout', auth, async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
@@ -127,5 +128,5 @@ router.post('/users/logout', auth, async (req, res) => {
   }
 });
 
-
+*/
 module.exports = router;
