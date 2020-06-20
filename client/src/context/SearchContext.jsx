@@ -37,19 +37,19 @@ export const SearchContextProvider = ( props ) => {
     
 
     function handleSearch(search, history){
-        console.log(search)
-        history.push("/category/list")
+        console.log("Handle Search", search)
+        // history.push("/category/list")
         // axios.get(`/products/search/${search}`)
-        //     .then(res => setLastLookUp(res.data))
+        //     .then(res => setScanSearch(res.data))
         //     .then(() => history.push("/category/list"))
         //     .catch(e => console.log(e))
-        setUserSearch({...userSearch, searchKey: search})
+        // setUserSearch({...userSearch, searchKey: search})
     }
 
     function upcSearch(upc){
-        // axios.get(`/products/${upc}`)
-        //     .then(res => setScanSearch(res.data[0]))
-        //     .catch(e => console.log(e))
+        axios.get(`/products/${upc}`)
+            .then(res => setScanSearch(res.data[0]))
+            .catch(e => console.log(e))
         console.log("Scan Search", scanSearch)
     }
 

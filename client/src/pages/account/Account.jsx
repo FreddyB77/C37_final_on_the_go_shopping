@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext' 
 import { Button } from '@material-ui/core'
-import Logout from "../../components/Logout"
+import LogoutButton from "../../components/buttons/LogoutButton"
 import BottomNav from '../../components/navs/BottomNav'
 import CartButton from '../../components/buttons/CartButton'
 import './account.css'
@@ -25,14 +25,6 @@ const Account = ({history}) => {
         }]
 
 
-    const TestDrawer = () => {
-        return(
-            <div>
-                <h2>Test2</h2>
-                {console.log(testArr[0].state)}
-            </div>
-        )
-    }
     const handleDrawerState = (drawer) => {
         switch(drawer){
             case[0]:
@@ -70,11 +62,11 @@ const Account = ({history}) => {
                     )
                 })}
 
-                {testArr[0].state && <TestDrawer />}
-                {testArr[1].state && <TestDrawer />}
-                {testArr[2].state && <TestDrawer />}
+                {testArr[0].state}
+                {testArr[1].state}
+                {testArr[2].state}
 
-                <Logout history={history}/>
+                <LogoutButton history={history}/>
 
             </div>
             

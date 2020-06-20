@@ -1,9 +1,9 @@
 import React, {useContext} from 'react'
-import { UserContext } from "../context/UserContext"
+import { UserContext } from "../../context/UserContext"
 import { Button } from '@material-ui/core'
 import axios from "axios"
 
-const Logout = ({history}) => {
+const LogoutButton = ({history}) => {
   const { setUser, setLoggedIn } = useContext(UserContext)
 
   const logOut = async () => {
@@ -18,7 +18,7 @@ const Logout = ({history}) => {
       localStorage.removeItem("token")
       setUser({})
       setLoggedIn(false)
-      history.push("/login")
+      history.pushState("/login")
     })
     .catch(e => console.log(e.message.toString()))
   }
@@ -27,4 +27,4 @@ const Logout = ({history}) => {
   )
 }
 
-export default Logout
+export default LogoutButton

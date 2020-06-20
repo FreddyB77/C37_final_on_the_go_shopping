@@ -45,6 +45,7 @@ router.get('/products/:upc', async (req, res) => {
     // IF THE PRODUCT IS IN THE DATABASE THEN DO THIS
     else {
       try {
+        console.log("product in database")
         const product = await Product.find({ upc });
         res.json(product);
       } catch (e) {
