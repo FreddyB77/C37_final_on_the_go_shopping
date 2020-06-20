@@ -1,8 +1,9 @@
 import React, {useContext} from 'react'
 import { UserContext } from "../context/UserContext"
+import { Button } from '@material-ui/core'
 import axios from "axios"
 
-const Logout = () => {
+const Logout = ({history}) => {
   const { setUser, setLoggedIn } = useContext(UserContext)
 
   const logOut = async () => {
@@ -10,19 +11,19 @@ const Logout = () => {
 
     await axios({
       method: "POST",
-      url: `${process.env.REACT_APP_SERVER_URL}/users/logout`,
-      headers: {Authorization: `Bearer ${token}`}
+      url: `/users/logout`,
+      headers: { Authorization: `Bearer ${token}`}
     })
     .then(({data}) =>{
-      console.log(data, "logout response")
       localStorage.removeItem("token")
       setUser({})
       setLoggedIn(false)
+      history.push("/login")
     })
     .catch(e => console.log(e.message.toString()))
   }
   return(
-    <button onClick={logOut}>Log out</button>
+    <Button onClick={logOut}>Log out</Button>
   )
 }
 

@@ -74,7 +74,7 @@ const Account = ({history}) => {
                 {testArr[1].state && <TestDrawer />}
                 {testArr[2].state && <TestDrawer />}
 
-                {/* {<Logout />} */}
+                <Logout history={history}/>
 
             </div>
             
