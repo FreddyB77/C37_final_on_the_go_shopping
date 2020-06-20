@@ -15,7 +15,7 @@ const Cart = ({history }) => {
         let filterCarted = tempCart.filter((item) => {
             return item.upc !== upc
         })
-        setCart(filterCarted)
+        setCart([...filterCarted])
     }
 
     const handleSub = (key) => {

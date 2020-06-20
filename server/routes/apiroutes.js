@@ -15,6 +15,7 @@ router.get('/products/:upc', async (req, res) => {
           `https://api.upcitemdb.com/prod/trial/lookup?upc=${upc}`
         );
         const productArray = [];
+        console.log(data)
         data.items.map((item) => {
           productArray.push({
             upc: item.upc,

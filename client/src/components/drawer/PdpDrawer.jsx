@@ -58,6 +58,7 @@ const PdpDrawer = () => {
 
     function handleDelete(){
         //Not really deleting just minimizes Drawer. 
+        
         setProductDrawerState(false)
     }
 

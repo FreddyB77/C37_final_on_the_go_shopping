@@ -16,14 +16,13 @@ const CartContextProvider = ( props ) => {
     
 
     useEffect(()=> {       
-        //If cart has items update local storage
-        //else cart state is empty so pull from localStorage
-        let localStatus = Boolean(JSON.parse(window.localStorage.getItem('cart')))
-        if(cart.length === 0 && localStatus){
-            setCart(JSON.parse(window.localStorage.getItem('cart', cart)))
-        }else if ( cart.length > 0 ){  
+        //If cart > 0 update localStorage
+        //else if cart is empty but localStorage isn't update localstorage
+        if ( cart.length >= 0 ){  
             window.localStorage.setItem('cart', JSON.stringify(cart))
-        }
+        }else if(cart.length === 0 && Boolean(JSON.parse(window.localStorage.getItem('cart')))){
+            setCart(JSON.parse(window.localStorage.getItem('cart', cart)))
+        } 
 
         //Calc: Cart's SubTotal 
         let subCounter = 0
