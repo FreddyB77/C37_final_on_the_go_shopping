@@ -7,7 +7,12 @@ const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    validate(value) {
+      if (value.toLowerCase() === 'guest') {
+        throw new Error('First name cannot be Guest');
+      }
+    }
   },
   lastName: {
     type: String,
@@ -39,12 +44,29 @@ const userSchema = new mongoose.Schema({
       }
     }
   },
-  tokens: [{
-    token: {
-      type: String,
-      required: true
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true
+      }
     }
-  }],
+  ],
+  creditCard: {
+    type: String,
+    required: false,
+    trim: true
+  },
+  expiration: {
+    type: String,
+    required: false,
+    trim: true
+  },
+  cvv: {
+    type: String,
+    required: false,
+    trim: true
+  }
 });
 
 userSchema.methods.toJSON = function () {
@@ -52,7 +74,6 @@ userSchema.methods.toJSON = function () {
   const userObject = user.toObject();
   delete userObject.password;
   delete userObject.tokens;
-  delete userObject.avatar;
   return userObject;
 };
 
@@ -90,6 +111,5 @@ userSchema.pre('save', async function (next) {
 });
 
 const User = mongoose.model('User', userSchema);
-
 
 module.exports = User;
