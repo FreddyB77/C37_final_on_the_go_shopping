@@ -44,3 +44,43 @@
 #oShareLocation{
     margin-bottom: 8px;
 }
+
+
+
+/*** L O C A T I O N   Z I P ***/
+.zipFinder{
+    display: flex;
+    flex-direction: column;
+}
+#enter-zipCode{
+    color: #4FA329;
+    font-size: 30px;
+    margin: 0 auto;
+}
+#zipSubmit{
+    box-shadow: 0 2px 4px 0 rgba(128, 127, 127, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+    width: 180px;
+    margin: 16px auto;
+
+}
+.grocerylist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grocerylist > button{
+    width: 80vw;
+    margin: 8px;
+    box-shadow: 0 2px 4px 0 rgba(128, 127, 127, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.grocery-int-button{
+    display: flex;
+    flex-direction: column;
+}
+#shopping-location{
+    align-self: flex-start;
+    width: 180px;
+    margin: 0 0 0 10vw;
+    box-shadow: 0 2px 4px 0 rgba(128, 127, 127, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+
+}

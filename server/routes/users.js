@@ -17,7 +17,6 @@ router.post('/users', async (req, res) => {
     //sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.status(201).send({ user, token });
-    console.log("Action completed")
   } catch (e) {
     res.status(400).send({ error: e.message });
   }
@@ -71,7 +70,6 @@ router.delete('/users/:id', async (req, res) => {
 // Get current user
 // ***********************************************//
 router.get('/users/me', auth, async (req, res) => {
-  console.log("I'm working")
   res.send(req.user);
   
 });

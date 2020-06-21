@@ -21,7 +21,7 @@ const CartButton = () => {
                 className="button-cart"
                 onClick={handleClick}
             >
-                <img src={cartImg} alt="Cart image"/>
+                <img src={cartImg} alt="Shopping cart button"/>
                 <p>{cart.length}</p>
             </Button>
         </div>

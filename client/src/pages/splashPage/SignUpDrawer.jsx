@@ -14,6 +14,7 @@ const SignUpDrawer = ({signUpDrawer, toggleDrawer}) => {
                         id="signUp-drawer"
                         onClose={toggleDrawer(false)}
                     >
+                        <hr style={{width:'10%', margin:"8px auto 32px auto"}}/>
                         <Button className="button-md-hollow">Continue with Google</Button>
                         <br></br>
                         <Button className="button-md-hollow">Continue with Facebook</Button>

@@ -1,30 +1,28 @@
 import React, { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
+import { SearchContext } from '../../context/SearchContext'
+
 import BackNav from '../../components/navs/BackNav'
 
 import ScanButton from '../../components/buttons/ScanButton'
+import nullImg from '../../assets/imgs/productUnavailable.jpg'
 import './productDescriptionPage.css'
 
 
 const ProductDescriptionPage = ({history}) => {
-    const { cart } = useContext(CartContext)
+    const { scanSearch } = useContext(SearchContext)
 
     return (
         <div className='pdp-item-container'>
             <BackNav history={history}/>
-            <img src={"https://picsum.photos/300/300"} alt="Product Image"/>
+            <img src={nullImg && scanSearch?.title} alt={`${scanSearch?.name}  `}/>
             <div className="pdp-item-stat">
-                <h1 id="pdp-item-name">{cart[0].name}</h1>
-                <p id ="pdp-item-size">{cart[0].size}</p>
-                <p>${cart[0].price}</p>
+                <h1 id="pdp-item-name">{scanSearch?.title}</h1>
+                <p id ="pdp-item-size">{scanSearch?.size}</p>
+                <p>${scanSearch?.price}</p>
                 <p>Location in store: Aisle {Math.floor(Math.random() * 17)}</p>
                 <p>In Stock: Qty {Math.floor(Math.random() * 100)}</p>
             </div>
-            <ScanButton 
-                history={history}
-                text="Scan"
-                link="/scan"
-            />
+            <ScanButton text="Scan"/>
         </div>
     )
 }

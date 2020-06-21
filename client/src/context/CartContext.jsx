@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 export const CartContext = React.createContext()
 
 const CartContextProvider = ( props ) => {
-
     const [cart, setCart] = useState([])
     
     const [ productDrawerState, setProductDrawerState ] = useState(false)

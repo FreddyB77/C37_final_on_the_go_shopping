@@ -21,7 +21,7 @@ const AddPayment = ({history}) => {
     return(
         <div class="createAccount-page">
         <div className="cAccount-nav">
-            <h1></h1>
+            <h1> </h1>
             <h1>Step 2/3</h1>
         </div>
 

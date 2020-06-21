@@ -6,7 +6,7 @@ router.post('/location/mobile', (req, res) => {
   //console.dir(req.body)
   axios
     .get(
-      `https://api.yelp.com/v3/businesses/search?term=grocery&latitude=${req.body.lat}&longitude=${req.body.long}&radius=2000&limit=5&sort_by=distance`,
+      `https://api.yelp.com/v3/businesses/search?term=grocery&latitude=${req.body.lat}&longitude=${req.body.long}&radius=2000&limit=8&sort_by=distance`,
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
@@ -29,15 +29,14 @@ router.post('/location/mobile', (req, res) => {
 });
 
 // LOCATION SEARCH BY ZIP
-
-router.post('/location/zip', (req, res) => {
-  //console.dir(req.body)
+router.get('/location/zip/:zip', (req, res) => {
+  console.log(req.params.zip)
   axios
     .get(
-      `https://api.yelp.com/v3/businesses/search?location=${req.query.zip}`,
+      `https://api.yelp.com/v3/businesses/search?term=grocery&location=${req.params.zip}&radius=2000&limit=8&sort_by=distance`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
+          Authorization: `Bearer ${process.env.YELP_API_KEY}`
         }
       }
     )

@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { LocationContext } from '../../context/LocationContext'
+import { Button } from '@material-ui/core'
 
 import './nav.css'
 import CartButton from '../buttons/CartButton'
@@ -8,28 +10,27 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
-const HomeNav = ({history}) => {
+const HomeNav = () => {
+    const { grocery, primaryStore } = useContext(LocationContext)
     return (
         <div className="home-nav nav-shadow"> 
             <div>
                 <h1 id="home-OTG-title">On-the-Go</h1>
+
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <p id="home-store">Store_Name</p>
+                    <p id="home-store">{primaryStore}</p>
                     </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                         <div className="home-store-container">
-                            <p>store 1</p>
-                            <p>store 2</p>
-                            <p>store 3</p>
-                            <p>store 4</p>
-                            <p>store 5</p>
+                            {grocery?.map(store => <Button>{store.name}</Button>)}
                         </div>
                         </ExpansionPanelDetails>
                 </ExpansionPanel>
+
             </div> 
             <div>
-                <CartButton history={history}/>
+                <CartButton/>
             </div>
         </div>
     )

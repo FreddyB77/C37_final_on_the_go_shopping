@@ -6,18 +6,14 @@ import { SearchContext } from '../context/SearchContext'
 import './quagSample.css'
 
 const Quag = () => {
-    const {  updateCart, 
-        productDrawerState, setProductDrawerState
-        } = useContext(CartContext)
+    const { productDrawerState, setProductDrawerState } = useContext(CartContext)
     const { upcSearch } = useContext(SearchContext) 
-
-    let lastScannedUPC = '';
     const scannerRef = useRef(null);
     const [vText, setVText] = useState("Align")
+
     function scanCondition(){ 
         return !productDrawerState ? setVText("Align") : setVText("Captured")
     }
-
 
     useEffect(() => scanCondition(), [productDrawerState])
     useEffect(() =>{ 
@@ -41,17 +37,13 @@ const Quag = () => {
             Quagga.start();
             });
         Quagga.onDetected( data => {
-            if(data !== lastScannedUPC){ 
-                lastScannedUPC = data;
-                const UPC = data.codeResult.code.substr(1)
-                upcSearch(UPC)
-                setProductDrawerState(true)
-            } else( console.log("Duplicate Detected"))
+            const UPC = data.codeResult.code.substr(1)
+            upcSearch(UPC)
+            setProductDrawerState(true)
         })
         return ( () => Quagga.stop())
     }, [] )
 
-    {/*"trueScanContainer"*/}
     return(
         <div 
             className={`scanner-${vText} quag`}

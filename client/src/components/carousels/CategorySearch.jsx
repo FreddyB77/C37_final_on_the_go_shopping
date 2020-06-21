@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { SearchContext } from '../../context/SearchContext'
 
 import nullImg from '../../assets/imgs/productUnavailable.jpg'
@@ -6,19 +7,17 @@ import nullImg from '../../assets/imgs/productUnavailable.jpg'
 import './carousels.css'
 const CategorySearch = () => {
 
-    const { userSearch } = useContext(SearchContext)
+    const { userSearch, handlePDPSearch } = useContext(SearchContext)
 
     return (
         <div className="category-search">
             {userSearch?.searchResult?.map(item => {
-                console.log("Hello", Boolean(item.image))
                 return(
-                    
-                    <div className="category-items">
+                    <div className="category-items" onClick={() => handlePDPSearch(item.title, useHistory) }>
                         <img 
                             className="cat-image" 
                             src={Boolean(item.image) ? item.image : nullImg} 
-                            alt={`${item.title} image`} 
+                            alt={`${item.title}`} 
                         />
                         <div className="cat-items-info">
                             <h1 className="item-price">${item.price}</h1>

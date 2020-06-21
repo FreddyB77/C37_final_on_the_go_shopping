@@ -8,14 +8,14 @@ import Sales from '../../components/carousels/Sales'
 
 
 
-const Home = ({ history }) => {
+const Home = () => {
 
   return (
     <div
       className="home-container"
     >
-      <HomeNav history={history}/>
-      <ShopAndScanButton history={history} />
+      <HomeNav/>
+      <ShopAndScanButton/>
       <div className="home-item">
         <div className="home-item-banner">
           <h1>Sales</h1>
@@ -24,7 +24,7 @@ const Home = ({ history }) => {
         <Sales />
      
       </div>
-      <BottomNav history={history} />
+      <BottomNav/>
     </div>
   );
 };

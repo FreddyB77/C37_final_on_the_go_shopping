@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 100vh;
-    padding: 24px;
+    min-height: 90vh;
     overflow: hidden;
 }
 .splash-top{
@@ -12,13 +11,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 5vh;
 }
 .splash-top > h2{
     color: #4FA329;
     font-size: 45px;
     font-weight: bold;
-
 }
+
 .splash-top > h3{
     color: #4FA329;
     font-size: 40px;
@@ -33,15 +33,15 @@
     text-align: center;
 }
 .splash-container > img{
-    transform: scale(2);
+    transform: scale(1.75);
 }
 
 .splash-bottom{
     display: flex;
     flex-direction: column;
-    width: 90%;
-    justify-content: center;
-    align-content: center;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: flex-start;
     align-self: center;
 }
 .splash-bottom > Button {
@@ -97,4 +97,40 @@
 .payment-default{
     display: flex;
     flex-direction: column;
+}
+
+
+/*** C R E A T E   A C C O U N T ***/
+#pass-req{
+    font-size: 18px;
+    color: #9E9E9E;
+}
+#private-policy{
+    font-size: 12px;
+    margin: 24px 0;
+    color: #4C4C4C;
+}
+#private-policy > span {
+    color: black;
+}
+
+/** C R E A T E   A C C O U N T ***/
+.createAccount-page{
+    padding: 40px;
+  }
+.cAccount-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0 16px 0;
+    font-size: 12px;
+    color: #B8B8B8;
+    font-weight: 200;
+}
+.cAccount-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60vh;
+    justify-content: space-around;
 }

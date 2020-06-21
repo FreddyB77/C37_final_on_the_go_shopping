@@ -3,15 +3,17 @@
     background-color: #4FA329 !important;
     width: 100% !important;
     font-size: 26px !important;
+    padding: 0px !important;
     color: #FFFFFF !important;
 }
 
-#button-lg-hollow{
-    background-color: white;
-    border: 2px solid  #204310;
-    color: #204310;
-    font-size: 26px;
+.button-lg-hollow{
+    background-color: white !important;
+    border: 2px solid  #204310 !important;
+    color: #204310 !important ;
+    font-size: 26px ;
     height: 60px;
+    padding: 0px !important;
     width: 100% !important;
 }
 
@@ -21,10 +23,17 @@
     color: #204310 !important;
     font-size: 20px !important;
     height: 45px;
+    padding: 0px !important;
     margin: 24px;
     width: 100% !important;
 }
-
+.elusive-button{
+    margin: 24px;
+    letter-spacing: 1px !important; 
+    font-weight: 350 !important;
+    font-size: 16px !important;
+    width: 100% !important;
+}
 /*** C A R T   B U T T O N ***/
 .button-cart{
     background-color: #4FA329 !important;

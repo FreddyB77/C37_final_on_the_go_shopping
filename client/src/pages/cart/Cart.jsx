@@ -35,7 +35,6 @@ const Cart = ({history }) => {
     return (
         <div>
             <BackArrow history={history}/>
-            {console.log("Cart", cart)}
             <h1 id="cart-title">My Cart</h1>
             {cart?.map( (item, key) => {
                 return(

@@ -17,18 +17,16 @@ const UserContextProvider = ({children}) => {
   useEffect(()=>{
     if(token){
       axios.get(`/users/me`, {headers: {Authorization: `Bearer ${token}`}
-      })
-      .then(({data}) => {
+      }).then(({data}) => {
         setUser(data)
         setLoggedIn(true)
-      })
-      .catch((e) => console.log(e.message.toString()))
-    }}, [refetch])
+      }).catch((e) => console.log(e.message.toString()))
+    }}, [refetch, token])
 
 
   return(
     <UserContext.Provider value={{
-      user,     setUser, 
+      user,       setUser, 
       isLoggedIn, setLoggedIn, 
       token,
     }}>

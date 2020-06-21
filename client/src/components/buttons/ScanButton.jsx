@@ -1,18 +1,18 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 
 import './button.css'
 
-const ScanButton = ({history, text, link}) => {
-    const handlePush= () => {
-        history.push(link)
-    }
+const ScanButton = ({text}) => {
+    let history = useHistory()
+
     return (
         <div>
             <Button 
                 className="button-lg-green"
                 id="scan-button"
-                onClick={handlePush}
+                onClick={() => history.push("/scan")}
             >
                 {text}
             </Button>

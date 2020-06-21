@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 export const SearchContext = React.createContext()
@@ -12,7 +11,6 @@ export const SearchContextProvider = ( props ) => {
     
 
     function handleSearch(search, history){
-        console.log("Handle Search", search)
         axios.get(`/products/search/${search}`)
             .then(res => {
               setUserSearch({searchKey: search, searchResult: [...res.data]})
@@ -25,9 +23,16 @@ export const SearchContextProvider = ( props ) => {
         axios.get(`/products/${upc}`)
             .then(res => setScanSearch(res.data[0]))
             .catch(e => console.log(e))
-        console.log("Scan Search", scanSearch)
     }
 
+    function handlePDPSearch(search, history){
+      axios.get(`/products/search/${search}`)
+          .then(res => {
+            setUserSearch({searchKey: search, searchResult: [...res.data]})
+            history.push(`/pdp/${search}`)
+            })
+          .catch(e => console.log(e))
+  }
     
 
 
@@ -38,7 +43,9 @@ export const SearchContextProvider = ( props ) => {
         scanSearch, setScanSearch,
         userSearch, setUserSearch,
         //Functions
-        handleSearch, upcSearch
+        handleSearch, 
+        handlePDPSearch,
+        upcSearch
     }}>
       {props.children}
     </SearchContext.Provider>

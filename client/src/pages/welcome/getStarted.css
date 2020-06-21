@@ -18,10 +18,13 @@
 .gStarted-top > h2{
     color: #4FA329;
     font-size: 45px;
+    font-weight: bolder;
 }
 .gStarted-top > h3{
     color: #4FA329;
     font-size: 30px;
+    font-weight: bolder;
+    
 }
 .gStarted-top > p{
     color: #636363;
@@ -35,9 +38,11 @@
   transform: scale(2);
   padding-right: 24px;
 }
+
 .gStarted-bottom{
   margin: auto;
 }
+
 #gStarted-button{
     background-color: #4FA329;
     height: 60px;

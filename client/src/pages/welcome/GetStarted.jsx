@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import { Button } from '@material-ui/core'
 
 import './getStarted.css'
-import {Button} from '@material-ui/core'
 import otgLogo from '../../assets/imgs/cartLogo/Logo.svg'
   
 const GetStarted = () => {

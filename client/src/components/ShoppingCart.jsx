@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../context/CartContext'
-import '../App.css'
+import '../shoppingCart.css'
 
 import tide from '../../img/tide.png'
 import trashIcon from '../../img/trashIcon.svg'

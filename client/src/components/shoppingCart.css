@@ -1,0 +1,48 @@
+/*** S H O P P I N G   C A R T ***/
+.sCart-item{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 20% 40% 10%;
+    border: 1px solid black;
+}
+
+.sCart-item-img{
+    border: 1px solid red;
+    width: 15vw;
+}
+
+.sCart-item-detail{
+    border: 1px solid blue;
+}
+
+.sCart-item-detail-remove{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border:1px solid green;
+}
+.sCart-item-amount{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid green;
+    height: 40px;
+    margin: auto;
+}
+
+.sCart-item-quantity{
+    border: 1px solid black;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+
+.sCart-item-price{
+    border:1px solid red;
+}
+
+#sCart-item-trash-icon{
+    height: 40px;
+    width: 40px;
+    background-color: black;
+}

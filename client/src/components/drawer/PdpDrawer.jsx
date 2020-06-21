@@ -25,7 +25,6 @@ const PdpDrawer = () => {
                 tempSearch.quantity -= 1
                 tempCart[cartIndex] = tempSearch
                 setCart([...tempCart])
-                console.log("Sub-if-else-if", cart)
             }
         }
     }
@@ -35,7 +34,6 @@ const PdpDrawer = () => {
         let tempSearch = scanSearch
         //If cart is initially empty 
         if(!Boolean(cart.length)){
-            console.log("Handle Add 1")
             tempSearch.quantity += 1 
             setCart([tempSearch])
         }else {
@@ -43,11 +41,9 @@ const PdpDrawer = () => {
             let cartIndex = cart.findIndex(item => { return item.upc === scanSearch.upc})
             //If item does not exist .exe(if) else update existing item quantity
             if(cartIndex === -1 ){ 
-                console.log("Item does")
                 tempSearch.quantity += 1
                 setCart([...cart, tempSearch])
             }else{
-                console.log('Item does not exist ')
                 tempSearch = cart[cartIndex]
                 tempSearch.quantity += 1
                 tempCart[cartIndex] = tempSearch
@@ -58,7 +54,6 @@ const PdpDrawer = () => {
 
     function handleDelete(){
         //Not really deleting just minimizes Drawer. 
-        
         setProductDrawerState(false)
     }
 
@@ -77,7 +72,7 @@ const PdpDrawer = () => {
                     <img 
                         src={scanSearch?.image} 
                         style={{width:"100%"}} 
-                        alt={`Product ${scanSearch.title}`}
+                        alt={`Product ${scanSearch?.title}`}
                     />
                     <img 
                         src={trashIcon} 

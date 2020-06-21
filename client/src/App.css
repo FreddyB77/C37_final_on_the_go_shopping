@@ -1,17 +1,9 @@
-/* JUST FOR DEMO PURPORSES, REPLACE WITH YOUR OWN CODE */
 *{
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
+}
 
-}
-#demo {
-  width: 80vw;
-  height: 80vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 button{
   -webkit-border-radius: initial;
@@ -20,6 +12,7 @@ button{
   border-radius: 8px;
   border: initial;
 }
+
 /**** S H A R E D *****/
 /* login | signUp */
 .button{
@@ -45,139 +38,3 @@ button{
   margin: auto;
 }
 
-/* END DEMO */ 
-
-
-
-
-.login-control-container{
-  align-self: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid red;
-}
-#login-signup{
-  margin-top: 16px;
-  color:white;
-  background-color: rgb(77,77,77);
-}#login-login{
-  margin-top: 16px;
-  color: rgb(77,77,77);
-  border: 1px solid black;
-}#login-guest{
-  margin-top: 16px;
-}#login-gSpan{
-  color: rgb(77,77,77)
-}
-
-/** C R E A T E   A C C O U N T ***/
-.createAccount-page{
-  padding: 40px;
-}
-.cAccount-nav{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 0 16px 0;
-}
-.cAccount-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 60vh;
-  justify-content: space-around;
-}
-.cForm-names{
-  display: flex;
-  flex-direction: row;
-
-}
-#cAccount-button{
-  background-color: grey;
-  color: white;
-}
-
-
-
-
-/*** M A N U A L   S C A N ***/
-.mScan-container{
-  display: grid;
-  border-radius: 16px;
-  grid-template-rows: 10% 90%;
-  padding: 24px;
-  background-color: rgb(150,150,150);
-}
-.mScan-numInput{
-  border: 3px solid red;
-  width: 80%;
-  margin:auto;
-  background-color: white;
-  height: 2rem;
-}
-.mScan-keypad{
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
-  justify-items: center;
-  justify-content: center;
-  padding: 16px;
-  column-gap: 20px;
-  row-gap: 20px;
-}
-.mScan-keypad > button {
-  background-color: rgb(215,215,215);
-  font-size: 24px;
-  width: 16vw;
-  text-align: center;
-  border-radius: 10%;
-}
-#mScan-key-Cancel{
-  grid-column-start: 4;
-  grid-row-start: 1;
-}
-#mScan-key-Enter{
-  grid-row-start: 2;
-  grid-column-start: 4;
-  grid-row-end: span 3;
-}
-
-
-/*** C A R T ***/
-.sCart-item{
-  width: 80%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 20% 40% 10%;
-  border: 1px solid black;
-}.sCart-item-img{
-  border: 1px solid red;
-  width: 15vw;
-}.sCart-item-detail{
-  border: 1px solid blue;
-}.sCart-item-detail-remove{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border:1px solid green;
-}.sCart-item-amount{
-  display: flex;
-  flex-direction: row;
-  border: 3px solid green;
-  height: 40px;
-  margin: auto;
-}.sCart-item-quantity{
-  border: 1px solid black;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-}.sCart-item-price{
-  border:1px solid red;
-}
-
-
-#sCart-item-trash-icon{
-  height: 40px;
-  width: 40px;
-  background-color: black;
-}
