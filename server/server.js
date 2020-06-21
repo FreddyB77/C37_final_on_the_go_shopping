@@ -9,9 +9,9 @@ require('../db/mongoose');
 // import routes
 const userRouter = require('./routes/users');
 const apiRouter = require('./routes/apiroutes');
-const locationRoutes = require('./routes/location');
+const locationRoutes = require('./routes/locations');
 
-const stripeRouter = require('./routes/stripeapi');
+const stripeRouter = require('./routes/stripeapis');
 const app = express();
 const port = process.env.PORT || 8080;
 // Parse incoming JSON into objects

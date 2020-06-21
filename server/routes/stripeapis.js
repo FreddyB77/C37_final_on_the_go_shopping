@@ -3,13 +3,10 @@ const express = require('express'),
   auth = require('../middleware/auth'),
   User = require('../models/user');
 
-(keySecret =
-  'sk_test_51GuNZtCRd2qXbMM9hyNRjj9wMWlg4FanE7MRo8dd0Zs6LbclCuwYxH3ps1dWajrUEkjpeuZVWIUSrQCxFEdiOIlu00RzQJ45pG'),
+(keySecret = process.env.STRIPE_API_KEY_SECRET),
   (stripe = require('stripe')(keySecret));
 
-const keyPublishable =
-  'pk_test_51GuNZtCRd2qXbMM94JZgbCEFl6yK70M8iPx2GHnhbTKJJpSpPCx98muPIIbbb5vnzHb6kLY9Xnajj7ffH84WjvWq00pbdsyjU4';
-
+// CREATE A STRIPE CHARGE TO AN ACCOUNT. WILL SAVE CREDIT CARD INFO WHEN PAID
 router.post('/charge', auth, async (req, res) => {
   const { creditCard, expiration, cvv } = req.body;
   try {
@@ -23,7 +20,7 @@ router.post('/charge', auth, async (req, res) => {
     req.user.expiration = expiration;
     req.user.cvv = cvv;
     await req.user.save();
-    res.json(paymentIntent);
+    res.json(paymentIntent.amount);
   } catch (e) {
     res.json(e);
   }
