@@ -11,7 +11,7 @@ const bcrypt = require('bcryptjs');
 
 router.post('/users', async (req, res) => {
   const user = new User(req.body);
-  console.log(user)
+  console.log(user);
   try {
     await user.save();
     //sendWelcomeEmail(user.email, user.name);
@@ -65,15 +65,12 @@ router.delete('/users/:id', async (req, res) => {
   }
 });
 
-
 // **********************************************//
 // Get current user
 // ***********************************************//
 router.get('/users/me', auth, async (req, res) => {
   res.send(req.user);
-  
 });
-
 
 // ***********************************************//
 // Logout all devices
@@ -97,10 +94,10 @@ router.post('/users/logout', auth, async (req, res) => {
     req.user.token = req.user.tokens.filter((token) => {
       return token.token !== req.token;
     });
-    await req.user.save({ 'message': "Successfully logged out"});
+    await req.user.save({ message: 'Successfully logged out' });
     res.send();
   } catch (e) {
-    res.status(500).send({ error: e.message } );
+    res.status(500).send({ error: e.message });
   }
 });
 
@@ -109,11 +106,16 @@ router.post('/users/logout', auth, async (req, res) => {
 // ***********************************************//
 router.post('/users/login', async (req, res) => {
   try {
-    const user = await User.findByCredentials(
+    const profile = await User.findByCredentials(
       req.body.email,
       req.body.password
     );
-    const token = await user.generateAuthToken();
+    console.log(profile);
+    const user = {
+      firstName: profile.firstName,
+      email: profile.email
+    };
+    const token = await profile.generateAuthToken();
     res.send({ user, token });
   } catch (e) {
     res.status(400).send();
