@@ -1,6 +1,7 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { LocationContext } from '../../context/LocationContext'
 import { Button } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 import './nav.css'
 import CartButton from '../buttons/CartButton'
@@ -11,7 +12,16 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const HomeNav = () => {
-    const { grocery, primaryStore } = useContext(LocationContext)
+    let history = useHistory()
+    const { primaryStore, setPrimaryStore, grocery, setGrocery } = useContext(LocationContext)
+
+    console.log("Cond1:", !primaryStore?.name)
+    function test(){
+        if(!primaryStore?.name){setPrimaryStore( JSON.parse(window.localStorage.getItem('prime')))};
+        if(!grocery[0]?.name){setGrocery( JSON.parse(window.localStorage.getItem('stores')))};
+    }
+    test()
+
     return (
         <div className="home-nav nav-shadow"> 
             <div>
@@ -19,7 +29,7 @@ const HomeNav = () => {
 
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <p id="home-store">{primaryStore}</p>
+                    <p id="home-store">{primaryStore?.name}</p>
                     </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                         <div className="home-store-container">

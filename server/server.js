@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const express = require('express');
 const path = require('path');
+const cors = require('cors')
 
 // import db
 require('../db/mongoose');
@@ -16,6 +17,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 // Parse incoming JSON into objects
 app.use(express.json());
+app.use(cors())
 // Call routes
 app.use(userRouter);
 app.use(apiRouter);

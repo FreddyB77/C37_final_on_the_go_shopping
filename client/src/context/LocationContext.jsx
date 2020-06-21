@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const LocationContext = React.createContext()
 
 const LocationContextProvider = ( props ) => {
-    const [ grocery, setGrocery ] = useState([{name: "Test Store", address: ["ABC", "1234"], distance: "0.5"}])
+    const [ grocery, setGrocery ] = useState([])
     const [ zip, setZipCode ] = useState('')
     const [ primaryStore, setPrimaryStore ] = useState()
+    
 
     return( 
         <LocationContext.Provider value={{

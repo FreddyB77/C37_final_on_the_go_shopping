@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom'
 
 import BackArrow from '../../components/buttons/BackArrow'
 import RoomIcon from '@material-ui/icons/Room';
+import LocationCards from './LocationCards'
+
 import './location.css'
 
 const LocationZip = () => {
@@ -16,40 +18,20 @@ const LocationZip = () => {
             primaryStore, setPrimaryStore,
             zip, setZipCode 
         } = useContext(LocationContext)   
-    const [ renderStat, setRenderStat ] = useState(false)
+    const [renderStat, setRenderStat ] = useState(false)
 
     const fetchGrocery = (e) => {
         e.preventDefault()
         axios({
             method: 'GET',
-            url: `/location/zip/${zip}`
+            url: `http://localhost:8080/location/zip/${zip}`
         }).then((data) => {
             setGrocery(data.data)
+            window.localStorage.setItem('stores', JSON.stringify(data.data))
+            window.localStorage.setItem('prime', JSON.stringify(data.data[0]))
             setRenderStat(true)
         }).catch((e) => console.log(e))
     }
-
-    const handleStoreSubmit = (store) => {
-        setPrimaryStore(store);
-        history.push("/home")
-    }
-
-    const LocationCards = () => (
-            <div className="grocerylist">
-            <Button id="shopping-location">
-                <RoomIcon/>Shopping in {zip}
-            </Button>
-            {grocery?.map(grocery => (
-                    <Button onClick={() => handleStoreSubmit(grocery.name)}>
-                        <div className="grocery-int-button">
-                            <h1>{grocery.name}</h1>
-                            <p>{grocery.distance} miles away</p>
-                        </div>
-                    </Button>
-            ))}
-            </div>
-        )
-    
 
     return (
         <div>
@@ -74,7 +56,7 @@ const LocationZip = () => {
             </Button>
         </form>
         
-        { renderStat && <LocationCards /> } 
+        { renderStat && <LocationCards/> } 
         
         </div>
     )

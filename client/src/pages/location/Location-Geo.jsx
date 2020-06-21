@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-
-
 import BackArrow from '../../components/buttons/BackArrow'
+import { LocationContext } from '../../context/LocationContext'
+import LocationCards from './LocationCards'
+
 //Grab Location to pull nearby grocery store
 
-const LocationGeo = ({history}) => {
+const LocationGeo = () => {
+    const { grocery, setGrocery, 
+        primaryStore, setPrimaryStore,
+        zip, setZipCode 
+    } = useContext(LocationContext)  
+
     const [ location, setLocation ] = useState({})
     const [ boolLoc, setBoolLoc ] = useState(false)
     const [ groceryStores, setGroceryStores] = useState([])
@@ -22,18 +28,18 @@ const LocationGeo = ({history}) => {
     }
     function error(err){
         console.warn(`ERROR(${err.code}): ${err.message}`)
-        navigator.geolocation.getCurrentPosition( success, error, options)
     }
 
-    useEffect(()=> {
+    useEffect( ()=> {
         if(boolLoc){
             axios({
                 method: 'POST',
-                url: `http://localhost:8080/location`,
+                url: `http://localhost:8080/location/mobile`,
                 data:{ long: location.longitude, lat: location.latitude }
             }).then(store => {
-                setGroceryStores(store.data)
-                setBoolLoc(false)
+                setGrocery(store.data)
+                window.localStorage.setItem('stores', JSON.stringify(store.data))
+                window.localStorage.setItem('prime', JSON.stringify(store.data[0]))
             }).catch( error => console.error(error) )
     }}, [boolLoc])
 
@@ -41,19 +47,8 @@ const LocationGeo = ({history}) => {
     
     return(
         <div>
-            <BackArrow history={history}/>
-            <h1>test</h1>
-            {groceryStores && groceryStores.map( store => {
-                return(
-                    <div className='lCards-container'>
-                        <span className='lCard-storeName'>{store.name}</span>
-                        <a href={`geo:${store.address[0]} ${store.address[1]}`} className='lCard-storeAddress'>{`${store.address[0]} ${store.address[1]}`}</a>
-                        <span className='lCard-storeDistance'>{store.distance}</span>
-                    </div>
-                )
-            })
-            }
-            
+            <BackArrow/>
+            {grocery && <LocationCards/>}    
         </div>
     )
 }

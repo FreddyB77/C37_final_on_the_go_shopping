@@ -1,15 +1,16 @@
 import React, { useContext } from 'react'
-import { CartContext } from '../../context/CartContext' 
 
 import { Button } from '@material-ui/core'
+import { UserContext } from '../../context/UserContext'
 import LogoutButton from "../../components/buttons/LogoutButton"
 import BottomNav from '../../components/navs/BottomNav'
 import CartButton from '../../components/buttons/CartButton'
+
 import './account.css'
 
 
 const Account = ({history}) => {
-    const { userAccount } = useContext(CartContext);
+    const { user } = useContext(UserContext)
 
     const testArr = [{
             name:'Payment cards', 
@@ -42,8 +43,8 @@ const Account = ({history}) => {
             <div className="account-header">
                 <div>
                     <h4>On-the-Go</h4>
-                    <h3>Hello, {userAccount.fName}</h3>
-                    <p>{userAccount.email}</p>
+                    <h3>Hello, {user.firstName}</h3>
+                    <p>{user.email}</p>
                 </div>
                 <div>
                     <CartButton />
@@ -67,11 +68,11 @@ const Account = ({history}) => {
                 {testArr[1].state}
                 {testArr[2].state}
 
-                <LogoutButton history={history}/>
+                <LogoutButton/>
 
             </div>
             
-           <BottomNav history={history}/>
+           <BottomNav/>
         </div>
     )
 }

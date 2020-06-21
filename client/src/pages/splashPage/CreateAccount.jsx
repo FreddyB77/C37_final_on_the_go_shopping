@@ -13,9 +13,11 @@ const CreateAccount = ({ history }) => {
   const [ passReq, setPassReq ] = useState(true)
 
   useEffect(() => {
-    if(user.password.length < 8 || Boolean(user.password.length === 0)){
-      setPassReq(false)
-    }else setPassReq(true)
+    if(user.password){
+      if(user.password.length < 8 || Boolean(user.password.length === 0)){
+        setPassReq(false)
+      }else setPassReq(true)
+    }
   },[user.password])
   
   const handleSubmit = async (e) => {
@@ -23,7 +25,7 @@ const CreateAccount = ({ history }) => {
     if(setPassReq){
       await axios({
         method: 'POST',
-        url: `/users`,
+        url: `http://localhost:8080/users`,
         data: {
           firstName: user.fName,  lastName: user.lName,
           email: user.email,      password: user.password
@@ -33,7 +35,7 @@ const CreateAccount = ({ history }) => {
           setUser(data.user);
           localStorage.setItem('token', data.token)
           setUser({...user, password: "", email: ''})
-          history.push("/add-payment")
+          history.push("/home")
         })
         .catch((e) => console.log(e.message.toString()));
     }
@@ -81,7 +83,7 @@ const CreateAccount = ({ history }) => {
             id="outlined-basic"
             placeholder="mscott@hotmail.com"
             variant="outlined"
-            onChange={(e) => {setUser({ ...user, email: e.target.value }); console.log(user)}}
+            onChange={(e) => {setUser({ ...user, email: e.target.value })}}
           />
         </>
 

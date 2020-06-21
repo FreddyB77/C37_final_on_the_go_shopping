@@ -9,16 +9,16 @@ import BottomNav from '../../components/navs/BottomNav'
 import './categoryList.css'
 import '../../pages/explore/explore.css'
 
-const CategoryList = ({history}) => {
+const CategoryList = () => {
     const { userSearch } = useContext(SearchContext)
 
     return (
-        <div >
-            <BackNav history={history}/>
-            <SearchBar history={history}/>
+        <div>
+            <BackNav/>
+            <SearchBar/>
             <h1 id="dept-title">{userSearch && userSearch.searchKey}</h1>
             <CategorySearch />
-            <BottomNav history={history}/>
+            <BottomNav/>
         </div>
     )
 }

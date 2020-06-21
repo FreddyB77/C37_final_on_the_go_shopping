@@ -83,7 +83,7 @@ const PdpDrawer = () => {
                 <div id="scan-drawer-result-right">
 
                     <h1>{scanSearch?.title}</h1>
-                    <p>{scanSearch?.description}</p>
+                    <p>{`${scanSearch?.description?.slice(0,25)}...`}</p>
                     <h5>${scanSearch?.price}</h5>
 
                     <div id="scan-item-quantity">

@@ -6,25 +6,22 @@ import { Button, Drawer, TextField } from '@material-ui/core'
 import './splashPage.css'
 
 
-const LoginDrawer = ({toggleDrawer, loginDrawer, }) => {
+const LoginDrawer = ({toggleDrawer, loginDrawer }) => {
     let history = useHistory()
     const [ loginEmail, setLoginEmail ] = useState('')
     const [ pass, setPass ] = useState('')    
     const { setLoggedIn, setUser } = useContext(UserContext)
 
-
-
     function handleLogin(e){
         e.preventDefault()
         axios({
           method: "POST",
-          url: `/users/login`,
+          url: `http://localhost:8080/users/login`,
           data: {
             email: loginEmail,
             password: pass
           }})
           .then(({data}) => {
-            //setUser(data.user)
             localStorage.setItem("token", data.token)
             setLoggedIn(true)
             setLoginEmail("")
@@ -49,13 +46,6 @@ const LoginDrawer = ({toggleDrawer, loginDrawer, }) => {
                         onClose={toggleDrawer(false)}
                     >
                         <hr style={{width:'10%', margin:"8px auto 32px auto"}}/>
-                        <Button id="sDrawer-button">Continue with Google</Button>
-                        <Button id="sDrawer-button">Continue with Facebook</Button>
-                        <div className="cred-divider">
-                            <hr />
-                            <p>or</p>
-                            <hr />
-                        </div>
 
                         <form className="login-form" noValidate autoComplete="off" onSubmit={e => handleLogin(e)}>
                         <h1>Login</h1>
@@ -74,7 +64,6 @@ const LoginDrawer = ({toggleDrawer, loginDrawer, }) => {
                                 type="password"
                                 onChange={e => setPass(e.target.value)}
                             />
-                            <p id="fPassword">Forgot Password?</p>
                             <Button
                             id="login-button"
                             className="button-lg-green"

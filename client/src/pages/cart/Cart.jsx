@@ -7,7 +7,7 @@ import trashIcon from '../../assets/imgs/trashIcon.svg'
 
 import './cart.css'
 
-const Cart = ({history }) => {
+const Cart = () => {
     const { cart, setCart } = useContext(CartContext)
     
     function handleRemove(upc){
@@ -34,13 +34,13 @@ const Cart = ({history }) => {
 
     return (
         <div>
-            <BackArrow history={history}/>
+            <BackArrow />
             <h1 id="cart-title">My Cart</h1>
             {cart?.map( (item, key) => {
                 return(
                     <div className="cart-item-container" key={`cart-item-${key}`}>
                         <img 
-                            src="https://picsum.photos/100/100" 
+                            src={`${item.image}`} 
                             alt={`${item.title}`}
                         />
                         <div className="cart-item">
@@ -78,7 +78,7 @@ const Cart = ({history }) => {
             })
             }
 
-            <CheckoutNav history={history}/>
+            <CheckoutNav/>
         </div>
     )
 }

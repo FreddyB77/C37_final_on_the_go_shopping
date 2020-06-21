@@ -1,15 +1,22 @@
 import React from 'react'
+import { Button } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 import mapLogo from '../../assets/imgs/storeLocation/mapLogo.png'
-import ShareLocationButton from '../../components/buttons/ShareLocationButton'
-import ZipCodeButton from '../../components/buttons/ZipCodeButton'
 import OnBoardNav from '../../components/navs/OnboardNav'
 
 import './location.css'
 
-const LocationOne = ({history}) => {
-    return (
+const LocationOne = () => {
+    let history = useHistory()
+
+    const handleZip = () => {
+        console.log("Zip")
+        history.push("/locationZip")
+    }
+
+    return(
     <>
-        <OnBoardNav history={history} step={"3/3"}/>
+        <OnBoardNav step={"3/3"}/>
         <div className="lOne-container">
             <div className="lOne-text">
                 <h1 id="lOne-title">Store Location</h1>
@@ -19,8 +26,24 @@ const LocationOne = ({history}) => {
             <img src={mapLogo} alt="Logo: stores Near Me"/>
 
             <div className="lOne-button-container">
-                <ShareLocationButton history={history} id="oShareLocation"/>
-                <ZipCodeButton history={history} id="oZipCode"/>
+
+
+            <Button
+                className="button-lg-green"
+                onClick={() => history.push("/locationGeo")}
+            >
+                Share My Location
+            </Button>
+
+
+            <Button
+                    id="oShareLocation"
+                    className="button-lg-hollow"
+                    onClick={handleZip}
+                >
+                    Enter Zip Code
+                </Button>
+
             </div>
         </div>
     </>

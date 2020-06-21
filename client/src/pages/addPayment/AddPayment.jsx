@@ -1,23 +1,26 @@
+//Ditching Create Account Page
+
 import React, {useState} from 'react'
-import {TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core'
+import {TextField, Button } from '@material-ui/core'
 
 import '../../App.css'
 import './payment.css'
 
 
 const AddPayment = ({history}) => {
-    const [ checkStat, setCheckStat ] = useState(false)
+    const [ creditCard ] = useState('4242 4242 4242 4242')
+    const [ cvv ] = useState('888')
+    const [ exp ] = useState('08/22') 
 
     const handleFormSubmit = () => {
-        console.log("Hi there pretty person!")
+ 
     }
-    const handleCheck = () => {
-        setCheckStat(!checkStat)
-    }
+
     const handleSkip = () => {
         history.push('/home')
     }
-    
+
+
     return(
         <div class="createAccount-page">
         <div className="cAccount-nav">
@@ -25,15 +28,13 @@ const AddPayment = ({history}) => {
             <h1>Step 2/3</h1>
         </div>
 
-
-
         <h1>Add Payment</h1>
         <form autoComplete="off" noValidate className="cAccount-form">
             <>
                 <h3>Card Number</h3>
                 <TextField 
                     variant="outlined"
-                    placeholder="Michael"
+                    placeholder={`${creditCard}`}
                     type="text"
                 />
             </>
@@ -41,7 +42,7 @@ const AddPayment = ({history}) => {
                 <h3>Name on Card</h3>
                 <TextField 
                     id="outlined-basic" 
-                    placeholder="Scott"
+                    placeholder="Fake Person"
                     variant="outlined" 
                 />
             </>
@@ -49,25 +50,18 @@ const AddPayment = ({history}) => {
                 <h3>Expiration Date (MM/YY)</h3>
                 <TextField 
                     id="outlined-basic" 
-                    placeholder="mscott@hotmail.com"
+                    placeholder={`${exp}`}
                     variant="outlined" 
                 />
             </>
             <>
-                <h3>CVC</h3>
+                <h3>CVV</h3>
                 <TextField
                     id="outlined-password-input"
-                    type="password"
-                    autoComplete="current-password"
+                    type={`${cvv}`}
                     variant="outlined"
                 />
             </>
-            <div className="payment-default">
-                <FormControlLabel
-                    control={<Checkbox name="check-mark" checked={checkStat} onChange={handleCheck} />}
-                    label={'Make default payment method'}
-                />
-            </div>
         </form>
         
         <Button 

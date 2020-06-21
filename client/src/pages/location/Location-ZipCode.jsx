@@ -6,7 +6,6 @@ const LocationZipCode = ({history}) => {
     <div>
         <Button onClick={() => history.goBack()}>Cancel</Button>        
         <h1>Enter Zip Code</h1>
-
     </div>
     )
 }

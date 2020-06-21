@@ -1,55 +1,55 @@
 import React, { useState } from 'react'
-import {TextField, Checkbox, FormControlLabel } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 
 
-const PaymentForm = () => {
-    const [ checkStat, setCheckStat ] = useState(false)
-    const handleCheck = () => {
-        setCheckStat(!checkStat)
-    }
+const PaymentForm = ({ setCredit, setCVV, setExp, setFormSubmit}) => {
 
     return (
         <div>
-            <form autoComplete="off" noValidate className="cAccount-form">
-            <>
-                <h3>Card Number</h3>
-                <TextField 
-                    variant="outlined"
-                    placeholder="Michael"
-                    type="text"
-                />
-            </>
+            <form 
+                autoComplete="off" 
+                noValidate 
+                onSubmit={() => setFormSubmit(true)}
+                className="cAccount-form">
             <>
                 <h3>Name on Card</h3>
                 <TextField 
-                    id="outlined-basic" 
-                    placeholder="Scott"
-                    variant="outlined" 
+                    variant="outlined"
+                    placeholder="Michael Scott"
+                    type="text"
+                    
                 />
             </>
             <>
-                <h3>Expiration Date (MM/YY)</h3>
+                <h3>Card Number</h3>
                 <TextField 
                     id="outlined-basic" 
-                    placeholder="mscott@hotmail.com"
+                    placeholder="4242 4242 4242 4242"
                     variant="outlined" 
                 />
             </>
             <>
-                <h3>CVC</h3>
-                <TextField
-                    id="outlined-password-input"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="outlined"
+                <h3>Expiration (MM/YY)</h3>
+                <TextField 
+                    id="outlined-basic" 
+                    placeholder="08/22"
+                    variant="outlined" 
                 />
             </>
-            <div className="payment-default">
+            <>
+                <h3>CVV</h3>
+                <TextField 
+                    id="outlined-basic" 
+                    placeholder="888"
+                    variant="outlined" 
+                />
+            </>
+            {/* <div className="payment-default">
                 <FormControlLabel
                     control={<Checkbox name="check-mark" checked={checkStat} onChange={handleCheck} />}
                     label={'Make default payment method'}
                 />
-            </div>
+            </div> */}
         </form>
         </div>
     )

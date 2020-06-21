@@ -12,7 +12,7 @@ router.post('/location/mobile', (req, res) => {
       `https://api.yelp.com/v3/businesses/search?term=grocery&latitude=${req.body.lat}&longitude=${req.body.long}&radius=2000&limit=8&sort_by=distance`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
+          Authorization: `Bearer ${process.env.YELP_API_KEY}`
         }
       }
     )

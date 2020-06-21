@@ -25,7 +25,7 @@ import ReceiptPage from './pages/receipt/Receipt'
 import './App.css';
 
 const App = () => {
-  const { isLoggedIn } = useContext(UserContext)
+  const { token } = useContext(UserContext)
   const sp = <SplashPage />
 
   return (
@@ -33,25 +33,25 @@ const App = () => {
         <Switch>
 
           <Route path="/"                exact component={GetStarted} /> 
-          <Route path="/add-payment"     component={AddPayment} />
+          {/* <Route path="/add-payment"     component={AddPayment} /> */}
           <Route path="/create-account"  component={CreateAccount} />
-          <Route path="/geo"             component={LocationGeo} />
           <Route path="/instructions"    component={Instructions}/>
           <Route path="/login"           component={SplashPage}/>
-          <Route path="/location-1"      component={LocationOne} />
-          <Route path="/LocationZip"     component={LocationZip} />
-          {/*--------- A U T H O R I Z A T I O N --- R E Q. ------------*/}
+          <Route path="/location"        component={LocationOne} />
+          <Route path="/locationZip"     component={LocationZip} />
+          <Route path="/locationGeo"     component={LocationGeo} />
+          {/*------------------ A U T H O R I Z A T I O N -- R E Q. -----------------------*/}
           <CartContextProvider>
           <SearchContextProvider>
-            <Route path="/account"         render={() => isLoggedIn ? <Account/>      : sp} />
-            <Route path="/cart"            render={() => isLoggedIn ? <Cart/>         : sp} />
-            <Route path="/category/list"   render={() => isLoggedIn ? <CategoryList/> : sp} />
-            <Route path="/checkout"        render={() => isLoggedIn ? <CheckoutPage/> : sp} />
-            <Route path="/explore"         render={() => isLoggedIn ? <Explore/>      : sp} />
-            <Route path="/home"            render={() => isLoggedIn ? <Home/>         : sp} />
-            <Route path="/pdp/:item"       render={() => isLoggedIn ? <ProdDescPage/> : sp} />
-            <Route path="/receiptPage"     render={() => isLoggedIn ? <ReceiptPage/>  : sp} />
-            <Route path="/scan"            render={() => isLoggedIn ? <Scanner/>      : sp} />  
+            <Route path="/account"         render={() => token ? <Account/>      : sp} />
+            <Route path="/cart"            render={() => token ? <Cart/>         : sp} />
+            <Route path="/category/list"   render={() => token ? <CategoryList/> : sp} />
+            <Route path="/checkout"        render={() => token ? <CheckoutPage/> : sp} />
+            <Route path="/explore"         render={() => token ? <Explore/>      : sp} />
+            <Route path="/home"            render={() => token ? <Home/>         : sp} />
+            <Route path="/pdp/:item"       render={() => token ? <ProdDescPage/> : sp} />
+            <Route path="/receiptPage"     render={() => token ? <ReceiptPage/>  : sp} />
+            <Route path="/scan"            render={() => token ? <Scanner/>      : sp} />  
           </SearchContextProvider>
           </CartContextProvider>
         </Switch>

@@ -9,16 +9,19 @@ import './productDescriptionPage.css'
 
 
 const ProductDescriptionPage = ({history}) => {
-    const { scanSearch } = useContext(SearchContext)
+    const { userSearch } = useContext(SearchContext)
 
     return (
         <div className='pdp-item-container'>
             <BackNav history={history}/>
-            <img src={nullImg && scanSearch?.title} alt={`${scanSearch?.name}  `}/>
+            <img 
+                src={nullImg && userSearch?.searchResult[0]?.image} 
+                alt={`${userSearch?.searchResult[0]?.name}`}
+            />
             <div className="pdp-item-stat">
-                <h1 id="pdp-item-name">{scanSearch?.title}</h1>
-                <p id ="pdp-item-size">{scanSearch?.size}</p>
-                <p>${scanSearch?.price}</p>
+                <h1 id="pdp-item-name">{userSearch?.searchResult[0]?.title}</h1>
+                <p id ="pdp-item-size">{userSearch?.searchResult[0]?.description}</p>
+                <p>${userSearch?.searchResult[0]?.price}</p>
                 <p>Location in store: Aisle {Math.floor(Math.random() * 17)}</p>
                 <p>In Stock: Qty {Math.floor(Math.random() * 100)}</p>
             </div>

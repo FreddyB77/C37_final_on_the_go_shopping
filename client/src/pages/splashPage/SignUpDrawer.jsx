@@ -15,14 +15,6 @@ const SignUpDrawer = ({signUpDrawer, toggleDrawer}) => {
                         onClose={toggleDrawer(false)}
                     >
                         <hr style={{width:'10%', margin:"8px auto 32px auto"}}/>
-                        <Button className="button-md-hollow">Continue with Google</Button>
-                        <br></br>
-                        <Button className="button-md-hollow">Continue with Facebook</Button>
-                        <div className="cred-divider">
-                            <hr />
-                            <p>or</p>
-                            <hr />
-                        </div>
                         <Button 
                             className="button-lg-green"
                             onClick={() => history.push("/create-account")}

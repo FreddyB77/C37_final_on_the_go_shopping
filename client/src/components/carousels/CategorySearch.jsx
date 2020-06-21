@@ -6,14 +6,14 @@ import nullImg from '../../assets/imgs/productUnavailable.jpg'
 
 import './carousels.css'
 const CategorySearch = () => {
-
+    let history = useHistory()
     const { userSearch, handlePDPSearch } = useContext(SearchContext)
 
     return (
         <div className="category-search">
             {userSearch?.searchResult?.map(item => {
                 return(
-                    <div className="category-items" onClick={() => handlePDPSearch(item.title, useHistory) }>
+                    <div className="category-items" onClick={() => handlePDPSearch(item.upc, history) }>
                         <img 
                             className="cat-image" 
                             src={Boolean(item.image) ? item.image : nullImg} 
