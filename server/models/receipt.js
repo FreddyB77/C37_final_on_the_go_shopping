@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'),
 
-
+// RECEIPT SCHEMA. THIS WILL BE SENT FORWARD TO 
+// USER TO LOOK AT. 
 const receiptSchema = new mongoose.Schema(
   {
     total: {

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// PRODUCT SCHEMA TO BE SAVED TO DATABASE
 const Product = mongoose.model('Product', {
   upc: {
     type: String,
@@ -7,22 +8,28 @@ const Product = mongoose.model('Product', {
     unique: true
   },
   title: {
-    type: String
+    type: String,
+    trim: true
   },
   description: {
-    type: String
+    type: String,
+    trim: true
   },
   category: {
-    type: String
+    type: String,
+    trim: true
   },
   price: {
-    type: Number
+    type: Number,
+    trim: true
   },
   image: {
-    type: String
+    type: String,
+    trim: true
   },
   quantity: {
-    type: Number
+    type: Number,
+    trim: true
   }
 });
 

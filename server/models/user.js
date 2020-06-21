@@ -3,6 +3,9 @@ const bcrypt = require('bcryptjs');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 
+// USER SCHEMA THAT SAVES BASIC TEST CARD INFORMATION.
+// WOULD NORMALLY CREATE ENCRYPTED CREDIT CARD INFO
+// STRETCH GOAL
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,

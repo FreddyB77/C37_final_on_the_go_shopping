@@ -1,7 +1,6 @@
 const express = require('express'),
   router = new express.Router(),
-  auth = require('../middleware/auth'),
-  User = require('../models/user');
+  auth = require('../middleware/auth');
 
 (keySecret = process.env.STRIPE_API_KEY_SECRET),
   (stripe = require('stripe')(keySecret));

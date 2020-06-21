@@ -1,9 +1,7 @@
 const express = require('express');
 const router = new express.Router();
-const mongoose = require('mongoose');
 const auth = require('../middleware/auth');
 const User = require('../models/user');
-const bcrypt = require('bcryptjs');
 
 // ***********************************************//
 // Create a user

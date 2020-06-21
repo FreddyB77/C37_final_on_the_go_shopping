@@ -1,9 +1,14 @@
 const express = require('express'),
   router = new express.Router(),
   axios = require('axios'),
-  mongoose = require('mongoose'),
   Product = require('../models/product');
 
+// PULL PRODUCT BY SEARCHING THE UPC
+// WILL TRY TO PULL FROM DATABASE FIRST
+// TO ACCOMODATE FOR API CALL AMOUNT RESTRICTIONS
+// IF THE ITEM IS IN THE DATABASE IT WILL PULL FROM THERE
+// IF THE ITEM IS NOT IN DATABASE THEN IT WILL
+// DO AN UPC SEARCH ON THE API ITSELF
 router.get('/products/:upc', async (req, res) => {
   const { upc } = req.params;
   try {
@@ -15,7 +20,6 @@ router.get('/products/:upc', async (req, res) => {
           `https://api.upcitemdb.com/prod/trial/lookup?upc=${upc}`
         );
         const productArray = [];
-        console.log(data)
         data.items.map((item) => {
           productArray.push({
             upc: item.upc,
@@ -30,11 +34,9 @@ router.get('/products/:upc', async (req, res) => {
 
         // SENDING THE PRODUCT FROM THE UPC API TO OUR DATABASE FOR API CALLS
         const product = new Product(productArray[0]);
-        console.log(product);
         try {
           await product.save();
           res.send(product);
-          console.log('product saved to database', productArray[0]);
         } catch (e) {
           console.error(e);
         }
@@ -57,11 +59,17 @@ router.get('/products/:upc', async (req, res) => {
   }
 });
 
+// SEARCH THE DATABASE BY QUERYING SEARCH TERMS
+// WILL FILTER TEARMS TO THE CATEGORY OF "GROCERY"
+// THIS FILTER IS BEING IN PLACE BECAUSE OF THE
+// FACT THIS IS A GLOBAL API AND NOT A STORE-SPECIFIC
+// IRL WOULD USE API SPECIFIC TO STORE AND NOT GLOBAL
+
 router.get('/products/search/:query', async (req, res) => {
   const { query } = req.params;
   try {
     const { data } = await axios.get(
-      `https://api.upcitemdb.com/prod/trial/search?s=${query}&match_mode=0&type=product`
+      `https://api.upcitemdb.com/prod/trial/search?s=${query}&category=grocery&match_mode=0&type=product`
     );
     const productsArray = [];
 
