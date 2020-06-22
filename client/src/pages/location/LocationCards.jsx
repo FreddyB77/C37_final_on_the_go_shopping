@@ -1,16 +1,20 @@
-import React, { useContext } from 'react';
+import React, {  useState } from 'react';
 import { Button } from '@material-ui/core';
-import { LocationContext } from '../../context/LocationContext';
 import { useHistory } from 'react-router-dom';
 
 import './location.css';
 
 const LocationCards = () => {
   let history = useHistory();
-  const { grocery, setPrimaryStore } = useContext(LocationContext);
+  //const { grocery, setPrimaryStore } = useContext(LocationContext);
+
+  // const [ primaryStore, setPrimaryStore ] = useState(JSON.parse(window.localStorage.getItem('prime')))
+  const [ grocery  ] = useState(JSON.parse(window.localStorage.getItem('stores')))
+
 
   const handleStoreSubmit = (store) => {
-    setPrimaryStore(store);
+    // setPrimaryStore(store);
+    window.localStorage.setItem('prime', store)
     history.push('/home');
   };
 

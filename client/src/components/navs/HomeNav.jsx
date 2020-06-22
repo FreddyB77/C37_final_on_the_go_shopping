@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { LocationContext } from '../../context/LocationContext';
+import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 
 import './nav.css';
@@ -10,14 +9,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const HomeNav = () => {
-  const { primaryStore, setPrimaryStore, grocery, setGrocery } = useContext(
-    LocationContext
-  );
-    if (!primaryStore?.name) {
-      setPrimaryStore(JSON.parse(window.localStorage.getItem('prime')));
-    }if (!grocery[0]?.name) {
-      setGrocery(JSON.parse(window.localStorage.getItem('stores')));
-    }
+  const [ primaryStore ] = useState(window.localStorage.getItem('prime'))
+  const [ grocery ] = useState(JSON.parse(window.localStorage.getItem('stores')))
 
   return (
     <div className="home-nav nav-shadow">
@@ -26,7 +19,7 @@ const HomeNav = () => {
 
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <p id="home-store">{primaryStore?.name}</p>
+            <p id="home-store">{primaryStore}</p>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <div className="home-store-container">
