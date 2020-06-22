@@ -1,15 +1,19 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { Button } from '@material-ui/core'
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import { CartContext } from '../../context/CartContext';
 
 const CheckoutButton = () => {
-    let history = useHistory()
+  let history = useHistory();
+  const { cart } = useContext(CartContext);
 
-    return (
-        <Button onClick={() => history.push('/checkout')}>
-            Checkout
-        </Button>
-    )
-}
+  const handleClick = () => {
+    if (cart.length > 0) {
+      history.push('/checkout');
+    } else alert('Add items to checkout! Thanks --Management');
+  };
 
-export default CheckoutButton
+  return <Button onClick={handleClick}>Checkout</Button>;
+};
+
+export default CheckoutButton;

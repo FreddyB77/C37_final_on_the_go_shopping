@@ -28,7 +28,7 @@ router.get('/products/:upc', async (req, res) => {
             category: item.category,
             price: item.lowest_recorded_price,
             image: item.images[0],
-            quantity: 1
+            quantity: 0
           });
         });
 
@@ -74,6 +74,9 @@ router.get('/products/search/:query', async (req, res) => {
     const productsArray = [];
 
     data.items.map((item) => {
+      if (item.lowest_recorded_price === 0) {
+        item.lowest_recorded_price = (Math.random() * 15).toFixed(2);
+      }
       productsArray.push({
         upc: item.upc,
         title: item.title,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 import LoginDrawer from './LoginDrawer';
@@ -11,14 +11,17 @@ import './splashPage.css';
 import '../../components/buttons/button.css';
 
 const SplashPage = () => {
-  let history = useHistory()
+  let history = useHistory();
   const [user, setUser] = useState({
-    fName: 'Guestaccount',  lName: 'Account',
-    email: 'guest@guestaccount.com',  password: '123apple'
+    fName: 'Guestaccount',
+    lName: 'Account',
+    email: 'guest@guestaccount.com',
+    password: '123apple'
   });
 
   const [signUpDrawer, setSignUpDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
+  window.localStorage.setItem('cart', JSON.stringify([]));
 
   const toggleDrawer = (open) => (event) => {
     setSignUpDrawer(open);
@@ -34,11 +37,13 @@ const SplashPage = () => {
         email: user.email,
         password: user.password
       }
-    }).then(({ data }) => {
+    })
+      .then(({ data }) => {
         localStorage.setItem('token', data.token);
-        setUser({...user, password: "", email: ''})
+        setUser({ ...user, password: '', email: '' });
         history.push('/location');
-    }).catch((e) => console.log(e.message.toString(), 'Crendentials error'));
+      })
+      .catch((e) => console.log(e.message.toString(), 'Crendentials error'));
   }
 
   return (
@@ -67,7 +72,7 @@ const SplashPage = () => {
           Signup
         </Button>
 
-        <Button className="elusive-button" onClick={e => handleGuestLogin(e)}>
+        <Button className="elusive-button" onClick={(e) => handleGuestLogin(e)}>
           Continue as guest
         </Button>
 
