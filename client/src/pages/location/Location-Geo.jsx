@@ -11,6 +11,7 @@ const LocationGeo = () => {
   const [location, setLocation] = useState({});
   const [boolLoc, setBoolLoc] = useState(false);
   const [ show, setShow] = useState(false)
+  const [ storeProp, setStoreProp] = useState([])
   let x = 0;
 
   let options = {
@@ -30,6 +31,7 @@ const LocationGeo = () => {
   }
 
   useEffect(() => {
+    console.log("x:", x)
     if(boolLoc && (x === 0)){
       axios({
         method: 'POST',
@@ -38,12 +40,14 @@ const LocationGeo = () => {
       })
         .then((store) => {
           setShow(true)
+          setStoreProp(store.data)
           window.localStorage.setItem('stores', JSON.stringify(store.data));
-          window.localStorage.setItem('prime', JSON.stringify(store.data[0]));
+          window.localStorage.setItem('prime', JSON.stringify(store.data[0].name));
         })
         .catch((error) => console.error(error));
     }
-      return ( () => setBoolLoc(false))
+    console.log("x:", x)
+      //return ( () => setBoolLoc(false))
   }, [boolLoc]);
 
   navigator.geolocation.getCurrentPosition(success, error, options);
@@ -51,7 +55,7 @@ const LocationGeo = () => {
   return (
     <div>
       <BackArrow />
-      {show && <LocationCards />}
+      {show && <LocationCards grocery={storeProp}/>}
       {!show && <CircularProgress />}
     </div>
   );
