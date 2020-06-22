@@ -22,7 +22,7 @@ const CheckoutPage = () => {
         const token = localStorage.getItem("token")
         await axios({
             method: "POST",
-            url:"http://localhost:8080/charge",
+            url:"/charge",
             data: {
                 creditCard: creditCard,
                 expiration: exp,

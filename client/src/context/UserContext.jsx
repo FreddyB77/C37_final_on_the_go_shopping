@@ -16,7 +16,7 @@ const UserContextProvider = ({children}) => {
 
   useEffect(()=>{
     if(token){
-      axios.get(`http://localhost:8080/users/me`, {headers: {Authorization: `Bearer ${token}`}
+      axios.get(`/users/me`, {headers: {Authorization: `Bearer ${token}`}
       }).then(({data}) => {
         setUser(data)
         setLoggedIn(true)

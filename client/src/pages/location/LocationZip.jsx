@@ -22,7 +22,7 @@ const LocationZip = () => {
         e.preventDefault()
         axios({
             method: 'GET',
-            url: `http://localhost:8080/location/zip/${zip}`
+            url: `/location/zip/${zip}`
         }).then((data) => {
             setGrocery(data.data)
             setStoreProp(data.data)
