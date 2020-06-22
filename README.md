@@ -3,13 +3,13 @@
 On-The-Go-Shopping is an application designed to give the people select a grocery store in a quick and engaging way to find nearby grocery store of choice. The app is calling Yelp's API and Grocery API for location and product information on a clean and simple UI that allows the user to scan products while shopping at your most loved grocery store using product bar-codes, as well as generating a shopping list, checkout and receipt; allowing the customer to avoid checkout lines all together.
 
 ## Screen Shots:
-![1st](https://user-images.githubusercontent.com/63671353/85331481-35e41e00-b4a4-11ea-8e09-e16034bd1fab.png)
+![pic1](https://user-images.githubusercontent.com/63671353/85342196-03442080-b4b8-11ea-9457-ef5bae386d7c.png)
 
-![2nd](https://user-images.githubusercontent.com/63671353/85332039-3204cb80-b4a5-11ea-8237-da296daa8369.png)
+![pic2](https://user-images.githubusercontent.com/63671353/85342159-ed366000-b4b7-11ea-8205-d9db40b30b33.png)
 
-![3rd](https://user-images.githubusercontent.com/63671353/85332101-4cd74000-b4a5-11ea-8f69-285e17211ddd.png)
+![pic3](https://user-images.githubusercontent.com/63671353/85342167-f1fb1400-b4b7-11ea-91c2-1a3e7826d9f1.png)
 
-![4th](https://user-images.githubusercontent.com/63671353/85332172-709a8600-b4a5-11ea-9661-e03c679d6bbb.png)
+![pic4](https://user-images.githubusercontent.com/63671353/85342180-f9222200-b4b7-11ea-89e4-5f8263124b38.png)
 
 
 ## Who
