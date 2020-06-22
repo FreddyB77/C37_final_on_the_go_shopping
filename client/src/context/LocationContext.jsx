@@ -7,7 +7,6 @@ const LocationContextProvider = ( props ) => {
     const [ zip, setZipCode ] = useState('')
     const [ primaryStore, setPrimaryStore ] = useState()
     
-
     return( 
         <LocationContext.Provider value={{
             //States

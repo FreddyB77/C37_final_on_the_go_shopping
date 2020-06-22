@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { LocationContext } from '../../context/LocationContext';
 import { Button } from '@material-ui/core';
 
@@ -13,15 +13,11 @@ const HomeNav = () => {
   const { primaryStore, setPrimaryStore, grocery, setGrocery } = useContext(
     LocationContext
   );
-
-  useEffect(() => {
     if (!primaryStore?.name) {
       setPrimaryStore(JSON.parse(window.localStorage.getItem('prime')));
-    }
-    if (!grocery[0]?.name) {
+    }if (!grocery[0]?.name) {
       setGrocery(JSON.parse(window.localStorage.getItem('stores')));
     }
-  }, []);
 
   return (
     <div className="home-nav nav-shadow">

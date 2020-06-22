@@ -16,9 +16,9 @@ const LocationCards = () => {
 
   return (
     <div className="grocerylist">
-      {grocery?.map((grocery) => (
+      {grocery?.map((grocery,key) => (
         <Button
-          key={grocery.name}
+          key={`geo-${key}`}
           onClick={() => handleStoreSubmit(grocery.name)}
         >
           <div className="grocery-int-button">

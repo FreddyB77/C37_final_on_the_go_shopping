@@ -6,7 +6,7 @@ import axios from "axios"
 import '../../components/buttons/button.css'
 
 const LogoutButton = () => {
-  let history = useHistory
+  let history = useHistory()
   const { setUser, setLoggedIn } = useContext(UserContext)
 
   const logOut = async () => {
