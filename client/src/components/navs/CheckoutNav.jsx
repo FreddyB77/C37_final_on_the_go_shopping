@@ -4,7 +4,7 @@ import CheckoutButton from '../buttons/CheckoutButton'
 import { CartContext } from '../../context/CartContext'
 
 const CheckoutNav = () => {
-    const { subTotal, cartTotal } = useContext(CartContext)
+    const { cartTotal } = useContext(CartContext)
 
     return (
         <div className="checkout-container sticky-nav nav-shadow">

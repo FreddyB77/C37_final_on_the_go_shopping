@@ -1,13 +1,12 @@
 import React, { useContext} from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { UserContext } from './context/UserContext'
-import { CartContextProvider } from './context/CartContext';
-import { SearchContextProvider } from './context/SearchContext';
+
 
 import CreateAccount from './pages/splashPage/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
 import SplashPage from './pages/splashPage/SplashPage'
-import AddPayment from './pages/addPayment/AddPayment'
+
 import Home from './pages/home/Home'
 import Explore from './pages/explore/Explore'
 import Account from './pages/account/Account'
@@ -33,7 +32,6 @@ const App = () => {
         <Switch>
 
           <Route path="/"                exact component={GetStarted} /> 
-          {/* <Route path="/add-payment"     component={AddPayment} /> */}
           <Route path="/create-account"  component={CreateAccount} />
           <Route path="/instructions"    component={Instructions}/>
           <Route path="/login"           component={SplashPage}/>
@@ -41,8 +39,7 @@ const App = () => {
           <Route path="/locationZip"     component={LocationZip} />
           <Route path="/locationGeo"     component={LocationGeo} />
           {/*------------------ A U T H O R I Z A T I O N -- R E Q. -----------------------*/}
-          <CartContextProvider>
-          <SearchContextProvider>
+
             <Route path="/account"         render={() => token ? <Account/>      : sp} />
             <Route path="/cart"            render={() => token ? <Cart/>         : sp} />
             <Route path="/category/list"   render={() => token ? <CategoryList/> : sp} />
@@ -52,8 +49,7 @@ const App = () => {
             <Route path="/pdp/:item"       render={() => token ? <ProdDescPage/> : sp} />
             <Route path="/receiptPage"     render={() => token ? <ReceiptPage/>  : sp} />
             <Route path="/scan"            render={() => token ? <Scanner/>      : sp} />  
-          </SearchContextProvider>
-          </CartContextProvider>
+
         </Switch>
     </BrowserRouter>
   );

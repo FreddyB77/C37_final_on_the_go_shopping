@@ -1,6 +1,5 @@
 import React from 'react'
 
-import './explore.css'
 
 import BackNav from '../../components/navs/BackNav'
 import BottomNav from '../../components/navs/BottomNav'

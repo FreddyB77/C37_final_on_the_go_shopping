@@ -6,8 +6,6 @@ import CategorySearch from '../../components/carousels/CategorySearch'
 import { SearchContext } from '../../context/SearchContext'
 import BottomNav from '../../components/navs/BottomNav'
 
-import './categoryList.css'
-import '../../pages/explore/explore.css'
 
 const CategoryList = () => {
     const { userSearch } = useContext(SearchContext)

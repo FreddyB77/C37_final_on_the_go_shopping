@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 export const LocationContext = React.createContext()
 
@@ -7,7 +7,6 @@ const LocationContextProvider = ( props ) => {
     const [ zip, setZipCode ] = useState('')
     const [ primaryStore, setPrimaryStore ] = useState()
     
-
     return( 
         <LocationContext.Provider value={{
             //States

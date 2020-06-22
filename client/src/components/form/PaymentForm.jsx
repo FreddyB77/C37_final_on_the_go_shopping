@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TextField } from '@material-ui/core'
 
 
@@ -44,12 +44,6 @@ const PaymentForm = ({ setCredit, setCVV, setExp, setFormSubmit}) => {
                     variant="outlined" 
                 />
             </>
-            {/* <div className="payment-default">
-                <FormControlLabel
-                    control={<Checkbox name="check-mark" checked={checkStat} onChange={handleCheck} />}
-                    label={'Make default payment method'}
-                />
-            </div> */}
         </form>
         </div>
     )

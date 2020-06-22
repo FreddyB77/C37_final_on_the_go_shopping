@@ -1,19 +1,18 @@
-import React from 'react'
-import BackArrow from '../buttons/BackArrow'
+import React from 'react';
+import BackArrow from '../buttons/BackArrow';
 
-import CartButton from '../buttons/CartButton'
-import './nav.css'
+import CartButton from '../buttons/CartButton';
+import './nav.css';
 
-const BackNav = ({history}) => {
-    return(
-        <div className='backNav-container'>
-            <div className='backNav-control'>
-                <BackArrow history={history} />
-                <CartButton history={history}/>
-            </div>
-        </div>
-    )
-
-}
+const BackNav = () => {
+  return (
+    <div className="backNav-container">
+      <div className="backNav-control">
+        <BackArrow />
+        <CartButton />
+      </div>
+    </div>
+  );
+};
 
 export default BackNav;

@@ -2,40 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import axios from 'axios';
 import '../../App.css';
-import './splashPage.css'
-
+import './splashPage.css';
 
 const CreateAccount = ({ history }) => {
   const [user, setUser] = useState({
-    fName: '',  lName: '',
-    email: '',  password: ''
+    fName: '',
+    lName: '',
+    email: '',
+    password: ''
   });
-  const [ passReq, setPassReq ] = useState(true)
+  const [passReq, setPassReq] = useState(true);
 
   useEffect(() => {
-    if(user.password){
-      if(user.password.length < 8 || Boolean(user.password.length === 0)){
-        setPassReq(false)
-      }else setPassReq(true)
+    if (user.password) {
+      if (user.password.length < 8 || Boolean(user.password.length === 0)) {
+        setPassReq(false);
+      } else setPassReq(true);
     }
-  },[user.password])
-  
+  }, [user.password]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(setPassReq){
+    if (setPassReq) {
       await axios({
         method: 'POST',
         url: `http://localhost:8080/users`,
         data: {
-          firstName: user.fName,  lastName: user.lName,
-          email: user.email,      password: user.password
+          firstName: user.fName,
+          lastName: user.lName,
+          email: user.email,
+          password: user.password
         }
       })
         .then(({ data }) => {
           setUser(data.user);
-          localStorage.setItem('token', data.token)
-          setUser({...user, password: "", email: ''})
-          history.push("/home")
+          localStorage.setItem('token', data.token);
+          setUser({ ...user, password: '', email: '' });
+          history.push('/location');
         })
         .catch((e) => console.log(e.message.toString()));
     }
@@ -43,9 +46,8 @@ const CreateAccount = ({ history }) => {
 
   return (
     <div className="createAccount-page">
-
       <div className="cAccount-nav">
-        <Button onClick={() => history.push("/login")}>Cancel</Button>
+        <Button onClick={() => history.push('/login')}>Cancel</Button>
         <h1>Step 1/3</h1>
       </div>
 
@@ -83,7 +85,9 @@ const CreateAccount = ({ history }) => {
             id="outlined-basic"
             placeholder="mscott@hotmail.com"
             variant="outlined"
-            onChange={(e) => {setUser({ ...user, email: e.target.value })}}
+            onChange={(e) => {
+              setUser({ ...user, email: e.target.value });
+            }}
           />
         </>
 
@@ -93,7 +97,9 @@ const CreateAccount = ({ history }) => {
             id="outlined-password-input"
             type="password"
             variant="outlined"
-            style={!passReq ? {border: "2px solid red", borderRadius:"4px"} : {} }
+            style={
+              !passReq ? { border: '2px solid red', borderRadius: '4px' } : {}
+            }
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </>
@@ -104,10 +110,7 @@ const CreateAccount = ({ history }) => {
         <p id="private-policy">
           By signing up you agree to the <span>Term of Service</span>
         </p>
-        <Button 
-          className="button-lg-green"
-          type="submit"
-        >
+        <Button className="button-lg-green" type="submit">
           Submit
         </Button>
       </form>
