@@ -19,6 +19,9 @@ const CartContextProvider = (props) => {
   });
 
   useEffect(() => {
+    if(localStorage.getItem('cart') === null){
+      window.localStorage.setItem('cart', JSON.stringify([]));
+    }
     //If cart > 0 update localStorage
     //else if cart is empty but localStorage isn't update localstorage
     if (cart.length !== 0) {

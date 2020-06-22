@@ -11,7 +11,7 @@ import LocationCards from './LocationCards'
 import './location.css'
 
 const LocationZip = () => {
-
+    const [storeProp, setStoreProp] = useState([])
 
     const { setGrocery, 
             zip, setZipCode 
@@ -25,8 +25,9 @@ const LocationZip = () => {
             url: `http://localhost:8080/location/zip/${zip}`
         }).then((data) => {
             setGrocery(data.data)
+            setStoreProp(data.data)
             window.localStorage.setItem('stores', JSON.stringify(data.data))
-            window.localStorage.setItem('prime', JSON.stringify(data.data[0]))
+            window.localStorage.setItem('prime', JSON.stringify(data.data[0].name))
             setRenderStat(true)
         }).catch((e) => console.log(e))
     }
@@ -54,7 +55,7 @@ const LocationZip = () => {
             </Button>
         </form>
         
-        { renderStat && <LocationCards/> } 
+        { renderStat && <LocationCards grocery={storeProp}/> } 
         
         </div>
     )

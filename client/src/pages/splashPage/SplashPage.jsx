@@ -21,7 +21,6 @@ const SplashPage = () => {
 
   const [signUpDrawer, setSignUpDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
-  window.localStorage.setItem('cart', JSON.stringify([]));
 
   const toggleDrawer = (open) => (event) => {
     setSignUpDrawer(open);

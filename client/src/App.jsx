@@ -39,16 +39,15 @@ const App = () => {
           <Route path="/locationZip"     component={LocationZip} />
           <Route path="/locationGeo"     component={LocationGeo} />
           {/*------------------ A U T H O R I Z A T I O N -- R E Q. -----------------------*/}
-
-            <Route path="/account"         render={() => token ? <Account/>      : sp} />
-            <Route path="/cart"            render={() => token ? <Cart/>         : sp} />
-            <Route path="/category/list"   render={() => token ? <CategoryList/> : sp} />
-            <Route path="/checkout"        render={() => token ? <CheckoutPage/> : sp} />
-            <Route path="/explore"         render={() => token ? <Explore/>      : sp} />
-            <Route path="/home"            render={() => token ? <Home/>         : sp} />
-            <Route path="/pdp/:item"       render={() => token ? <ProdDescPage/> : sp} />
-            <Route path="/receiptPage"     render={() => token ? <ReceiptPage/>  : sp} />
-            <Route path="/scan"            render={() => token ? <Scanner/>      : sp} />  
+          <Route path="/account"         render={() => token ? <Account/>      : sp} />
+          <Route path="/cart"            render={() => token ? <Cart/>         : sp} />
+          <Route path="/category/list"   render={() => token ? <CategoryList/> : sp} />
+          <Route path="/checkout"        render={() => token ? <CheckoutPage/> : sp} />
+          <Route path="/explore"         render={() => token ? <Explore/>      : sp} />
+          <Route path="/home"            render={() => token ? <Home/>         : sp} />
+          <Route path="/pdp/:item"       render={() => token ? <ProdDescPage/> : sp} />
+          <Route path="/receiptPage"     render={() => token ? <ReceiptPage/>  : sp} />
+          <Route path="/scan"            render={() => token ? <Scanner/>      : sp} />  
 
         </Switch>
     </BrowserRouter>
