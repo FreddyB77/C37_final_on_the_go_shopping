@@ -16,7 +16,7 @@ const LoginDrawer = ({toggleDrawer, loginDrawer }) => {
         e.preventDefault()
         axios({
           method: "POST",
-          url: `http://localhost:8080/users/login`,
+          url: `/users/login`,
           data: {
             email: loginEmail,
             password: pass

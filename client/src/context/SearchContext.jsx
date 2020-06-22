@@ -9,7 +9,7 @@ export const SearchContextProvider = (props) => {
 
   function handleSearch(search, history) {
     axios
-      .get(`http://localhost:8080/products/search/${search}`)
+      .get(`/products/search/${search}`)
       .then((res) => {
         setUserSearch({ searchKey: search, searchResult: [...res.data] });
         history.push('/category/list');
@@ -19,7 +19,7 @@ export const SearchContextProvider = (props) => {
 
   function upcSearch(upc) {
     axios
-      .get(`http://localhost:8080/products/${upc}`)
+      .get(`/products/${upc}`)
       .then((res) => {
         if (res.data[0].price === 0) {
           res.data[0].price = 5.99;
@@ -31,7 +31,7 @@ export const SearchContextProvider = (props) => {
 
   function handlePDPSearch(search, history) {
     axios
-      .get(`http://localhost:8080/products/${search}`)
+      .get(`/products/${search}`)
       .then((res) => {
         setUserSearch({ searchKey: search, searchResult: [...res.data] });
         history.push(`/pdp/${search}`);

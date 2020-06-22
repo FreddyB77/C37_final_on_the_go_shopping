@@ -31,7 +31,7 @@ const SplashPage = () => {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: `http://localhost:8080/users/login`,
+      url: `/users/login`,
       data: {
         email: user.email,
         password: user.password

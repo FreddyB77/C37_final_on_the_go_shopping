@@ -29,7 +29,6 @@ const Cart = () => {
   };
 
   const handleAdd = (key) => {
-    console.log('Add');
     let tempCart = cart;
     tempCart[key].quantity += 1;
     setCart([...tempCart]);

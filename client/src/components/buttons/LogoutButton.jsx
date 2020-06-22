@@ -13,7 +13,7 @@ const LogoutButton = () => {
     const token = localStorage.getItem("token")
     await axios({
       method: "POST",
-      url: `http://localhost:8080/users/logout`,
+      url: `/users/logout`,
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(({data}) =>{

@@ -26,7 +26,7 @@ const CreateAccount = ({ history }) => {
     if (setPassReq) {
       await axios({
         method: 'POST',
-        url: `http://localhost:8080/users`,
+        url: `/users`,
         data: {
           firstName: user.fName,
           lastName: user.lName,

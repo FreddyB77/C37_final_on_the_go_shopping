@@ -20,7 +20,6 @@ const LocationGeo = () => {
     maximumAge: 0
   };
   async function success(pos) {
-    console.log("Success")
     let crd = pos.coords;
     setLocation(crd);
     await setBoolLoc(true);
@@ -31,11 +30,10 @@ const LocationGeo = () => {
   }
 
   useEffect(() => {
-    console.log("x:", x)
     if(boolLoc && (x === 0)){
       axios({
         method: 'POST',
-        url: `http://localhost:8080/location/mobile`,
+        url: `/location/mobile`,
         data: { long: location.longitude, lat: location.latitude }
       })
         .then((store) => {
@@ -46,7 +44,6 @@ const LocationGeo = () => {
         })
         .catch((error) => console.error(error));
     }
-    console.log("x:", x)
       //return ( () => setBoolLoc(false))
   }, [boolLoc]);
 
