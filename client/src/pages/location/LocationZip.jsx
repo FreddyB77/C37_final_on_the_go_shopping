@@ -3,19 +3,17 @@ import axios from 'axios'
 import { Button, TextField } from '@material-ui/core'
 import { Paper, } from '@material-ui/core'
 import { LocationContext } from '../../context/LocationContext'
-import { useHistory } from 'react-router-dom'
+
 
 import BackArrow from '../../components/buttons/BackArrow'
-import RoomIcon from '@material-ui/icons/Room';
 import LocationCards from './LocationCards'
 
 import './location.css'
 
 const LocationZip = () => {
-    let history = useHistory()
 
-    const { grocery, setGrocery, 
-            primaryStore, setPrimaryStore,
+
+    const { setGrocery, 
             zip, setZipCode 
         } = useContext(LocationContext)   
     const [renderStat, setRenderStat ] = useState(false)

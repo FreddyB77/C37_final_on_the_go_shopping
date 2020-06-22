@@ -7,7 +7,7 @@ import { SearchContextProvider } from './context/SearchContext';
 import CreateAccount from './pages/splashPage/CreateAccount'
 import Instructions from './pages/instructions/Instructions'
 import SplashPage from './pages/splashPage/SplashPage'
-import AddPayment from './pages/addPayment/AddPayment'
+
 import Home from './pages/home/Home'
 import Explore from './pages/explore/Explore'
 import Account from './pages/account/Account'
@@ -33,7 +33,6 @@ const App = () => {
         <Switch>
 
           <Route path="/"                exact component={GetStarted} /> 
-          {/* <Route path="/add-payment"     component={AddPayment} /> */}
           <Route path="/create-account"  component={CreateAccount} />
           <Route path="/instructions"    component={Instructions}/>
           <Route path="/login"           component={SplashPage}/>

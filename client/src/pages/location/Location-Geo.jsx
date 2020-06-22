@@ -3,18 +3,17 @@ import axios from 'axios'
 import BackArrow from '../../components/buttons/BackArrow'
 import { LocationContext } from '../../context/LocationContext'
 import LocationCards from './LocationCards'
+import {CircularProgress} from '@material-ui/core';
+
 
 //Grab Location to pull nearby grocery store
 
 const LocationGeo = () => {
     const { grocery, setGrocery, 
-        primaryStore, setPrimaryStore,
-        zip, setZipCode 
     } = useContext(LocationContext)  
 
     const [ location, setLocation ] = useState({})
     const [ boolLoc, setBoolLoc ] = useState(false)
-    const [ groceryStores, setGroceryStores] = useState([])
 
     let options = {
         enableHighAccuracy: true,
@@ -44,13 +43,16 @@ const LocationGeo = () => {
     }}, [boolLoc])
 
     navigator.geolocation.getCurrentPosition( success, error, options)
-    
+
+
+
     return(
         <div>
             <BackArrow/>
-            {grocery && <LocationCards/>}    
+            {grocery && <LocationCards/>}  
+            {!boolLoc && <CircularProgress/>}  
         </div>
     )
-}
+} 
 
 export default LocationGeo

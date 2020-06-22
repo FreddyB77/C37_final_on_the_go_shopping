@@ -3,7 +3,6 @@ import { Button } from '@material-ui/core'
 import { LocationContext } from '../../context/LocationContext'
 import { useHistory } from 'react-router-dom'
 
-import BackArrow from '../../components/buttons/BackArrow'
 import './location.css'
 
 const LocationCards = () => {
@@ -11,6 +10,7 @@ const LocationCards = () => {
     const { grocery, setPrimaryStore } = useContext(LocationContext) 
 
     const handleStoreSubmit = (store) => {
+        
         setPrimaryStore(store);
         history.push("/home")
     }

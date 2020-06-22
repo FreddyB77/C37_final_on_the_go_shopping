@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { LocationContext } from '../../context/LocationContext'
 import { Button } from '@material-ui/core'
-import { useHistory } from 'react-router-dom'
+
 
 import './nav.css'
 import CartButton from '../buttons/CartButton'
@@ -12,10 +12,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const HomeNav = () => {
-    let history = useHistory()
     const { primaryStore, setPrimaryStore, grocery, setGrocery } = useContext(LocationContext)
 
-    console.log("Cond1:", !primaryStore?.name)
     function test(){
         if(!primaryStore?.name){setPrimaryStore( JSON.parse(window.localStorage.getItem('prime')))};
         if(!grocery[0]?.name){setGrocery( JSON.parse(window.localStorage.getItem('stores')))};

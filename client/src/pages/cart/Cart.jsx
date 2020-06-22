@@ -55,7 +55,6 @@ const Cart = () => {
                             <div className="cart-quantity">
                                 <div className="cart-mod">
                                     <span className="cart-mod-btn" 
-                                        style={{/*display: oToggled ? "block" : "none"*/}}
                                         onClick={() => handleSub(key)}>
                                             -
                                     </span>
@@ -65,7 +64,6 @@ const Cart = () => {
                                     </span>
 
                                     <span className={`cart-mod-btn`}  
-                                        style={{/*display: oToggled ? "block" : "none"*/}}
                                         onClick={() => handleAdd(key)}>
                                         +
                                     </span>

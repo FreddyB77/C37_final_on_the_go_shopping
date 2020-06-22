@@ -21,7 +21,6 @@ const ManualScanDrawer = ({manualStatus, handleManualClose}) => {
 
     return(
         <div>
-            {/* Manual Drawer*/}
             <React.Fragment key="manual">
                 <Drawer 
                     open={manualStatus} 

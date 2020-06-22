@@ -17,7 +17,6 @@ const CheckoutPage = () => {
     const [ creditCard, setCredit ] = useState('4242 4242 4242 4242')
     const [ cvv, setCVV ] = useState('888')
     const [ exp, setExp ] = useState('08/22') 
-    const [ formSubmit, setFormSubmit ] = useState(false)
 
     const handleCheckout = async () => {
         const token = localStorage.getItem("token")
@@ -31,8 +30,6 @@ const CheckoutPage = () => {
                 amount: cartTotal.total.toFixed(2)*100
             },
             headers: {Authorization: `Bearer ${token}`} 
-        }).then((data) => {
-            console.log(data)
         }).catch(e => console.error(e))
         
         history.push('/receiptPage')
@@ -48,7 +45,6 @@ const CheckoutPage = () => {
                 setCredit={setCredit}
                 setCVV={setCVV}
                 setExp={setExp}
-                setToggle={setFormSubmit}
             />
             <Total />
 

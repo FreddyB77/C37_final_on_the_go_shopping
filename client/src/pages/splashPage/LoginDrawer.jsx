@@ -28,7 +28,7 @@ const LoginDrawer = ({toggleDrawer, loginDrawer }) => {
             setPass("")
             setUser({firstName: data.user.firstName, email: data.user.email})
             toggleDrawer(false)
-            history.push("/home")
+            history.push("/location")
 
           })
           .catch((e) => console.log(e.message.toString(), "Crendentials error"))

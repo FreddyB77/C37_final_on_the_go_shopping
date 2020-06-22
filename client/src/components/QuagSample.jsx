@@ -7,6 +7,7 @@ import './quagSample.css'
 
 const Quag = () => {
     const { productDrawerState, setProductDrawerState } = useContext(CartContext)
+    
     const { upcSearch } = useContext(SearchContext) 
     const scannerRef = useRef(null);
     const [vText, setVText] = useState("Align")
@@ -16,6 +17,7 @@ const Quag = () => {
     }
 
     useEffect(() => scanCondition(), [productDrawerState])
+
     useEffect(() =>{ 
         Quagga.init({
             inputStream : {

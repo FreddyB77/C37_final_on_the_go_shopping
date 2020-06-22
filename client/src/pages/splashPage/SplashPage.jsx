@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 
+import axios from 'axios';
 import LoginDrawer from './LoginDrawer';
 import SignUpDrawer from './SignUpDrawer';
 
@@ -9,6 +11,12 @@ import './splashPage.css';
 import '../../components/buttons/button.css';
 
 const SplashPage = () => {
+  let history = useHistory()
+  const [user, setUser] = useState({
+    fName: 'Guestaccount',  lName: 'Account',
+    email: 'guest@guestaccount.com',  password: '123apple'
+  });
+
   const [signUpDrawer, setSignUpDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
 
@@ -21,23 +29,16 @@ const SplashPage = () => {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: `/users/login`,
+      url: `http://localhost:8080/users/login`,
       data: {
-        email: 'Guest@guestaccount.com',
-        password: '123apple'
+        email: user.email,
+        password: user.password
       }
-    })
-      .then(({ data }) => {
-        //setUser(data.user)
+    }).then(({ data }) => {
         localStorage.setItem('token', data.token);
-        setLoggedIn(true);
-        setLoginEmail('');
-        setPass('');
-        setUser({ firstName: data.user.firstName, email: data.user.email });
-        toggleDrawer(false);
-        history.push('/home');
-      })
-      .catch((e) => console.log(e.message.toString(), 'Crendentials error'));
+        setUser({...user, password: "", email: ''})
+        history.push('/location');
+    }).catch((e) => console.log(e.message.toString(), 'Crendentials error'));
   }
 
   return (
@@ -66,7 +67,7 @@ const SplashPage = () => {
           Signup
         </Button>
 
-        <Button className="elusive-button" onClick={handleGuestLogin()}>
+        <Button className="elusive-button" onClick={e => handleGuestLogin(e)}>
           Continue as guest
         </Button>
 

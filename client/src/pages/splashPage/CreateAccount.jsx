@@ -8,7 +8,7 @@ import './splashPage.css'
 const CreateAccount = ({ history }) => {
   const [user, setUser] = useState({
     fName: '',  lName: '',
-    email: '',  password: ''
+    email: '', password: ''
   });
   const [ passReq, setPassReq ] = useState(true)
 
@@ -30,8 +30,7 @@ const CreateAccount = ({ history }) => {
           firstName: user.fName,  lastName: user.lName,
           email: user.email,      password: user.password
         }
-      })
-        .then(({ data }) => {
+      }).then(({ data }) => {
           setUser(data.user);
           localStorage.setItem('token', data.token)
           setUser({...user, password: "", email: ''})
